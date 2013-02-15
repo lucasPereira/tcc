@@ -3,7 +3,7 @@
 	<head>
 		<link href="../estilos/binarios/css/documento/documento.css" type="text/css" media="all" rel="stylesheet" />
 		<meta charset="utf-8" />
-		<title>Webis: Uma linguagem e um ambiente Web acessível de programação</title>
+		<title>Webis: Linguagem e ambiente Web acessível de programação</title>
 	</head>
 	<body>
 		<section class="capa">
@@ -15,7 +15,7 @@
 			</header>
 			<hgroup>
 				<h1>Webis:</h1>
-				<h2>Uma linguagem e um ambiente Web acessível de programação</h2>
+				<h2>Linguagem e ambiente Web acessível de programação</h2>
 			</hgroup>
 			<section>
 				<p>Lucas Pereira da Silva</p>
@@ -42,31 +42,33 @@
 		</section>
 		<section class="textual">
 			<h1 id="introducao"><a href="#sumario">Introdução</a></h1>
-			<p>A facilidade no aprendizado de uma primeira linguagem de programação está diretamente relacionada com a própria linguagem que é objeto de estudo e também com o ambiente de programação a ser utilizado. Boa parte das linguagens que são comumente utilizadas para aprendizado não possuem regras sintáticas e semânticas simples, e tão pouco oferecem um bom ambiente de programação. Em decorrência desse fato, o primeiro contato com uma linguagem de programação pode ser muitas vezes traumático, fazendo com que o aluno perca o interesse.</p>
-			<p>A linguagem Telis, que foi desenvolvida no <dfn>Laboratório de Software Educacional <abbr title="Laboratório de Software Educacional">Edugraf</abbr></dfn>, possui regras sintáticas e semânticas simples que podem ser facilmente assimiladas. Telis também é o nome do ambiente de programação oferecido para a linguagem. Um programa Telis pode ser executado em um navegador Web através do uso de <i lang="en">applets</i> Java.</p>
+			<p>A facilidade no aprendizado de uma primeira linguagem de programação está diretamente relacionada com a própria linguagem que é objeto de estudo e também com o ambiente de programação a ser utilizado. Boa parte das linguagens não possuem regras sintáticas e semânticas simples, e tão pouco oferecem um bom ambiente de programação, já que, na maioria dos casos, as linguagens de programação são desenvolvidas para serem ferramentas profissionais e não de aprendizado <cite class="parenteses"><a href="#referencia4">Gomes; Mendes, <time>2012</time></a></cite>. Em decorrência desse fato, o primeiro contato com uma linguagem de programação pode ser muitas vezes traumático, fazendo com que o aluno perca o interesse.</p>
+			<p>A linguagem Telis, desenvolvida no <dfn>Laboratório de Software Educacional <abbr title="Laboratório de Software Educacional">Edugraf</abbr></dfn>, possui regras sintáticas e semânticas simples que podem ser facilmente assimiladas. Telis também é o nome do ambiente de programação oferecido para a linguagem. Um programa Telis pode ser executado em um navegador Web através do uso de <i lang="en">applets</i> Java <cite class="parenteses"><a href="#referencia5">PIERI <i lang="la"> et al</i>, <time>2009</time></a></cite>.</p>
 			<p><cite><a href="#referencia1">Saviski <time>2010</time></a></cite>, propôs o porte da linguagem Telis para execução nativa em navegadores Web sem a necessidade da utilização de <i lang="en">applets</i>. A abordagem adotada foi a de gerar em JavaScript (linguagem interpretada nativamente pelos navegadores) o código escrito em Java da já existente máquina Telis.</p>
 			<p>O presente projeto terá embasamento no projeto desenvolvido por <cite><a href="#referencia1">Saviski <time>2010</time></a></cite> e consistirá do desenvolvimento de uma linguagem baseada em Telis e de uma máquina de execução escrita diretamente em JavaScript. O projeto também deverá ter grande foco no ambiente de programação que deverá ser executado nativamente por navegadores Web. O novo ambiente e a nova linguagem de programação a serem desenvolvidos serão chamados doravante de Webis.</p>
 			<p>A importância de um ambiente de programação acessível está no fato de possibilitar que qualquer pessoa possa aprender uma primeira linguagem de programação de maneira fácil e sem ter que se deparar com barreiras de acessibilidade. Garantir a acessibilidade é permitir que uma pessoa cega, por exemplo, possa utilizar o ambiente sem maiores dificuldades.</p>
-			<p>A utilização da Web como plataforma se encaixa muito bem nos requisitos de um ambiente acessível. Além de ser um sistema distribuído de baixo acoplamento, a Web se mostra uma ótima plataforma para a execução de aplicações. A <dfn>Linguagem de Marcação de Hipertexto <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr></dfn> trouxe e vem trazendo de maneira acessível novos recursos essenciais que ainda não eram suportados de forma padronizada pela Web. A vantagem disso, além de garantir ao usuário uma acessibilidade adequada, é permitir que ele se familiarize desde os primeiros passos no aprendizado de uma linguagem de programação com o desenvolvimento de aplicações que executem na Web.
+			<p>Projetos como o Eclipse Orion mostram que é possível o desenvolvimento de um ambiente de programação que execute diretamente nos navegadores. O Eclipse Orion é um editor de texto para o desenvolvimento de aplicações Web escritas em HTML, JavaScript e CSS. Uma de suas principais ideias é fazer com que não só as aplicações executem na Web, mas também o próprio ambiente de programação.</p>
+			<p>A utilização da Web como plataforma se encaixa muito bem nos requisitos de um ambiente acessível. Além de ser um sistema distribuído de baixo acoplamento, a Web se mostra uma ótima plataforma para a execução de aplicações, pois permite a manipulação de recursos <i lang="en">online</i> e gera independência da aplicação para com o sistema operacional. A <dfn>Linguagem de Marcação de Hipertexto <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr></dfn> introduz de maneira acessível novos recursos essenciais que ainda não eram suportados de forma padronizada pela Web. Isso garante ao usuário uma acessibilidade adequada e permite que ele se familiarize desde os primeiros passos no aprendizado de uma linguagem de programação com o desenvolvimento de aplicações que executem na Web.</p>
 		</section>
 		<section class="textual">
 			<h1 id="objetivos"><a href="#sumario">Objetivos</a></h1>
 			<h2 id="objetivoGeral"><a href="#sumario">Objetivo geral</a></h2>
-			<p>Desenvolver uma linguagem de programação fortemente baseada em Telis em conjunto com um ambiente acessível de programação. Tanto o ambiente de programação quanto os programas gerados pela linguagem deverão executar nativamente em navegadores Web sem a necessidade da utilização de extensões.</p>
+			<p>Desenvolver uma linguagem de programação baseada em Telis e um ambiente acessível de programação. Tanto o ambiente de programação quanto os programas gerados pela linguagem deverão executar nativamente em navegadores Web sem a necessidade da utilização de extensões. A linguagem deverá priorizar a acessibilidade de programadores e usuários cegos possibilitando a utilização e manipulação de sons 3D que poderão ser usados  para a criação de aplicações mais ricas e acessíveis.</p>
 			<h2 id="objetivosEspecificos"><a href="#sumario">Objetivos específicos</a></h2>
 			<ul>
-				<li>Definir uma linguagem de programação fortemente baseada em Telis.</li>
+				<li>Definir uma linguagem de programação com sintaxe e semântica baseada em Telis.</li>
 				<li>Desenvolver o ambiente Web de execução para a linguagem definida.</li>
 				<li>Desenvolver o ambiente Web de programação para a linguagem definida.</li>
 				<li>Garantir a acessibilidade dos ambientes de execução e de programação desenvolvidos.</li>
+				<li>Disponibilizar na linguagem elementos que permitam a utilização e manipulação de sons 3D.</li>
 			</ul>
 		</section>
 		<section class="textual">
 			<h1 id="metodoDePesquisa"><a href="#sumario">Método de pesquisa</a></h1>
-			<p>Em um primeiro momento a pesquisa será fundamentada no estudo tanto da linguagem quanto do ambiente de programação Telis. Serão pesquisadas formas de criar um ambiente Web de execução e programação para uma linguagem baseada em Telis.</p>
-			<p>O Telis foi desenvolvido no Edugraf e a partir do seu desenvolvimento foram gerados alguns <dfn>trabalhos de conclusão de curso <abbr title="Trabalho de Conclusão de Curso">TCC</abbr></dfn>, como os trabalhos desenvolvidos por <cite><a href="#referencia1">Saviski <time>2012</time></a></cite> e por <cite><a href="#referencia2">Pieri <time>2007</time></a></cite>. Esses trabalhos servirão como uma boa fonte bibliográfica no decorrer do projeto.</p>
+			<p>Em um primeiro momento a pesquisa será fundamentada no estudo tanto da linguagem quanto do ambiente de programação Telis. Serão pesquisadas formas de criar um ambiente Web acessível de execução e programação para uma linguagem baseada em Telis.</p>
+			<p>O Telis foi desenvolvido no Edugraf e a partir do seu desenvolvimento foram gerados alguns <dfn>trabalhos de conclusão de curso <abbr title="Trabalho de Conclusão de Curso">TCC</abbr></dfn>, como os trabalhos desenvolvidos por <cite><a href="#referencia1">Saviski <time>2012</time></a></cite> e por <cite><a href="#referencia2">Pieri <time>2007</time></a></cite>.</p>
 			<p>Também serão estudadas as novas tecnologias que fazem parte da especificação do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> e que poderão ser utilizadas para compor o Webis. Como existirá um grande foco na acessibilidade, será necessário pesquisar referências que tratem desse assunto. As <cite><a href="#referencia3"><dfn>Diretrizes de Acessibilidade para o Conteúdo da Web <abbr lang="en" title="Web Content Accessibility Guidelines">WCAG</abbr></dfn></a></cite> servirão como ponto de partida e base de apoio para os estudos de acessibilidade.</p>
-			<p>A pesquisa terá caráter exploratório e será desenvolvida no Edugraf. Para o desenvolvimento do projeto e da implementação serão utilizadas apenas plataformas livres.</p>
+			<p>A pesquisa terá caráter exploratório e será desenvolvida no Edugraf. Para o desenvolvimento do projeto e da implementação serão utilizadas apenas plataformas livres. A validação do trabalho se dará através da utilização da linguagem e do ambiente de programação por voluntários cegos que, através de atividades de aprendizagem, desenvolverão suas aplicações Webis.</p>
 		</section>
 		<section class="textual">
 			<h1 id="cronograma"><a href="#sumario">Cronograma</a></h1>
@@ -358,6 +360,8 @@
 			<p id="referencia1">SAVISKI, Marcelo. <strong>Porte de uma linguagem de programação para execução nativa em navegadores Web</strong>. Curso de Ciências da Computação, Departamento de Informática e Estatística, Universidade Federal de Santa Catarina, Florianópolis, 2010.</p>
 			<p id="referencia2">PIERI, Giovani. <strong>Projeto e implementação de uma linguagem de programação</strong>. Curso de Ciências da Computação, Departamento de Informática e Estatística, Universidade Federal de Santa Catarina, Florianópolis, 2007.</p>
 			<p id="referencia3">CALDWELL, Ben <i lang="la">et al</i>. <i lang="en"><strong>Web Content Accessibility Guidelines 2.0</strong>. World Wide Web Consortium</i>, 2008. Disponível em: <a href="http://www.w3.org/TR/WCAG/">http://www.w3.org/TR/WCAG/</a> Acesso em: dezembro de 2012.</p>
+			<p id="referencia4">GOMES, Anabela; MENDES, A. J. <i lang="en"><strong>Learning to program: difficulties and solutions</strong>. International Conference on Engineering Education</i>, Coimbra, Portugal, 2007.</p>
+			<p id="referencia5">PIERI, Giovani <i lang="la">et al</i>. <strong>Telis: a programming tool set for beginners</strong>. In: <i lang"en">INTERNATIONAL INFORMATION AND TELECOMMUNICATION TECHNOLOGIES SYMPOSIUM</i>, 8., 2009, Florianópolis, Santa Catarina, Brasil. Anais... Florianópolis: Fundação Bardal de Educação e Cultura, 2009. p. 183-186.</p>
 		</section>
 	</body>
 </html>
