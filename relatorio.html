@@ -30,15 +30,15 @@
 			<h1 id="sumario">Sumário</h1>
 			<ol>
 				<h1><a href="#introducao">Introdução</a></h1>
-				<h2><a href="#objetivoGeral">Objetivo geral</a></h2>
+				<!-- <h2><a href="#objetivoGeral">Objetivo geral</a></h2>
 				<h2><a href="#objetivosEspecificos">Objetivos específicos</a></h2>
-				<h2><a href="#dificuldadesNoAprendizado">Dificuldades no aprendizado de linguagens de programação por pessoas com deficiência visual</a></h2>
+				<h2><a href="#dificuldadesNoAprendizado">Dificuldades no aprendizado de linguagens de programação por pessoas com deficiência visual</a></h2> -->
 				<h1><a href="#definicaoDaLinguagem">Definição da linguagem baseada em Telis</a></h1>
-				<h2><a href="#gramatica">Gramática</a></h2>
+				<!-- <h2><a href="#gramatica">Gramática</a></h2> -->
 				<h1><a href="#maquinaWebis">Máquina Webis</a></h1>
-				<h2><a href="#geracaoDeCodigo">Geração de código JavaSCript</a></h2>
+				<!-- <h2><a href="#geracaoDeCodigo">Geração de código JavaSCript</a></h2>
 				<h2><a href="#coracaoDaMaquina">Coração da máquina</a></h2>
-				<h2><a href="#excecoes">Exceções<a></h2>
+				<h2><a href="#excecoes">Exceções<a></h2> -->
 				<h1 class="naoNumerado"><a href="#referencias">Referências bibliográficas</a></h1>
 			</ol>
 		</section>
@@ -106,25 +106,58 @@
 			<p>Em gramáticas do tipo LL(k), o valor mínimo de <var>k</var> é dependente da linguagem. Existem linguagens onde nem sempre é possível construir uma gramática que seja completamente fatorada, ou seja, onde <var>k</var> é igual a um. Esse é o caso do Webis que possui uma gramática do tipo LL(2). A não fatoração no Webis ocorre na produção <code>palavra</code>, pois nela é possível que um <code>&lt;IDENTIFICADOR&gt;</code> seja derivado por três caminhos diferentes: pelas produções <code>simbolo</code>, <code>atribuicao</code> e <code>instanciacao</code>.</p>
 			<p>Essa não fatoração gera um não determinismo, pois o analisador não sabe por qual caminho seguir quando encontra um <code>&lt;IDENTIFICADOR&gt;</code>. Para resolver esse problema é necessário que o algoritmo possa receber como entrada os dois próximos <i lang="en">tokens</i> e não apenas um. Com isso, ao perceber um <code>&lt;IDENTIFICADOR&gt;</code>, o analisador deverá ver qual é o próximo <i lang="en">token</i> para saber por qual produção a derivação irá seguir.</p>
 			<p>Apesar da gramática do Webis requerer um analisador do tipo LL(2) e este ser mais lento se comparado a um do tipo LL(1), isso não vem a ser um problema devido a boa performance dos computadores e analisadores atuais.</p>
+			<h2 id="pilha"><a href="#sumario">Pilha</a></h2>
+			<h2 id="primitivas"><a href="#sumario">Primitvias</a></h2>
+			<h2 id="apliques"><a href="#sumario">Apliques</a></h2>
 			<h2 id="modelosAgendasEAtores"><a href="#sumario">Modelos, agendas e atores</a></h2>
-			<p>No Telis existe o conceito de ator. Cada ator é uma unidade independente que possui o seu próprio escopo de execução. Um ator é um exemplar de um modelo que por sua vez é composto por agendas. As agendas definem comportamentos inerentes ao modelo em questão.</p>
-			<p>Um programa Telis em execução, nada mais é que a execução e interação dos diversos atores que fazem parte do programa. Cada ator é executado separadamente em sua própria <i lang="en">thread</i> e isso é o que permite utilizar de forma natural o paralelismo. Desde os primeiros programas os alunos já utilizam programação concorrente e fazem isso de forma simples e intuitiva.</p>
-			<p>Os atores não possuem nenhum recurso compartilhado e, por isso, possuem o seu próprio escopo de variáveis e a sua própria pilha.</p>
+			<p>No Telis existe o conceito de ator. Cada ator é uma unidade independente que possui o seu próprio contexto de execução. Um ator é um exemplar de um modelo que por sua vez é composto por agendas. Já as agendas definem comportamentos inerentes ao modelo em questão. Pode-se relacionar modelos, agendas e atores com conceitos provenientes da programação orientada a objetos. Um modelo, por exemplo, pode ser relacionado com o conceito de classe. Da mesma forma, agendas estão relacionadas com métodos e atores com objetos.</p>
+			<p>Um programa Telis em execução, nada mais é que a execução e interação dos diversos atores que fazem parte do programa. Cada ator é executado separadamente em sua própria <i lang="en">thread</i> e isso é o que permite utilizar de forma natural o paralelismo. Desde os primeiros programas os alunos já utilizam programação concorrente e fazem isso de forma simples e intuitiva. Além de ter um espaço de execução próprio, os atores não possuem nenhum recurso compartilhado e, por isso, possuem o seu próprio escopo de variáveis e a sua própria pilha.</p>
+			<p>Na execução inicial de um programa Telis, um ator é executado e este será responsável pera criação, direta ou indireta, de todos atores que deverão ser utilizados durante o programa. Cada ator pode instanciar tantos outros atores quanto for necessário. Além disso, os atores podem, em tempo de execução, definir novos modelos, bem como definir novas agendas locais.</p>
 			<figure class="listagem" id="listagemInstanciacaoDeAtor">
 				<pre>
 					<ul>
 						<li>UmModelo novo</li>
 					</ul>
 				</pre>
-				<figcaption>Criação de ator.</figcaption>
+				<figcaption>Instanciação de um ator.</figcaption>
 			</figure>
-			<p>As agendas definidas em um modelo contém o código de execução.</p>
+			<p>As agendas definidas em um modelo contem códigos de execução. Em Telis todo modelo possui uma agenda especial, a agenda <code>iniciar</code>. Toda vez que um ator é criado, a sua agenda <code>iniciar</code> é executada. A agenda <code>iniciar</code> existe mesmo que o programador não tenha definido ela explicitamente.</p>
+			<p>Um ponto interessante do Telis é que os modelos e agendas são criados dinâmicamente em tempo de execução. Para realizar a criação de modelos e agendas são utilizadas as primitivas <code>incluirModelo</code> e <code>incluirAgenda</code>, respectivamente.</p>
+			<figure class="listagem" id="listagemInstanciacaoDeAtor">
+				<pre>
+					<ul>
+						<li>"mostrarTexto" [</li>
+						<li>    "texto" mostrar</li>
+						<li>] incluirAgenda</li>
+						<li>mostrarTexto</li>
+					</ul>
+				</pre>
+				<figcaption>Definição e execução de uma agenda local.</figcaption>
+			</figure>
+			<figure class="listagem" id="listagemInstanciacaoDeAtor">
+				<pre>
+					<ul>
+						<li>"nomeDoModelo" [</li>
+						<li>    "iniciar" [</li>
+						<li>        calcular </li>
+						<li>    ] incluirAgenda</li>
+						<li>    "calcular" [</li>
+						<li>        5 2 +</li>
+						<li>    ] incluirAgenda</li>
+						<li>] incluirModelo</li>
+					</ul>
+				</pre>
+				<figcaption>Definição de um modelo e suas agendas.</figcaption>
+				
+			</figure>
+			<h2 id="modeloDeExecucaoTesli"><a href="#sumario">Modelo de execução</a></h2>
+			<h2 id="trocaDeMensagens"><a href="#sumario">Troca de mensagens</a></h2>
 		</section>
 		<section class="textual">
 			<h1 id="maquinaWebis"><a href="#sumario">Máquina Webis</a></h1>
 			<h2 id="geracaoDeCodigo"><a href="#sumario">Geração de código JavaScript</a></h2>
 			<p>As etapas de análise léxica, sintática e geração do código do Webis serão realizadas através da ferramenta <abbr lang="en" title="Another Tool for Language Recognition">ANTLR</abbr>. O <abbr lang="en" title="Another Tool for Language Recognition">ANTLR</abbr> é um gerador de analisador léxico e sintático que pode ser utilizado para a criação de interpretadores de linguagens, compiladores e outros tradutores <cite class="parenteses"><a href="#referencia5">Parr <time>2007</time></a></cite>. No contexto desse projeto, o <abbr lang="en" title="Another Tool for Language Recognition">ANTLR</abbr> será utilizado para gerar em JavaScript o código escrito em Webis. Nesse sentido, o <abbr lang="en" title="Another Tool for Language Recognition">ANTLR</abbr> atuará como um tradutor e o código JavaScript será então executado pela máquina Webis.</p>
-			<p>Para realizar a geração de código JavaScript a partir de um código Webis é necessário entender alguns conceitos da arquitetura da máquina Webis que processará o código gerado. O coração da máquina Webis será explicada em detalhes mais adiante, porém por hora é necessário compreender que cada <code>palavra</code> será traduzida para um elemento JavaScript e a máquina se encarregará de executar corretamente o elemento em questão conforme o seu tipo. Por exemplo, o <code>booleano</code> do Webis, definido na <a href="#listagemGramaticaDoWebis">Listagem 2.1</a>, será traduzido para um elemento <code>Boolean</code> do JavaScript. O mesmo irá ocorrer com o <code>texto</code>, <code>numero</code> e <code>lista</code> do Webis que serão traduzidos para elementos JavaScript dos tipos <code>String</code>, <code>Number</code> e <code>Array</code>, respectivamente. Já o <code>simbolo</code>, a <code>atribuicao</code> e a <code>instanciacao</code>, ao contrário dos demais elementos, não serão traduzidos para tipos nativos do JavaScript, mas sim para os tipos próprios <code>Simbolo</code>, <code>Associar</code> e <code>Novo</code>, respectivamente. Por fim, um <code>operador</code> que semanticamente é tratado pela máquina Webis da mesma forma que um <code>simbolo</code>, também será traduzido para um objeto JavaScript do tipo <code>Simbolo</code>.</p>
+			<p>Para realizar a geração de código JavaScript a partir de um código Webis é necessário entender alguns conceitos da arquitetura da máquina Webis que processará o código gerado. O coração da máquina Webis será explicado em detalhes mais adiante, porém por hora é necessário compreender que cada <code>palavra</code> será traduzida para um elemento JavaScript e a máquina se encarregará de executar corretamente o elemento em questão conforme o seu tipo. Por exemplo, o <code>booleano</code> do Webis, definido na <a href="#listagemGramaticaDoWebis">Listagem 2.1</a>, será traduzido para um elemento <code>Boolean</code> do JavaScript. O mesmo irá ocorrer com o <code>texto</code>, <code>numero</code> e <code>lista</code> do Webis que serão traduzidos para elementos JavaScript dos tipos <code>String</code>, <code>Number</code> e <code>Array</code>, respectivamente. Já o <code>simbolo</code>, a <code>atribuicao</code> e a <code>instanciacao</code>, ao contrário dos demais elementos, não serão traduzidos para tipos nativos do JavaScript, mas sim para os tipos próprios <code>Simbolo</code>, <code>Associar</code> e <code>Novo</code>, respectivamente. Por fim, um <code>operador</code> que semanticamente é tratado pela máquina Webis da mesma forma que um <code>simbolo</code>, também será traduzido para um objeto JavaScript do tipo <code>Simbolo</code>.</p>
 			<p>Ao analisar a gramática do Webis (<a href="#listagemGramaticaDoWebis">Listagem 2.1</a>), percebemos que um programa é composto por uma lista. Essa lista por sua vez é composta por palavras e listas. A geração de código apenas irá traduzir isso para JavaScript. Com isso, a entrada da máquina Webis será uma lista JavaScript composta por números, textos, booleanos, listas e objetos.</p>
 			<h2 id="coracaoDaMaquina"><a href="#sumario">Coração da máquina</a></h2>
 			<p>A máquina Webis trata-se basicamente de uma máquina de pilha onde os parâmetros necessários para as operações são desempilhados da pilha e o resultado das operações são empilhados na mesma. A entrada da máquina Webis nada mais é do que uma lista que contém os comandos do programa, sendo que cada um desses comandos é um elemento JavaScript que saberá se executar. O coração da máquina Webis, portanto, se torna muito simples. De forma simplificada, o que o núcleo da máquina Webis faz é iterar sobre a lista de comandos e enviar a ordem para cada um dos comandos se executar. Além da ordem de execução, o coração da máquina Webis fornece ao comando a ser executado o contexto do programa. Desta forma, cada comando tem acesso a pilha de dados e ao escopo de variáveis. Com isso, cada comando poderá empilhar e desempilhar elementos da pilha de dados e poderá também alterar, remover e criar variáveis.</p>
@@ -138,7 +171,7 @@
 						<li>"texto " "qualquer concatenar</li>
 					</ul>
 				</pre>
-				<figcaption>Exemplo de erro de compilação do Webis.</figcaption>
+				<figcaption>Erro de compilação do Webis.</figcaption>
 			</figure>
 			<p>A maioria das exceções Webis ocorrem, no entanto, na etapa de execução e são gerados pela máquina Webis. As incoerências semânticas são tratadas todas durante o processo de execução e é por isso, que apenas exceções de erros sintáticos são lançadas durante o processo de compilação. O código da <a href="#listagemErroDeExecucao">Listagem 3.2</a> mostra um erro de execução. O erro ocorre, pois na linguagem Webis o operador de exponenciação não pode ser aplicado a textos.</p>
 			<figure class="listagem" id="listagemErroDeExecucao">
@@ -147,9 +180,18 @@
 						<li>10 "texto" ^</li>
 					</ul>
 				</pre>
-				<figcaption>Exemplo de erro de excução do Webis.</figcaption>
+				<figcaption>Erro de excução do Webis.</figcaption>
 			</figure>
-			<h2 id="excecoes"><a href="#sumario">Exceções</a></h2>
+			<h2 id="modeloDeExecucaoJavaScript"><a href="#sumario">Modelo de execução JavaScript</a></h2>
+			<h3 id="webWorkers"><a href="#sumario">WebWorkers e paralelismo</a></h3>
+			<h4 id="ecossistema"><a href="#sumario">Ecossistema</a></h4>
+			<h2 id="pilhaDeExecucao"><a href="#sumario">Pilha de execução</a></h2>
+			<p>Conforme mostrado na <a class="correcao" href="#modeloDeExecucaoTelis">seção X.Y</a>, o modelo de execução do Telis é <span class="correcao">não bloqueante</span>. Isso significa que o ator poderá ser interrompido enquanto estiver em execução. Quando isso ocorrer o ator irá parar sua execução e irá tratar a interrupção em questão. Além disso, o ator tratará apenas uma interrupção por vez e poderá perder interrupções enquanto estiver tratando outra.</p>
+			<p>Uma particulariedade no modelo de execução do Telis está relacionada com a primitiva descansar. Quando esta primitiva é executada, ela faz com que o ator fique bloqueado por um determinado período de tempo. Entretanto ao ter sua execução bloqueada, o ator poderá continuar tratando eventuais interrupções.</p>
+			<p>Através da <a class="correcao" href="#modeloDeExecucaoJavaScript">seção X.Y</a> percebe-se que o modelo de execução do JavaScript difere do modelo de execução do Telis. Em especial, essas diferenças podem causar três problemas que dificultam a implementação do Telis através do JavaScript. O primeiro problema está relacionado com a primitiva descansar. No caso do JavaScript não é possível bloquear o programa em execução por um determinado período de tempo da mesma forma como ocorre no Java (através do método <code>sleep</code>), por exemplo. O mais próximo que se pode chegar disso é simular esse comportamento através da função <code>setTimeout</code>. Nessa função pode-se ativar um alarme que quando terminado irá executar uma função passada como parâmetro.</p>
+			<p>O segundo problema ocorre pois o JavaScript é <span class="correcao">bloqueante</span> e, por isso, quando um trecho de código é executado, o programa não pode ser interrompido até que o trecho termine.</p>
+			<p>Por fim, o último aspecto que difere no modelo de execução do Telis e do JavaScript é que neste último nenhuma interrupção é perdida. No Telis caso uma interrupção ocorra enquanto outra está sendo executada, então a interrupção que surgiu é descartada. Já no JavaScript se o mesmo caso ocorrer, então a nova interrupção é colocada em uma fila para ser posteriormente executada.</p>
+			<h3 id="padraoEstado"><a href="#sumario">Padrão estado</a></h3>
 		</section>
 		<section class="posTextual">
 			<h1 id="referencias"><a href="#sumario">Referências bibliográficas</a></h1>

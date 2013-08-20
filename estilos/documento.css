@@ -455,6 +455,20 @@ figure > figcaption {
 	border-width: 0 1px 1px 1px;
 	text-align: center;
 }
+
+.marcacao,
+.marcacao:hover {
+	background-color: #CCFB5D;
+	border: none;
+	color: #41A317;
+}
+
+.correcao,
+.correcao:hover {
+	background-color: #F06;
+	border: none;
+	color: #FFF;
+}
 @charset "utf-8";
 
 table.quadro td,
