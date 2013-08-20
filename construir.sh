@@ -60,7 +60,7 @@ depurar() {
 executar() {
 	construir;
 	echo ":executar";
-	chromium-browser tcc.html;
+	chromium-browser relatorio.html;
 }
 
 echo :${pacoteDoProjeto}
