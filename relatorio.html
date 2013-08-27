@@ -182,7 +182,22 @@
 				</pre>
 				<figcaption>Erro de excução do Webis.</figcaption>
 			</figure>
-			<h2 id="modeloDeExecucaoJavaScript"><a href="#sumario">Modelo de execução JavaScript</a></h2>
+			<h2 id="modeloDeExecucaoJavaScript"><a href="#sumario">Modelo de execução JavaScript em navegadores web</a></h2>
+			<p>O JavaScript utilizado a partir de um navegador <i lang="en">web</i> possui fundamentalmente um único fluxo de execução, fazendo com que não exista execução concorrente de código. Quando um pedeço de código JavaScript é executado, esta execução não será interrompida até que seja finalizada. Durante a execução de um código JavaScript, eventos assíncronos podem ser disparados. O código associado a cada um desses eventos será executado, um de cada vez, assim que o código em execução terminar.</p>
+			<p>A criação de eventos assíncronos pode ocorrer de diversas formas. O JavaScript executado em um cliente <i lang="en">web</i> faz uso da programação dirigida a eventos. Nesse sentido, o navegador gera eventos sempre que algo que possa ser de interesse do programador aconteça. Esses eventos estão sempre associados a algum elemento e podem ser adicionados tratadores para cada um deles. Por exemplo, um evento pode ser o clique do <i lang="en">mouse</i> em um determinado botão, o carregamento de um documento ou até mesmo a digitação de uma tecla do teclado.</p>
+			<p>A adição de um tratador para um determinado evento de um determinado elemento pode ser feita através do método <code>addEventListener</code> presente em alguns objetos. Esse método irá receber como parâmetros o tipo do evento e uma função que contém o código do tratador.</p>
+				<figure class="listagem" id="listagemAdicaoDeTratadorDeEvento">
+				<pre>
+					<ul>
+						<li>elemento.addEventListner("loadend", function () {</li>
+						<li>    // código do tratador...</li>
+						<li>});</li>
+					</ul>
+				</pre>
+				<figcaption>Criação de um tratador de evento.</figcaption>
+			</figure>
+			<p>O único fluxo de execução responsável por executar o código JavaScript também é responsável pela execução da redenrização do documento no navegador. Isso significa que enquanto um código JavaScript estiver sendo executado, não será realizada a renderização do documento e o inverso também é verdadeiro. Essa restrição é fácil de compreender levando-se em conta o fato de que é possível manipular o documento através do JavaScript.</p>
+			<p>Além de eventos, também é possível realizar a utilização de temporizadores para executar pedaços de código de forma assíncrona. Da mesma forma que ocorre com os eventos, os temporizadores somente podem ser disparados qunando determinado código que está em execução é encerrado. Existem basicamente dois tipos de temporizadores: aqueles que são disparados apenas uma única vez e aqueles que são disparados continuamente a cada determinado período de tempo. Ambos tipos de temporizadores podem ser cancelados. Para criar um temporizador que é disparado uma única vez utiliza-se a função <code>setTimeou</code> presente no objeto global (<code>window</code>). <span class="correcao">Continuar...</span></p>
 			<h3 id="webWorkers"><a href="#sumario">WebWorkers e paralelismo</a></h3>
 			<h4 id="ecossistema"><a href="#sumario">Ecossistema</a></h4>
 			<h2 id="pilhaDeExecucao"><a href="#sumario">Pilha de execução</a></h2>
