@@ -137,7 +137,7 @@
 			<figure class="listagem" id="listagemInstanciacaoDeAtor">
 				<pre>
 					<ul>
-						<li>"nomeDoModelo" [</li>
+						<li>"UmModelo" [</li>
 						<li>    "iniciar" [</li>
 						<li>        calcular </li>
 						<li>    ] incluirAgenda</li>
@@ -183,10 +183,10 @@
 				<figcaption>Erro de excução do Webis.</figcaption>
 			</figure>
 			<h2 id="modeloDeExecucaoJavaScript"><a href="#sumario">Modelo de execução JavaScript em navegadores web</a></h2>
-			<p>O JavaScript utilizado a partir de um navegador <i lang="en">web</i> possui fundamentalmente um único fluxo de execução, fazendo com que não exista execução concorrente de código. Quando um pedeço de código JavaScript é executado, esta execução não será interrompida até que seja finalizada. Durante a execução de um código JavaScript, eventos assíncronos podem ser disparados. O código associado a cada um desses eventos será executado, um de cada vez, assim que o código em execução terminar.</p>
-			<p>A criação de eventos assíncronos pode ocorrer de diversas formas. O JavaScript executado em um cliente <i lang="en">web</i> faz uso da programação dirigida a eventos. Nesse sentido, o navegador gera eventos sempre que algo que possa ser de interesse do programador aconteça. Esses eventos estão sempre associados a algum elemento e podem ser adicionados tratadores para cada um deles. Por exemplo, um evento pode ser o clique do <i lang="en">mouse</i> em um determinado botão, o carregamento de um documento ou até mesmo a digitação de uma tecla do teclado.</p>
-			<p>A adição de um tratador para um determinado evento de um determinado elemento pode ser feita através do método <code>addEventListener</code> presente em alguns objetos. Esse método irá receber como parâmetros o tipo do evento e uma função que contém o código do tratador.</p>
-				<figure class="listagem" id="listagemAdicaoDeTratadorDeEvento">
+			<p>O JavaScript utilizado a partir de um navegador <i lang="en">web</i> possui fundamentalmente um único fluxo de execução, fazendo com que não exista execução concorrente de código. Quando um pedeço de código JavaScript é executado, este não será interrompido até que seja finalizado. Durante a execução de um código JavaScript, eventos assíncronos podem ser disparados. O código associado a cada um desses eventos será executado, um de cada vez, somente depois que o código em execução terminar. O modelo de execução JavaScript é dito bloqueante, pois interrupções não param a execução atual de código. Em vez disso, as interrupções são enfileiradas para que possam ser chamadas após o termino da execução atual.</p>
+			<p>A criação de eventos assíncronos pode ocorrer de diversas formas. O JavaScript executado em um cliente <i lang="en">web</i> faz uso da programação dirigida a eventos. Nesse sentido, o navegador gera eventos sempre que algo que possa ser de interesse do programador aconteça. Esses eventos estão sempre associados a algum elemento e podem ser adicionados tratadores para cada um deles. Por exemplo, um evento pode ser o clique do <i lang="en">mouse</i> em um determinado botão, o carregamento de um documento ou até mesmo a digitação de uma tecla.</p>
+			<p>A adição de um tratador para um determinado evento de um determinado elemento pode ser feita através do método <code>addEventListener</code> (<a href="listagemTratadorDeEvento" class="correcao">Listagem X.Y</a>). Esse método irá receber dois parâmetros: o tipo do evento e uma função que contém o código do tratador.</p>
+			<figure class="listagem" id="listagemTratadorDeEvento">
 				<pre>
 					<ul>
 						<li>elemento.addEventListner("loadend", function () {</li>
@@ -197,15 +197,53 @@
 				<figcaption>Criação de um tratador de evento.</figcaption>
 			</figure>
 			<p>O único fluxo de execução responsável por executar o código JavaScript também é responsável pela execução da redenrização do documento no navegador. Isso significa que enquanto um código JavaScript estiver sendo executado, não será realizada a renderização do documento e o inverso também é verdadeiro. Essa restrição é fácil de compreender levando-se em conta o fato de que é possível manipular o documento através do JavaScript.</p>
-			<p>Além de eventos, também é possível realizar a utilização de temporizadores para executar pedaços de código de forma assíncrona. Da mesma forma que ocorre com os eventos, os temporizadores somente podem ser disparados qunando determinado código que está em execução é encerrado. Existem basicamente dois tipos de temporizadores: aqueles que são disparados apenas uma única vez e aqueles que são disparados continuamente a cada determinado período de tempo. Ambos tipos de temporizadores podem ser cancelados. Para criar um temporizador que é disparado uma única vez utiliza-se a função <code>setTimeout</code> presente no objeto global (<code>window</code>). <span class="correcao">Continuar...</span></p>
+			<p>Além de eventos, também é possível utilizar temporizadores para executar pedaços de código de forma assíncrona. Da mesma forma que ocorre com os eventos, os temporizadores somente podem ser ativados qunando determinado código que está em execução é encerrado. Existem basicamente dois tipos de temporizadores: aqueles que são disparados apenas uma única vez e aqueles que são disparados continuamente a cada determinado período de tempo. Ambos tipos de temporizadores podem ser cancelados. Para criar um temporizador que é disparado uma única vez utiliza-se a função <code>setTimeout</code> presente no objeto global <code>window</code>. De forma análoga, para criar um temporizador que é disparado continuamente a cada intervalo de tempo, utiliza-se a função <code>setInverval</code> do mesmo objeto.</p>
+			<figure class="listagem" id="listagemTemporizador">
+				<pre>
+					<ul>
+						<li>var identificador = window.setTimetout(function () {</li>
+						<li>    // código do tratador...</li>
+						<li>}, 1000);</li>
+					</ul>
+				</pre>
+				<figcaption>Disparo de um temporizador ativado após um período de tempo.</figcaption>
+			</figure>
+			<p>A <a href="#listagemTemporizador" class="correcao">Listagem X.Y</a> mostra o disparo de um temporizador que quando acionado irá executar a função que é passada como parâmetro. O segundo parâmetro indica o tempo, a partir do momento do disparo, até que o temporizador seja efetivamente ativado. No casso em questão, o tempo de espera até a ativação será de 1 segundo (ou 1000 milisegundos). Destaca-se o fato de que esse tempo de espera não é garantido. Por exemplo, se o código que realizou o disparo do temporizador continue a executar por mais de um segundo, então o temporizador disparado terá sua ativação adiada. Isso significa que mesmo que a ativação do temporizador tenha sido programada para 1 segundo após o seu disparo, isso não necessáriamente irá acontecer. Como já visto anteriormente o modelo de exeução JavaScript em navegadores <i lang="en">web</i> é bloqueante. Por isso, mesmo que seja hora de ativar um temporizador é possível que algum outro código esteja em execução e, nesse caso, a ativação deverá ser adiada.</p>
+			<figure class="listagem" id="listagemTemporizadorContinuo">
+				<pre>
+					<ul>
+						<li>var identificador = window.setInterval(function () {</li>
+						<li>    // código do tratador...</li>
+						<li>}, 1000);</li>
+					</ul>
+				</pre>
+				<figcaption>Disparo de um temporizador ativado continuamente a cada período de tempo.</figcaption>
+			</figure>
+			<p>A <a href="#listagemTemporizador" class="correcao">Listagem X.Y</a> mostra a criação de um temporizador semelhante ao mostrado na <a href="#listagemTemporizador" class="correcao">Listagem X.Y</a>. A diferença entre ambos está no fato de que no caso da <a href="#listagemTemporizador" class="correcao">Listagem X.Y</a> o temporizador será disparado continuamente a cada período de tempo, enquanto que na <a href="#listagemTemporizador" class="correcao">Listagem X.Y</a> o disparo do temporizador ocorre uma única vez.</p>
+			<p>Ambos temporizadores podem ser cancelados a qualquer momento e, por isso, as duas funções retornam um <code>identificador</code> que é utilizado pelas funções <code>clearTimeout</code> e <code>clearInterval</code> para cancelar temporizadores disparados.</p>
+			<figure class="listagem" id="listagemTemporizador">
+				<pre>
+					<ul>
+						<li>window.clearTimeout(identificador1);</li>
+						<li>window.clearInterval(identificador2);</li>
+					</ul>
+				</pre>
+				<figcaption>Cancelamento de temporizadores previamente disparados.</figcaption>
+			</figure>
 			<h3 id="webWorkers"><a href="#sumario">WebWorkers e paralelismo</a></h3>
 			<h4 id="ecossistema"><a href="#sumario">Ecossistema</a></h4>
 			<h2 id="pilhaDeExecucao"><a href="#sumario">Pilha de execução</a></h2>
 			<p>Conforme mostrado na <a class="correcao" href="#modeloDeExecucaoTelis">seção X.Y</a>, o modelo de execução do Telis é não bloqueante. Isso significa que o ator poderá ser interrompido enquanto estiver em execução. Quando isso ocorrer o ator irá parar sua execução e irá tratar a interrupção em questão. Além disso, o ator tratará apenas uma interrupção por vez e poderá perder interrupções enquanto estiver tratando outra.</p>
 			<p>Uma particulariedade no modelo de execução do Telis está relacionada com a primitiva descansar. Quando esta primitiva é executada, ela faz com que o ator fique bloqueado por um determinado período de tempo. Entretanto ao ter sua execução bloqueada, o ator poderá continuar tratando eventuais interrupções.</p>
-			<p>Através da <a class="correcao" href="#modeloDeExecucaoJavaScript">seção X.Y</a> percebe-se que o modelo de execução do JavaScript difere do modelo de execução do Telis. Em especial, essas diferenças podem causar três problemas que dificultam a implementação do Telis através do JavaScript. O primeiro problema está relacionado com a primitiva descansar. No caso do JavaScript não é possível bloquear o programa em execução por um determinado período de tempo da mesma forma como ocorre no Java (através do método <code>sleep</code>), por exemplo. O mais próximo que se pode chegar disso é simular esse comportamento através da função <code>setTimeout</code>. Nessa função pode-se ativar um alarme que quando terminado irá executar uma função passada como parâmetro.</p>
+			<p>Através da <a class="correcao" href="#modeloDeExecucaoJavaScript">seção X.Y</a> percebe-se que o modelo de execução do JavaScript difere do modelo de execução do Telis. Em especial, essas diferenças podem causar três problemas que dificultam a implementação do Telis através do JavaScript. O primeiro problema está relacionado com a primitiva descansar. No caso do JavaScript não é possível bloquear o programa em execução por um determinado período de tempo da mesma forma como ocorre no Java (através do método <code>sleep</code>), por exemplo. O mais próximo que se pode chegar disso é simular esse comportamento através da função <code>setTimeout</code>.</p>
 			<p>O segundo problema ocorre pois o JavaScript é bloqueante e, por isso, quando um trecho de código é executado, o programa não pode ser interrompido até que o trecho termine.</p>
 			<p>Por fim, o último aspecto que difere no modelo de execução do Telis e do JavaScript é que neste último nenhuma interrupção é perdida. No Telis caso uma interrupção ocorra enquanto outra está sendo executada, então a interrupção que surgiu é descartada. Já no JavaScript se o mesmo caso ocorrer, então a nova interrupção é colocada em uma fila para ser posteriormente executada.</p>
+			<p>Focando no escopo de um único ator é necessário realizar alguns passos para adequar o modelo de execução do Telis ao JavaScript:</p>
+			<ul>
+				<li>Permitir que após um ator ser instânciado, este possa receber interrupções de estímulos.</li>
+				<li>Descartar interrupções que surgirem caso o ator esteja tratando uma outra interrupção.</li>
+				<li>A primitiva <code>descansar</code> deverá parar a execução do ator ou de uma eventual interrupção. Além disso, caso um ator esteja parado em função da primitiva e uma interrupção surja,então é necessário que o tempo de descanso estipulado pelo ator seja descontado do tempo de demora da execução da interrupção.</li>
+			</ul>
 			<h3 id="padraoEstado"><a href="#sumario">Padrão estado</a></h3>
 		</section>
 		<section class="posTextual">
