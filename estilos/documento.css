@@ -144,13 +144,23 @@ section.textual > h5 {
 	font-style: italic;
 }
 
-section.textual > ul {
+section.textual > ul,
+section.textual > ol {
 	margin-left: 2cm;
+}
+
+section.textual > ul > li,
+section.textual > ol > li {
+	list-style-position: outside;
+	text-align: justify;
 }
 
 section.textual > ul > li {
 	list-style-type: disc;
-	list-style-position: outside;
+}
+
+section.textual > ol > li {
+	list-style-type: decimal;
 }
 
 section.preTextual > h1,
@@ -405,6 +415,14 @@ figure > pre {
 	white-space: normal;
 }
 
+figure > img {
+	display: block;
+	box-sizing: border-box;
+	max-width: 100%;
+}
+
+
+figure > img,
 figure > pre > ul,
 figure > pre > ol,
 figure > figcaption {
@@ -454,6 +472,20 @@ figure > figcaption {
 	background: #FBFBFB;
 	border-width: 0 1px 1px 1px;
 	text-align: center;
+}
+
+.marcacao,
+.marcacao:hover {
+	background-color: #CCFB5D;
+	border: none;
+	color: #41A317;
+}
+
+.correcao,
+.correcao:hover {
+	background-color: #F06;
+	border: none;
+	color: #FFF;
 }
 @charset "utf-8";
 
