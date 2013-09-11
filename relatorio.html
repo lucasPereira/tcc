@@ -262,7 +262,6 @@
 				<figcaption>Modelo de execuçao JavaScript em fluxo único.</figcaption>
 			</figure>
 			<h3 id="webWorkers"><a href="#sumario">WebWorkers e paralelismo</a></h3>
-			<h4 id="ecossistema"><a href="#sumario">Ecossistema</a></h4>
 			<h2 id="pilhaDeExecucao"><a href="#sumario">Pilha de execução</a></h2>
 			<p>Conforme mostrado na <a href="#modeloDeExecucaoTelis">Seção 2.6</a>, o modelo de execução do Telis é não bloqueante. Isso significa que o ator poderá ser interrompido enquanto estiver em execução. Quando isso ocorrer o ator irá parar sua execução e irá tratar a interrupção em questão. Além disso, o ator tratará apenas uma interrupção por vez e poderá perder interrupções enquanto estiver tratando outra.</p>
 			<p>Uma particulariedade no modelo de execução do Telis é a primitiva <code>descansar</code>. Quando esta primitiva é executada, ela faz com que o ator fique parado por um determinado período de tempo. Entretanto, ao ter sua execução interrompida, o ator poderá continuar tratando eventuais interrupções.</p>
@@ -286,6 +285,7 @@
 			<p>Um exemplo simplificado de como a máquina Webis funcionaria caso seguisse o modelo síncrono e bloqueante é mostrado na <a href="listagemModeloBloqueante">Listagem X.Y</a>. Perceba que nesse caso o coração da máquina Webis se torna muito simples. A única tarefa necessária é iterar sobre a lista de comandos recebidos como entrada da máquina e executar os comandos em questão, passando como parâmetro para cada comando o contexto da execução. Com isso, cada comando poderá ter acesso a pilha de dados e ao escopo de variáveis.</p>
 			<p>Ao contrário do modelo síncrono e bloqueante e que não está em conformidade com o modelo de execução do Telis, a implementação do modelo assíncrono e não bloqueante não é trivial. É necessário ter um controle sobre a execução assíncrona para que se possa garantir que os comandos executem na ordem correta. Além disso, primitivas de controle de fluxo precisarão ser quebradas em vários pedaços para impedir que uma dessas primitivas venham a travar o ator por muito tempo. Se isso acontecer, o ator não poderá receber interrupções enquanto a primitiva de controle de fluxo estiver executando. Por isso, o bloco de comandos executados dentro de uma primitiva de controle de fluxo também precisará ser quebrado em vários pequenos comandos atômicos, da mesma forma como deve ocorrer com a entrada da máquina.</p>
 			<h3 id="padraoEstado"><a href="#sumario">Padrão estado</a></h3>
+			<h2 id="ecossistema"><a href="#sumario">Ecossistema</a></h2>
 		</section>
 		<section class="posTextual">
 			<h1 id="referencias"><a href="#sumario">Referências bibliográficas</a></h1>
