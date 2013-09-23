@@ -346,7 +346,7 @@ a {
 	text-transform: inherit;
 }
 
-cite a {
+cite > a {
 	background-color: rgba(11, 148, 83, 0.1);
 	border-color: rgba(11, 148, 83, 1);
 }
@@ -355,7 +355,7 @@ a:hover {
 	border-style: dotted;
 }
 
-cite {
+cite.parenteses {
 	text-transform: uppercase;
 }
 
@@ -366,13 +366,13 @@ cite.parenteses time::after {
 
 cite.parenteses::before,
 cite time::before,
-dfn abbr::before {
+dfn > abbr::before {
 	content: "(";
 }
 
 cite.parenteses::after,
 cite time::after,
-dfn abbr::after {
+dfn > abbr::after {
 	content: ")";
 }
 
@@ -418,9 +418,8 @@ figure > pre {
 figure > img {
 	display: block;
 	box-sizing: border-box;
-	max-width: 100%;
+	width: 100%;
 }
-
 
 figure > img,
 figure > pre > ul,
