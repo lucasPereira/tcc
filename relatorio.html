@@ -204,7 +204,8 @@
 				<figcaption>Criação de um tratador de evento.</figcaption>
 			</figure>
 			<h3 id="temporizadores"><a href="#sumario">Temporizadores</a></h3>
-			<p>Além de eventos, também é possível utilizar temporizadores para executar pedaços de código de forma assíncrona. Da mesma forma que ocorre com os eventos, os temporizadores somente podem ser disparados quando não existir nenhum outro pedaço de código em execução. Se no momento em que um temporizador tiver que ser disparado já existir algum código em execução, então o disparo deverá ser adiado.</p>
+			<p>Além de eventos, também é possível utilizar temporizadores para executar pedaços de código de forma assíncrona. Da mesma forma que ocorre com os eventos, os temporizadores somente podem ser executados quando não existir nenhum outro pedaço de código em execução. Se no momento em que um temporizador tiver que ser executado já existir algum código em execução, então a execução do temporiazador deverá ser adiada.</p>
+			<p>Para fins explicativos será considerado dois possíveis eventos associados aos temporizadores: a ativação e o disparo. A ativação ocorre quando o temporizador é criado. Já o disparo ocorre após a ativação onde a função de retorno passada como parâmetro durante a ativação é executada.</p>
 			<p>Existem basicamente dois tipos de temporizadores: aqueles que são disparados apenas uma única vez e aqueles que são disparados continuamente a cada determinado período de tempo. Ambos tipos de temporizadores podem ser cancelados. Para criar um temporizador que é disparado uma única vez utiliza-se a função <code>setTimeout</code> presente no objeto global <code>window</code>. De forma análoga, para criar um temporizador que é disparado continuamente a cada intervalo de tempo, utiliza-se a função <code>setInverval</code> do mesmo objeto.</p>
 			<figure class="listagem" id="listagemTemporizador">
 				<pre>
@@ -376,6 +377,10 @@
 				<figcaption>Lista Webis que quando avaliada executará cada um dos dados e comandos dentro dela e resultará em verdadeiro.</figcaption>
 			</figure>
 			<h3 id="janelaDeTempo"><a href="#sumario">Janela de tempo</a></h3>
+			<p>A pilha de execução utiliza temporizadores para executar de forma assíncrona e individualizada os itens da pilha de <strong>comandos</strong>. Inicialmente a pilha de execução ativa um temporizador. Quando o temporizador é disparado, a pilha de execução é chamada e se encarrega de executar o próximo comando da pilha de <storng>comandos</strong>. Após a execução do comando a pilha de execução irá verificar se ainda existem comandos pendentes para serem executados e, se existir, irá ativar um novo temporizador.</p>
+			<p>A pilha de execução possui um atributo denominado janela de tempo. Esse atributo será utilizado na ativação de temporizadores para definir o tempo de demora entre a ativação e o efetivo disparo do temporizador. Na <a href="#modeloDeExecucaoJavaScript">Seção 3.3</a> é explicado que esse tempo especificado na ativação de um temporizador não é garantido e é possível que o disparo do temporizador demore mais do que o estipulado.</p>
+			<p>O objetivo da utilização dos temporizadores é permitir que o modelo de execução dp Webis possa ser aplicado ao JavaScript. Por isso, por padrão o atributo <code>janelaDeTempo</code> possui o valor 0. O objetivo é que o fluxo de execução possa ser liberado para eventuais interrupções. O valor 0 é utilizado, pois o objetivo é o ator possa voltar a execução tão rápido quanto possível após a liberação do fluxo de execução.</p>
+			<p>A janela de termpo é utilizada, pois é ela que permite a implementação da primitiva <code>descansar</code>.</p>
 			<h2 id="ecossistema"><a href="#sumario">Ecossistema</a></h2>
 		</section>
 		<section class="posTextual">
