@@ -120,27 +120,37 @@ section.posTextual > h1 {
 }
 
 section.preTextual > ol h1,
-section.textual > h1 {
+section.textual > h1,
+section.textual > h1 > span,
+section.textual > h1 > i {
 	font-weight: bold;
 	text-transform: uppercase;
 }
 
 section.preTextual > ol h2,
-section.textual >  h2 {
+section.textual > h2,
+section.textual > h2 > span,
+section.textual > h2 > i {
 	text-transform: uppercase;
 }
 
 section.preTextual > ol h3,
-section.textual > h3 {
+section.textual > h3,
+section.textual > h3 > span,
+section.textual > h3 > i {
 	font-weight: bold;
 }
 
 section.preTextual > ol h4,
-section.textual > h4 {
+section.textual > h4,
+section.textual > h4 > span,
+section.textual > h4 > i {
 }
 
 section.preTextual > ol h5,
-section.textual > h5 {
+section.textual > h5,
+section.textual > h5 > span,
+section.textual > h5 > i {
 	font-style: italic;
 }
 
@@ -346,7 +356,7 @@ a {
 	text-transform: inherit;
 }
 
-cite a {
+cite > a {
 	background-color: rgba(11, 148, 83, 0.1);
 	border-color: rgba(11, 148, 83, 1);
 }
@@ -355,7 +365,7 @@ a:hover {
 	border-style: dotted;
 }
 
-cite {
+cite.parenteses {
 	text-transform: uppercase;
 }
 
@@ -366,13 +376,13 @@ cite.parenteses time::after {
 
 cite.parenteses::before,
 cite time::before,
-dfn abbr::before {
+dfn > abbr::before {
 	content: "(";
 }
 
 cite.parenteses::after,
 cite time::after,
-dfn abbr::after {
+dfn > abbr::after {
 	content: ")";
 }
 
@@ -418,9 +428,8 @@ figure > pre {
 figure > img {
 	display: block;
 	box-sizing: border-box;
-	max-width: 100%;
+	width: 100%;
 }
-
 
 figure > img,
 figure > pre > ul,
