@@ -194,7 +194,7 @@
 			<h1 id="html5"><span lang="en">HTML5</span> e <span lang="en">JavaScript</span></h1>
 			<p>A <i lang="en">Web</i> é baseada em três importantes pilares: o <dfn>Identificador Uniforme de Recursos <abbr lang="en" title="Uniform Resource Identifier">URI</abbr></dfn>, o <dfn>Protocolo de Transferência de Hipertexto <abbr lang="en" title="Hypertext Transfer Protocol">HTTP</abbr></dnf> e a <dfn>Linguagem de Marcação de Hipertexto <abbr lang="en" title="Hypertext Markup Language">HTML</abbr></dfn> <a href="#referencia13"><cite class="parenteses">Ferreira; Eis, <time>2010</time></cite></a>. Neste projeto existirá um grande foco no terceiro pilar, em especial na mais nova versão do <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>, o <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>.</p>
 			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> não é apenas uma nova especificação para uma linguagem de marcação, mas sim um conjunto completo de tecnologias com novas funcionalidades. O objetivo das novas especificações é fazer da <i lang="en">Web</i> uma plataforma completa e aberta, permitindo que as tradicionais aplicações <i lang="en">desktop</i> possam ser inteiramente convertidas em aplicações <i lang="en">Web</i>. A vantagem disso é a existência de um padrão aberto, onde uma aplicação poderá ser desenvolvida independentemente do dispositivo em que será executada. Tudo que o dispositivo precisará é de uma navegador <i lang="en">Web</i> com suporte ao <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>.</p>
-			<p>Dentre as principais especificações incorporadas ao <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>, destacam-se a <dfn>Folha de Estilos em Cascata 3 <abbr lang="en" title="Cascading Style Sheet 3">CSS3</abbr></dfn> e as novas <abbr lang="en" title="Application Programming Interface">API</abbr>s do <span lang="en">JavaScript</span>, como a <i lang="en">Web Audio API</i> e a especificação de <i lang="en">Web Workers</i>. O <span lang="en">JavaScript</span> terá um papel fundamental no desenvolvimento da máquina Webis. Nesse capítulo serão discutidos conceitos importantes do <span lang="en">JavaScript</span> e do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> para que se possa compreender melhor os mecanismos utilizados pela máquina Webis (<a href="#maquina">Seção U</a>).</p>
+			<p>Dentre as principais especificações incorporadas ao <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>, destacam-se a <dfn>Folha de Estilos em Cascata 3 <abbr lang="en" title="Cascading Style Sheet 3">CSS3</abbr></dfn> e as novas <ab/br lang="en" title="Application Programming Interface">API</abbr>s do <span lang="en">JavaScript</span>, como a <i lang="en">Web Audio API</i> e a especificação de <i lang="en">Web Workers</i>. O <span lang="en">JavaScript</span> terá um papel fundamental no desenvolvimento da máquina Webis. Nesse capítulo serão discutidos conceitos importantes do <span lang="en">JavaScript</span> e do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> para que se possa compreender melhor os mecanismos utilizados pela máquina Webis (<a href="#maquina">Seção U</a>).</p>
 
 			<h2 id="html5JavaScript">Modelo de execução <span lang="en">JavaScript</span> em navegadores <span lang="en">Web</span></h2>
 			<p>O <span lang="en">JavaScript</span>, utilizado a partir de um navegador <i lang="en">Web</i>, possui fundamentalmente um fluxo único de execução, fazendo com que não exista execução concorrente de código. Mais adiante será mostrado que o <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> trouxe o conceito de <i lang="en">Web Workers</i> que permite criar vários fluxos de execução. Entretanto, na abordagem atual será deixado de lado a utilização dos <i lang="en">Web Workers</i> e será considerado um fluxo único de execução associado a um único ator Webis.</p>
@@ -314,8 +314,190 @@
 			<p>Através das listagens <a href="#listagemCriacaoDoWebWorker">X.Y</a> e <a href="#listagemWebWorker">X.Y</a> percebe-se que a comunicação entre <i lang="en">Workers</i> e o fluxo principal se dá de forma assíncrona através de eventos. Outro aspecto importante é que nada é compartilhado entre um <i lang="en">Worker</i> e o fluxo principal. Todo valor enviado de um para o outro através da função <code>postMessage</code> é copiado antes de ser enviado. Considerando um exemplo onde um objeto é enviado através da função <code>postMessage</code>, o objeto será copiado, serializado como <abbr title="JavaScritp Object Notation">JSON</abbr>, enviado e por fim deserializado. Ou seja, na prática existirão dois objetos iguais e qualquer alteração feita em algum deles <em>não</em> afetará o outro.</p>
 
 			<h2 id="html5Audio"><i lang="en">Web Audio API</i></h2>
+			<p>A <i lang="en">Web Audio API</i> é uma especificação que visa incluir um sistema de som 3D ao <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>. A especificação possibilita tocar sons, posicioná-los em um sistema de coordenadas com três dimensões, aplicar efeitos e filtros e até mesmo manipular e editar as ondas sonoras. Será esta especificação que possibilitará ao Webis incluir as primitivas de som a linguagem, permitindo que os atores possuam uma representação não somente gráfica, mas também sonora. A especificação possui um suporte quase completo nos navegadores <span lang="en">Chromium</span> e <span lang="en">Google Chrome</i>. Já o navegador <span lang="en">Mozilla Firefox</span> possui um suporte básico, mas está trabalhando para suportar completamente a especificação.</p>
+			<p>Uma aplicação <span lang="en">JavaSctipt</span> que desejar utilizar a <i lang="en">Web Audio API</i> deverá criar uma instância do tipo <code>AudioContext</code>. Através do contexto de áudio será possível adicionar e manipular nodos de sons. O contexto de áudio terá associado a si um único <code>AudioListener</code> que representa o ouvinte do sistema de som. O ouvinte poderá ser posicionado e espacializado no sistema de coordenadas 3D, além de permitir a configuração de parâmetros como a velocidade do som e o fator do efeito <i lang="en">doppler</i>. A <a href="#listagemContextoDeAudioEOuvinte">Listagem X.Y</a> mostra a criação do contexto de áudio e a utilização do ouvinte de som. No exemplo, são fixados os parâmetros de posicionamento e espacialização do ouvinte.</p>
+			<figure class="listagem" id="listagemContextoDeAudioEOuvinte">
+				<pre>
+					<ol>
+						<li>var contexto = new AudioContext();</li>
+						<li>var ouvinte = contexto.listener</li>
+						<li>ouvinte.setPosition(0, 0, 0);</li>
+						<li>ouvinte.setOrientation(0, 1, 0, 0, 0, 1);</li>
+						<li>ouvinte.setVelocity(0, 0, 0);</li>
+					</ol>
+				</pre>
+				<figcaption>Criação do contexto de áudio e manipulação do ouvinte.</figcaption>
+			</figure>
+			<p>Além dos elementos básicos <code>AudioContext</code> e <code>AudioListener</code>, a especificação também provê diversos tipos de nodos para emissão e processamento dos sons. Os nodos serão conectados entre si e um nodo terminal deverá ser conectado ao destino final. Por exemplo, existe um nodo responsável pela emissão do som, outro responsável pelo ajuste de volume e outro responsável pelo posicionamento e espacialização do som. É possivel conectar o nodo fonte ao de ajuste de volume e este ao nodo de posicionamento e espacialização. Este último será finalmente conectado ao destino de som. Essa característica permite a criação de diversas camadas de manipulação do áudio até chegar ao destino final.</p>
+			<p>A <a href="#listagemCriacaoDeFonteDeSom">Listagem X.Y</a> mostra uma função responsável pela criação de uma fonte de som que será tocada em seguida, através do método <code>start</code> que recebe como parâmetro o tempo até que o som começe a ser efetivamente tocado. Deve-se perceber também que a função <code>tocarSom</code> recebe como parametro um <i lang="en">buffer</i> que contém o som a ser tocado. O <i lang="en">buffer</i> representando o som poderá ser obtido através de uma requisição <abbr lang="en" title="Hypertext Transfer Protocol">HTTP</abbr> feita pelo objeto <code>XMLHttpRequest</code>.</p>
+			<figure class="listagem" id="listagemCriacaoDeFonteDeSom">
+				<pre>
+					<ol>
+						<li>var contexto = new AudioContext();</li>
+						<li>function tocarSom(bufferDoSom) {</li>
+						<li>    var fonte = contexto.createBufferSource();</li>
+						<li>    fonte.buffer = bufferDoSom;</li>
+						<li>    fonte.connect(contexto.destination);</li>
+						<li>    fonte.start(0);</li>
+						<li>}</li>
+					</ol>
+				</pre>
+				<figcaption>Função responsável por criar uma fonte de som e tocá-la em seguida.</figcaption>
+			</figure>
+			<p>Um fator importante é que no caso da <a href="#listagemCriacaoDeFonteDeSom">Listagem X.Y</a>, a fonte de som é conectada deretamente ao destino, mas seria possível ter conectado a fonte a um outro nodo que possibilitaria a manipulação do som. O nodo de manipulação, por sua vez, seria conectado ao destino final. A <a href="#listagemAjusteDoVolumeDeSom">Listagem X.Y</a> mostra um exemplo de uma função que conecta uma fonte a um nodo de manipulação de volume. O nodo de ajuste de volume é, então, conectado ao destino final. </p>
+			<figure class="listagem" id="listagemAjusteDoVolumeDeSom">
+				<pre>
+					<ol>
+						<li>var contexto = new AudioContext();</li>
+						<li>function tocarSomComVolume(bufferDoSom, volume) {</li>
+						<li>    var fonte = contexto.createBufferSource();</li>
+						<li>    var ajusteDeVolume = contexto.createGain();</li>
+						<li>    fonte.buffer = bufferDoSom;</li>
+						<li>    ajusteDeVolume.gain.value = volume;</li>
+						<li>    fonte.connect(ajusteDeVolume);</li>
+						<li>    ajusteDeVolume.connect(contexto.destination);</li>
+						<li>    fonte.start(0);</li>
+						<li>}</li>
+					</ol>
+				</pre>
+				<figcaption>Função responsável por criar uma fonte de som e conectá-la a um filtro de ajuste de volume.</figcaption>
+			</figure>
+			<p>Existe também o nodo de posicionamento e espacialização. Ele permite alterar a posicição, direção, velocidade do som, além de outras configurações mais avançadas. Todos esses ajustem permitem enriquecer a percepção do ouvinte em um ambiente tridimensional. A <a href="#listagemAjusteDoVolumeDeSom">Listagem X.Y</a> uma função que conecta uma fonte a um nodo de posicionamento e espacialização. A função <codE>tocarSomComVolume</code> recebe como parâmetro, além do <i lang="en">buffer</i> do som, a posição, a velocidade e a direção que serão configuradas no nodo de posicionamento e espacialização.</p>
+			<figure class="listagem" id="listagemAjusteDoVolumeDeSom">
+				<pre>
+					<ol>
+						<li>var contexto = new AudioContext();</li>
+						<li>function tocarSomComVolume(bufferDoSom,</li>
+						<li>        posicao, velocidade, direcao) {</li>
+						<li>    var fonte = contexto.createBufferSource();</li>
+						<li>    var posicionamento = contexto.createPanner();</li>
+						<li>    fonte.buffer = bufferDoSom;</li>
+						<li>    posicionamento.setPosition(posicao.x,</li>
+						<li>        posicao.y, posicao.z);</li>
+						<li>    posicionamento.setOrientation(direcao.x,</li>
+						<li>        direcao.y, direcao.z);</li>
+						<li>    posicionamento.setVelocity(velocidade.x,</li>
+						<li>        velocidade.y, velocidade.z);</li>
+						<li>    fonte.connect(posicionamento);</li>
+						<li>    posicionamento.connect(contexto.destination);</li>
+						<li>    fonte.start(0);</li>
+						<li>}</li>
+					</ol>
+				</pre>
+				<figcaption>Função responsável por criar uma fonte de som e conectá-la a um filtro de posicionamento e espacialização.</figcaption>
+			</figure>
+			<p>Os nodos para a manipulação do som apresentados aqui serão a base para construir o sistema de áudio do Webis. Existem diversos outros tipos de nodos que permitem realizar manipulações mais avançadas nos sons, entretanto  estes não serão discutidos nesse trabalho.</p>
 
 			<h2 id="html5Acessibilidade"><span lang="en">HTML</span> e acessibilidade</h2>
+			<p>O <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> deu nos últimos anos largos passos em direção a uma melhor acessibilidade. O início da preocupação com a acessibilidade começou com a vinda do <abbr lang="en" title="Cascading Style Sheet">CSS</abbr>. Não que a acessibilidade fosse o único objetivo do <abbr lang="en" title="Cascading Style Sheet">CSS</abbr>, mas ela era uma das vantagens. Antes do <abbr lang="en" title="Cascading Style Sheet">CSS</abbr>, os sites eram construídos com a utilização de tabelas que serviam para realizar a estruturação gráfica do conteúdo. Além disso, estilizações gráficas eram misturadas junto com as marcações semânticas do <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> e com o próprio conteúdo. Um exemplo disso é o atributo <code>fontecolor</code> que podia ser utilizado junto às marcações <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>. A folha de estilos em cascata tirou da linguagem de marcação as estilizações gráficas. Passou-se a dar mais importância a uma melhor organização semântica das marcações.</p>
+			<p>Apesar das melhorias, o <abbr lang="en" title="Hypertext Markup Language 4">HTML4</abbr> ainda possuía problemas de acessibilidade. O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> corrigiu alguns desses problemas trazendo novas marcações, garantindo a acessibilidade dos recursos via teclado e dando novas semânticas a marcações que antes eram utilizadas apenas como estilização gráfica.</p>
+			<p>Dois atributos importantes para garantir uma acessibilidade adequada são o <code>alt</code> e o <code>description</code>. Esses atributos podem ser utilizados para prover uma representação gráfica alternativa para alguns elementos. A <a href="#listagemAltDescription">Listagem X.Y</a> mostra um exemplo da utilização dos dois atributos em uma imagem. Através dessa representação alternativa, pessoas que não enxergam podem ter acesso ao conteúdo apresentado.</p>
+			<figure class="listagem" id="listagemAltDescription">
+				<pre>
+					<ol>
+						<li>&lt;img src="caminho/imagem.png"</li>
+						<li>    alt="Texto alternativo para a imagem"</li>
+						<li>    description="Descrição completa da imagem" /&gt;</li>
+					</ol>
+				</pre>
+				<figcaption>Imagem com texto alternativo e descrição.</figcaption>
+			</figure>
+			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> também trouxe uma nova marcação para a exibição de imagens, diagramas, ilustrações e outros tipos de conteúdos gráficos. A marcação <code>&lt;figure&gt;</code> possui a vantagem de agrupar diversos elementos, permitindo utilizar uma única descrição para todos elementos. Isso é útil pois permite que elementos com a mesma semântica sejam agrupados e explicados como um conjunto. A marcação deve ser utilizada juntamente com, a também nova, marcação <code>&lt;figcaption&gt;</code>. Está última marcação tem o objetivo de apresentar a descrição dos demais elementos contidos dentro da marcação <code>&lt;figure&gt;</code>. A <a href="#listagemFigure">Listagem X.Y</a> mostra a utilização da marcação <code>&lt;figure&gt;</code>. O exemplo apresentado possui fotos de três pássaros diferentes. Deve-se reparar que apesar da utilização da marcação <code>&lt;figcaption&gt;</code>, não é dispensado o uso do atributo <code>alt</code>. No exemplo da listagem é utilizado um texto curto descrevendo as imagens. Entretanto seria possível utilizar um texto maior, descrevendo cada aspecto das imagens</p>
+			<figure class="listagem" id="listagemFigure">
+				<pre>
+					<ol>
+						<li>&lt;figure&gt;</li>
+						<li> &lt;img src="kookburra.png" alt="Kookburra" /&gt;</li>
+						<li> &lt;img src="pelicano.png" alt="Pelicano" /&gt;</li>
+						<li> &lt;img src="lorikeet.png" alt="Rainbow Lorikeet" /&gt;</li>
+						<li> &lt;figcaption&gt;Pássaros australianos.&lt;/figcaption&gt;</li>
+						<li>&lt;/figure&gt;</li>
+					</ol>
+				</pre>
+				<figcaption>Utilização da marcação figure.</figcaption>
+			</figure>
+			<p>Outro atributo importante a ser utilizado nas marcações é o <code>lang</code>. Com esse atributo é possível especificar o idioma em que está escrito determinado conteúdo. Em geral, páginas possuem um idioma principal e, por isso, utiliza-se o atributo <code>lang</code> na marcação <code>&lt;html&gt;</code> indicando que toda a página está escrita em determinado idioma. Caso a página contenha um fragmento de texto escrito em algum outro idioma que não seja aquele declarado na marcação <code>&lt;html&gt;</code>, então basta englobar o fragmento em uma marcação que possua o atributo <code>lang</code> com o valor adequado. A <a href="#listagemLang">Listagem X.Y</a> mostra um exemplo de uma página em português que possui um fragmento de texto escrito em inglês. Deve-se notar a utilização da marcação <code>&lt;span&gt;</code> utilizada para demarcar o fragmento textual como sendo um texto em inglês</p>
+			<figure class="listagem" id="listagemLang">
+				<pre>
+					<ol>
+						<li>&lt;!DOCTYPE html&gt;</li>
+						<li>&lt;html lang="pt-br"&gt;</li>
+						<li>...</li>
+						<li> &lt;p&gt;O &lt;span lang="en"&gt;token&lt;/span&gt; da análise...&lt;p&gt;</li>
+						<li>...</li>
+						<li>&lt;/html&gt;</li>
+					</ol>
+				</pre>
+				<figcaption>Utilização da marcação figure.</figcaption>
+			</figure>
+			<p>Para o desenvolvimento de páginas <span lang="en">Web acessíveis também deve-se garantir que todos os elementos da página possam ser acessíveis via teclado. Em uma barra para aumentar o volume de um vídeo, por exemplo, deve ser possível que o usuário aumente o volume através do teclado, sem a necessidade de utilizar o <i lang="en">mouse</i>. O atributo <code>accesskey</code> permite adicionar uma tecla de atalho para algum elemento. Quando o usuário aciona a tecla de atalho, o navegador dará um foco no elemento em questão e causará o disparo da ação associada a ele, caso exista. O atributo pode ser utilizado em botões, campos de formulários é até mesmo em enlaces. Um fator que deve ser levando em conta ao utilizar teclas de atalho é a necessidade de deixar claro ao usuário os atalhos disponíveis. Uma boa prática é ter uma página indicando os atalhos disponíveis. É importante perceber também que a tecla de atalho do atributo <code>accesskey</code> deve ser utilizada juntamente com uma combinação de outras teclas que podem variar de acordo com o navegador. No navegador <span lang="en">Mozilla Firefox</span>, por exemplo, a combinação de teclas é <kbd>shift</kbd> e <kbd>alt</kbd>.</p>
+			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> trouxe a criação de novas marcações, como <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;article&gt;</code> e outras. A utilização dessas marcações de acordo com a sua semântica favorece os leitores de tela e outros dispositivos de acessibilidade. Através do uso adequado das marcações, os dispositivos de acessibilidade podem apresentar comportamentos diferentes para cada tipo de marcação, melhorando, assim, a experiência do usuário.</p>
+			<p>Cada marcação do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> possui uma semântica e deve ser utilizada em conformidade com esta semântica. O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> possui diversas marcações textuais que permitem um melhor conhecimento sobre o que significa cada elemento. Essas marcações devem ser utilizadas unicamente com um propósito semântico, permitindo, assim, que leitores de tela identifiquem melhor os elementos e possam apresentar comportamentos adequados para cada um deles. As marcações <code>&lt;strong&gt;</code> e <code>&lt;em&gt;</code>, por exemplo, são em muitos casos utilizadas, de forma errada, apenas por questões de estilização, uma vez que, por padrão, os navegadores estilizam essas marcações de forma especial. A marcação <code>&lt;strong&gt;</code> deve ser utilizada quando se deseja denotar a importancia de determinado conteúdo. Já a marcação <code>&lt;em&gt;</code> tem por objetivo dar enfâse a uma determinada palavra ou sentença. Através dessas marcações, os leitores de tela poderão utilizar entonações diferentes, enriquecendo a experiência do usuário. A marcação <code>&lt;time&gt;</code>, utilizada para representar valores temporais e datas, é um outro exemplo de marcação que visa melhor a acessibilida de páginas <i lang="en">Web</i>.</p>
+			<p>As novas marcações para a apresentação de conteúdos como imagens e vídeos também permitiram melhorar significativamente a acessibilidade das páginas <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>. Para adicionar um vídeo ou uma imagem no <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>, basta utilizar as marcações <code>&lt;video&gt;</code> e <code>&lt;audio&gt;</code>, respectivamente. Antes dessas marcações, era necessário utilizar <i lang="en">plugins</i> para poder apresentar esse tipo de conteúdo multimídia. <i lang="en">Plugins</i> como o <span lang="en">Adobe Flash Player</span> não possuem uma acessibilidade adequada e dificultam o acesso do usuário.</p>
+			<p>As marcações <code>&lt;abbr&gt;</code> e <code>&lt;abbr&gt;</code> compõem outra estratégia importante
+			 para melhorar a acessibilidade de páginas <span lang="en">Web</span>. A primeira deve ser utilizada para a menção, enquanto a segunda é usada para a definição de siglas. Quando uma sigla é mencionada pela primeira vez em um texto, opta-se pela marcação <code>&lt;dfn&gt;</code>. As próximas vezes que uma sigla for mencionada em um texto, pode ser utilizada a marcação <code>&lt;abbr&gt;</code> que visualmente suprime o significado da sigla. A utilização das duas marcações é mostrada na <a href="#listagemLang">Listagem X.Y</a>.</p>
+			<figure class="listagem" id="listagemLang">
+				<pre>
+					<ul>
+						<li>&lt;dfn&gt;Associação Catarinense para Integração do Cego&lt;/dfn&gt;</li>
+						<li>&lt;abbr</li>
+						<li> title="Associação Catarinense para Integração do Cego"&gt;</li>
+						<li>ACIC&lt;/abbr&gt;</li>
+					</ul>
+				</pre>
+				<figcaption>Utilização da marcação abbr.</figcaption>
+			</figure>
+			<p>As tabelas do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> também foram incorporadas com novos elementos. Dados tabulares que não possuem contextos bem declarados são difícies de serem compreendidos por usuários que dependem de leitores de tela. As novas marcações incorporadas às tabelas permitem uma melhor a definição de cabeçalhos, rodapés e colunas. A <a href="#listagemTabela">Listagem X.Y</a> mostra um exemplo de tabela acessível que define os elementos de cabeçalho de forma adequada e apresenta um texto descritivo para a tabela. A correta definição dos cabeçalhos permite que o leitor de tela informe ao usuário o exato contexto de cada célula lida.</p>
+			<figure class="listagem" id="listagemTabela">
+				<pre>
+					<ol>
+						<li>&lt;table&gt;</li>
+						<li> &lt;caption&gt;</li>
+						<li>  Situação de balneabilidade da Praia dos Ingleses</li>
+						<li> &lt;/caption&gt;</li>
+						<li> &lt;thead&gt;</li>
+						<li>  &lt;tr&gt;</li>
+						<li>   &lt;th&gt;Ponto de Coleta&lt;/th&gt;</li>
+						<li>   &lt;th&gt;Balneabilidade&lt;/th&gt;</li>
+						<li>  &lt;/tr&gt;</li>
+						<li> &lt;/thead&gt;</li>
+						<li> &lt;tbody&gt;</li>
+						<li>  &lt;tr&gt;</li>
+						<li>   &lt;td&gt;Em frente ao rio Capivari&lt;/td&gt;</li>
+						<li>   &lt;td&gt;&lt;em&gt;Impróprio&lt;/em&gt;&lt;/td&gt;</li>
+						<li>  &lt;/tr&gt;</li>
+						<li>  &lt;tr&gt;</li>
+						<li>   &lt;td&gt;Em frente ao Posto de Salva-Vidas&lt;/td&gt;</li>
+						<li>   &lt;td&gt;Próprio&lt;/td&gt;</li>
+						<li>  &lt;/tr&gt;</li>
+						<li>  &lt;tr&gt;</li>
+						<li>   &lt;td&gt;Em frente à Rua da Igreja&lt;/td&gt;</li>
+						<li>   &lt;td&gt;Próprio&lt;/td&gt;</li>
+						<li>  &lt;/tr&gt;</li>
+						<li>  &lt;tr&gt;</li>
+						<li>   &lt;td&gt;Em frente à Rua do Siri&lt;/td&gt;</li>
+						<li>   &lt;td&gt;Próprio&lt;/td&gt;</li>
+						<li>  &lt;/tr&gt;</li>
+						<li>  &lt;tr&gt;</li>
+						<li>   &lt;td&gt;Em frente à Rua Dante de Pata&lt;/td&gt;</li>
+						<li>   &lt;td&gt;Próprio&lt;/td&gt;</li>
+						<li>  &lt;/tr&gt;</li>
+						<li> &lt;/tbody&gt;</li>
+						<li>&lt;/table&gt;</li>
+					</ol>
+				</pre>
+				<figcaption>Exemplo de tabela acessível.</figcaption>
+			</figure>
+			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> traz também novas marcações para a criação de formulários. São elas: <code>&lt;progress&gt;</code> que representa o andamento da execução de uma tarefa, <code>&lt;meter&gt;</code> que representa uma medida escalar dentro de um intervalo conhecido, <code>&lt;datalist&gt;</code> que representa um conjunto de opções, <code>&lt;keygen&gt;</code> que representa um controle para geração de um par de chaves e <code>&lt;output&gt;</code> que exibe os resultados de um cálculo <a href="#referencia16"><cite class="parenteses">Kleinert, <time>2011</time></cite></a>. Além das novas marcações, também foram definidos novos valores para o atributo <code>type</code> da marcação <code>&lt;input&gt;</code>. Cada novo valor possui uma semântica diferente e é tratado de forma especifica pelo navegador. Os novos valores disponíveis são: <code>email</code>, <code>url</code>, <code>number</code>, <code>range</code>, <code>search</code>, <code>color</code>, <code>datetime</code>, <code>date</code>, <code>month</code>, <code>week</code>, <code>time</code> e <code>datetime-local</code>, sendo os seis últimos utilizados para tipos variados de dados temporais. Outra medida para melhorar a acessibilidade de formulários e utilizar, nos casos necessários, juntamente aos campos do formulário o atributo <code>tabindex</code>. Esse atributo permite definir a ordem que o campo será acessado ao utilizar a tecla <kbd>tab</kbd>.</p>
+			<p>Além da utilização adequada das marcações e atributos <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>, devem ser levadas em conta outros aspectos para a criação de páginas mais acessíveis. É importante sempre lembrar que um usuário que depende de leitores de tela, leva mais tempo para sintetizar o conteúdo existente em uma página. Por esse motivo, as páginas devem ser simples e evitar uma quatidade muito grande de conteúdo. Um dos recursos mais importantes do <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> são os enlaces. Por isso, não existe a necessidade colocar um conteúdo muito extenso em uma só página. Através dos enlaces é possível fragmentar uma página conteúdo extenso em diversas pequenas páginas. Essa abordagem torna a navegação dos conteúdos muito mais fácil e simples, pois usuário poderá acessar somente as páginas e os conteúdos de seu interesse. Em seguida são apresentadas medidas genéricas que facilitam a leitura de páginas <i lang="en">Web</i>:</p>
+			<ul>
+				<li>Utilizar textos claros e explicativos em enlaces. Evitar o uso de textos como "clique aqui", pois eles dificultam o entendimento do usuário. A utilização de textos descritivos nos enlaces permite o usuário saber com clareza o conteúdo da página de destino;</li>
+				<li>A adição de um enlace no inicio da página apontando diretamente para o início do conteúdo pode facilitar a utilização de usuários que dependem de leitores de tela. Nas páginas, muitas vezes a navegação é apresentada antes do conteúdo. Como os leitores de tela leem de forma linear, será necessário passar por todo menu de navegação até chegar ao conteúdo. Um enlace apontando diretamente para o conteúdo evita que o usuário que utiliza um leitor de tela precise navegar por todas opções até chegar ao conteúdo desejado;</li>
+				<li>Evitar frases longas. Frases curtas e bem pontuadas facilitam a leitura tanto para os usuários que dependem de leitores de tela quanto para os que não dependem. Para usuários que utilizam leitores de telas esta medida tem especial importância, pois os leitores possuem mecanismos para parar a leitura a cada pontuação e mecanismos para navegar entre as frases de um texto;</li>
+				<li>Evitar a repetição de conteúdos. A repetição faz com que o usuário tenha que passar mais vezes por um conteúdo que já leu. Além de tornar a leitura cansativa, essa medida torna difícil a compreensão do contexto por usuários que dependem de leitores de tela. Um usuário que passa por um conteúdo repetido pode se confundir e imaginar que voltou ao conteúdo por acidente. Caso um conteúdo precise ser reutilizado, então basta referenciá-lo através de um enlace;</li>
+				<li>Utilizar a estratégia da pirâmide invertida. Através dessa abordagem os conteúdos mais importantes devem ficar no topo da página, enquanto os detalhes são deixados para o final. Isso permite o usuário se contextualizar melhor sobre o conteúdo da página que está sendo acessada. Com isso, o usuário pode decidir rapidamente se determinado conteúdo é ou não de seu interesse;</li>
+				<li>Evitar o uso de fontes com serifas. Esse tipo de fonte possui detalhes, curvas e, em geral, espessuras bastante finas. Esses fatores dificultam a leitura por usuários com baixa visão;</li>
+				<li>Deve-se ter cuidado com a utilização de horas, datas, fórmulas, valores quantitativos e símbolos. O <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> possui marcações adequadas para representar horários e datas. Entretanto, não possui uma marcação para a unidade centímetro, por exemplo. Antes de usar alguma unidade deve-se ter certeza que o usuário compreende determinada notação. Além disso, leitores de tela podem ler unidades de medidas de forma diferente daquela conhecida pelas pessoas. Por exemplo, caso não seja possível saber se o usuário compreenderá que cm é a unidade equivalente a centímetros, então deve-se evitar o uso da palavra abreviada.</li>
 		</section>
 
 		<section class="textual">
@@ -814,6 +996,12 @@
 				<strong lang="en">OPENID FOUNDATION</strong>.
 				2006
 				Disponível em: <a href="http://openid.net/get-an-openid/what-is-openid">http://openid.net/get-an-openid/what-is-openid/</a>. Acesso em: agosto de 2013.
+			</p>
+			<p id="referencia16">
+				KLEINERT, Jan.
+				<strong lang="en">Making Forms Fabulous with HTML5.</strong>
+				2011
+				Disponível em: <a href="http://html5rocks.com/en/tutorials/forms/html5forms">http://html5rocks.com/en/tutorials/forms/html5forms</a>. Acesso em: maio de 2013.
 			</p>
 			<p id="referencia99">
 				CALDWELL, Ben <i lang="la">et al</i>.
