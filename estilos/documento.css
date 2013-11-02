@@ -114,15 +114,24 @@ section.capa > footer > time {
 
 section.preTextual > h1,
 section.posTextual > h1 {
-	font-weight: bold;
 	text-align: center;
-	text-transform: uppercase;
 }
 
+section.preTextual > ol > li,
+section.preTextual > ol > h1,
+section.preTextual > ol > h2,
+section.preTextual > ol > h3,
+section.preTextual > ol > h4,
+section.preTextual > ol > h5 {
+	margin-top: 1em;
+}
+
+section.preTextual > h1,
 section.preTextual > ol h1,
 section.textual > h1,
 section.textual > h1 > span,
-section.textual > h1 > i {
+section.textual > h1 > i,
+section.posTextual > h1 {
 	font-weight: bold;
 	text-transform: uppercase;
 }
@@ -130,46 +139,56 @@ section.textual > h1 > i {
 section.preTextual > ol h2,
 section.textual > h2,
 section.textual > h2 > span,
-section.textual > h2 > i {
+section.textual > h2 > i,
+section.posTextual > h2 {
 	text-transform: uppercase;
 }
 
 section.preTextual > ol h3,
 section.textual > h3,
 section.textual > h3 > span,
-section.textual > h3 > i {
+section.textual > h3 > i,
+section.posTextual > h3 {
 	font-weight: bold;
 }
 
 section.preTextual > ol h4,
 section.textual > h4,
 section.textual > h4 > span,
-section.textual > h4 > i {
+section.textual > h4 > i,
+section.posTextual > h4 {
 }
 
 section.preTextual > ol h5,
 section.textual > h5,
 section.textual > h5 > span,
-section.textual > h5 > i {
+section.textual > h5 > i,
+section.posTextual > h5 {
 	font-style: italic;
 }
 
 section.textual > ul,
-section.textual > ol {
+section.textual > ol,
+section.posTextual > ul,
+section.posTextual > ol {
 	margin-left: 2cm;
 }
 
 section.textual > ul > li,
-section.textual > ol > li {
+section.textual > ol > li,
+section.posTextual > ul > li,
+section.posTextual > ol > li {
 	list-style-position: outside;
 	text-align: justify;
 }
 
-section.textual > ul > li {
+section.textual > ul > li,
+section.posTextual > ul > li {
 	list-style-type: disc;
 }
 
-section.textual > ol > li {
+section.textual > ol > li,
+section.posTextual > ol > li {
 	list-style-type: decimal;
 }
 
@@ -182,7 +201,11 @@ section.posTextual > h1 {
 section.textual > h2,
 section.textual > h3,
 section.textual > h4,
-section.textual > h5 {
+section.textual > h5,
+section.posTextual > h2,
+section.posTextual > h3,
+section.posTextual > h4,
+section.posTextual > h5 {
 	margin-bottom: 24pt;
 	margin-top: 48pt;
 }
@@ -421,8 +444,23 @@ code {
 	padding: 0.2em;
 }
 
+kbd {
+	background: #EEE;
+	border-color: #BBB;
+	border-style: solid;
+	border-width: 0 1px 1px 0;
+	color: #666;
+	font-family: monospace;
+	font-size: 0.8em;
+	padding: 0.2em;
+	text-transform: uppercase;
+}
+
 figure > pre {
-	white-space: normal;
+	color: #666;
+	font-family: monospace;
+	tab-size: 4;
+	white-space: pre-wrap;
 }
 
 figure > img {
@@ -431,9 +469,10 @@ figure > img {
 	width: 100%;
 }
 
+figure > pre,
 figure > img,
-figure > pre > ul,
-figure > pre > ol,
+figure > ul,
+figure > ol,
 figure > figcaption {
 	background: #F5F5F5;
 	border-width: 1px;
@@ -443,23 +482,23 @@ figure > figcaption {
 	padding: 0.2em;
 }
 
-figure > pre > ul > li,
-figure > pre > ol > li {
+figure > ul > li,
+figure > ol > li {
 	color: #666;
 	font-family: monospace;
 	white-space: pre;
 }
 
-figure > pre > ol {
+figure > ol {
 	counter-reset: linha;
 }
 
-figure > pre > ol > li {
+figure > ol > li {
 	list-style-type: none;
 	counter-increment: linha;
 }
 
-figure > pre > ol > li::before {
+figure > ol > li::before {
 	background-color: #EEE;
 	border-width: 0 1px 0 0;
 	border-color: #DDD;
