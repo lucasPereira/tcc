@@ -64,6 +64,7 @@
 					}
 					referencia.setAttribute("href", "#" + identificador);
 					referencia.textContent = titulo.textContent;
+					tituloDoSumario.innerHTML = "";
 					tituloDoSumario.removeAttribute("id");
 					tituloDoSumario.appendChild(referencia);
 					sumario.appendChild(tituloDoSumario);
@@ -76,6 +77,7 @@
 					var referencia = document.createElement("a");
  					var identificador = titulo.getAttribute("id");
 					referencia.setAttribute("href", "#" + identificador);
+					tituloDoSumario.innerHTML = "";
 					referencia.textContent = titulo.textContent;
 					tituloDoSumario.classList.add("naoNumerado");
 					tituloDoSumario.removeAttribute("id");
@@ -946,8 +948,8 @@
 			<p>
 
 			<h3 id="secaoMaquinaEcossistemaInterrupcoes">Recebimento de interrupções pelos atores</h3>
-			<p>A <a href="#secaoLinguagemTratadores"></a> mostra que os atores poderão adicionar tratadores através da primitiva <code>seDito</code>. Essa primitiva recebe como parâmetro um lista contendo filtros e uma lista de instruções que deverão ser executadas caso alguma interrupção recebida seja aplicável ao filtro. Quando um ator recebe uma interrupção, ele buscará na tabela de tratadores filtros que casam com aquela interrupção. Serão, então, executados os tratadores dos filtros que casarem.</p>
-			<p>Do ponto de vista do sistema <i lang="en">runtime</i> da máquina Webis, tanto estímulos (<a href="#secaoMaquinaEcossistemaEstimulos"></a>) quanto mensagens de atores (<a href="#secaoMaquinaEcossistemaMensagens"></a>) serão tratados como interrupções. A caracterização de uma interrupção como um estímulo ou como uma mensagem, dependerá do filtro utilizado juntamente com a primitiva <code>seDito</code>.</p>
+			<p>A <a href="#secaoLinguagemInterrupcoes"></a> mostra que os atores poderão adicionar tratadores através da primitiva <code>seDito</code>. Essa primitiva recebe como parâmetro uma lista contendo filtros e uma lista de instruções que deverão ser executadas caso alguma interrupção recebida seja aplicável ao filtro. Quando um ator recebe uma interrupção, ele buscará na tabela de tratadores filtros que casam com aquela interrupção. Serão, então, executados os tratadores dos filtros que casarem.</p>
+			<p>Do ponto de vista do sistema <i lang="en">runtime</i> da máquina Webis, tanto estímulos (<a href="#secaoMaquinaEcossistemaEstimulos"></a>) quanto mensagens de atores (<a href="#secaoMaquinaEcossistemaComunicacaoDeAtores"></a>) serão tratados como interrupções. A caracterização de uma interrupção como um estímulo ou como uma mensagem, dependerá do filtro utilizado juntamente com a primitiva <code>seDito</code>.</p>
 			<p>Um fator importante é que o ecossistema sempre deverá repassar todos os estímulos e mensagens à todos atores. Caberá a cada ator decidir se tratará ou não determinada interrupção.</p>
 
 			<h4 id="secaoMaquinaEcossistemaEstimulos">Recebimento de estímulos pelos atores</h4>
@@ -955,7 +957,7 @@
 
 			<h4 id="secaoMaquinaEcossistemaComunicacaoDeAtores">Recebimento de mensagens pelos atores</h4>
 			<p>Assim como o recebimento de estímulos (<a href="#secaoMaquinaEcossistemaEstimulos"></a>), o recebimento de mensagens também será realizado através de interrupções (<a href="#secaoMaquinaEcossistemaEstimulos"></a>). A diferença entre um estímulo e uma mensagem é que o primeiro é gerado pelo ecossistema. Já no caso das mensagens, elas devem ser fornecidas de um ator para o ecossistema. O ecossistema se responsabilizará, então, de repassar a mensagem para todos os atores que estiverem instanciados naquele momento.
-			<p>A <a href="#secaoLinguagemTrocaDeMensagens"></a> descreve que a comunicação entre atores no Webis ocorrerá de forma assíncrona através do envio de mensagens. As mensagens serão sempre enviadas para todos os atores, portanto, não existirá uma forma nativa de comunicação direta de um para um. Quando dois atores precisarem se comunicar apenas entre eles, deverão estipular um protocolo para que isso seja possível.</p>
+			<p>A <a href="#secaoLinguagemInterrupcoesTrocaDeMensagens"></a> descreve que a comunicação entre atores no Webis ocorrerá de forma assíncrona através do envio de mensagens. As mensagens serão sempre enviadas para todos os atores, portanto, não existirá uma forma nativa de comunicação direta de um para um. Quando dois atores precisarem se comunicar apenas entre eles, deverão estipular um protocolo para que isso seja possível.</p>
 			<p>É importante lembrar que, devido ao modelo de execução do Webis, interrupções poderão ser perdidas. Por isso, uma vez que o recebimento de mensagens será realizado através do sistema de interrupções, não existirá garantias de que uma determinada mensagem será entregue. Por exemplo, se um ator receber uma mensagem no momento em que estiver tratando uma interrupção, então a mensagem recebida será descartada.</p>
 
 			<h3 id="secaoMaquinaEcossistemaInicializacao">Inicialização do sistema <i lang="en">runtime</i></h3>
@@ -999,7 +1001,7 @@
 
 			<h2 id="secaoWebisAmbiente">Ambiente Webis</h2>
 			<p>Além da linguagem de programação e do ambiente de execução, o Webis também será composto por um ambiente de programação. Assim como o ambiente de execução, o ambiente de programação também deverá ser inteiramente disponível através de um navegador <i lang="en">Web</i>. Para o desenvolvimento do ambiente de programação será utilizado o <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> em conjunto com algumas das suas mais recentes funcionalidades.</p>
-			<p>Para a criação do ambiente de programação são necessários diversos cuidados em relação a questões de acessibilidade. Um dos focos do Webis é permitir que qualquer pessoa possa aprender a programar e possa utilizar o ambiente sem ter que se preocupar com barreiras de acessibilidade. Por isso, as recomendações discutidas na <a href="secaoHtml5Acessibilidade"></a> serão aplicadas, permitindo assim, melhorar consideravelmente a acessibilidade do ambiente de programação.</p>
+			<p>Para a criação do ambiente de programação são necessários diversos cuidados em relação a questões de acessibilidade. Um dos focos do Webis é permitir que qualquer pessoa possa aprender a programar e possa utilizar o ambiente sem ter que se preocupar com barreiras de acessibilidade. Por isso, as recomendações discutidas na <a href="#secaoHtml5Acessibilidade"></a> serão aplicadas, permitindo assim, melhorar consideravelmente a acessibilidade do ambiente de programação.</p>
 			<p>Outra preocupação para o desenvolvimento do ambiente de programação está relacionada com a organização das funcionalidades disponíveis no sistema. Não basta que um determinado sistema <i lang="en">Web</i> seja acessível. É preciso também que o sistema seja fácil de ser utilizado. A abordagem adotada para alcançar esse objetivo será a de criar um sistema minimalista, onde cada página será responsável por fornecer uma determinada informação ou funcionalidade do sistema. O desenvolvimento de um ambiente com essas características evidencia a necessidade de se criar páginas pequenas e sem quantidades excessivas de conteúdo.</p>
 			<p>Outra característica importante para um sistema acessível e de fácil utilização é permitir que cada informação ou funcionalidade servida pelo sistema possa ser endereçável. Essa característica permite que para um usuário ter acesso a uma determinada funcionalidade, basta que ele tenha o endereço da funcionalidade. Em sistemas que não são totalmente endereçáveis é necessário que o usuário siga um conjunto de passos até que consiga ter acesso a uma determinada funcionalidade. Seguir um conjunto de passos pode, além de tornar o processo mais lento, dificultar o acesso do usuário. Usuários que dependem do uso de leitores de tela percebem de forma maximizada as dificuldades encontradas ao utilizar sistemas <i lang="en">Web</i> não endereçáveis. Isso porque a audição não é sintética como a visão. Assim, um usuário que depende do uso de um leitor de tela, levará mais tempo para identificar as ações necessárias até conseguir acessar a funcionalidade desejada. No Webis todas as funcionalidades serão endereçáveis e poderão ser acessadas com apenas uma requisição.</p>
 			<p>Além da endereçabilidade, é importante que a partir de qualquer ponto do sistema <i lang="en">Web</i> seja possível acessar facilmente outro ponto qualquer. Por exemplo, no caso do Webis existe uma página responsável por listar todos os apliques de um determinado usuário e existe também uma página responsável pela edição de algum aplique específico. Considerando que um usuário esteja na página de edição de um aplique, para garantir uma boa navegabilidade, deve ser possível que, a partir da página em que está, o usuário possa acessar facilmente a página com a listagem de apliques.</p>
