@@ -167,8 +167,7 @@
 
 		<section class="preTextual" id="listaDeFiguras">
 			<h1>Lista de figuras</h1>
-			<ol>
-			</ol>
+			<ol></ol>
 		</section>
 
 		<section class="preTextual" id="listaDeListagens">
@@ -422,7 +421,7 @@
 				</ol>
 				<figcaption>Adição de um tratador para recebimento de mensagens.</figcaption>
 			</figure>
-			<p>Na <a href="#listagemMensagemAtor2"></a> é mostrado o código executado pelo <code>"ator2"</code> para enviar a mensagem ao <code>"ator1"</code>. É interessante perceber que se existisse um <code>"ator3"</code> e fosse desejado enviar a mensagem para ele ao invés de enviar ao <code>"ator1"</code>, então bastaria trocar o primeiro valor enviado na mensagem para <code>"ator3"</code>.<p>
+			<p>Na <a href="#listagemMensagemAtor2"></a> é mostrado o código executado pelo <code>"ator2"</code> para enviar a mensagem ao <code>"ator1"</code>. É interessante perceber que se existisse um <code>"ator3"</code> e fosse desejado enviar a mensagem para ele ao invés de enviar ao <code>"ator1"</code>, então bastaria trocar o primeiro valor enviado na mensagem para <code>"ator3"</code>.</p>
 			<figure class="listagem" id="listagemMensagemAtor2">
 				<ol>
 					<li>["ator1" "andar" 120] dizer</li>
@@ -511,7 +510,7 @@
 			</ol>
 			<figure class="figura" id="figuraExecucaoEmFluxoUnico">
 				<img src="imagens/modeloDeExecucaoJavaScript.png" />
-				<figcaption>Modelo de execuçao <span lang="en">JavaScript</span> em fluxo único.</figcaption>
+				<figcaption>Modelo de execuçao do <span lang="en">JavaScript</span> em fluxo único.</figcaption>
 			</figure>
 
 			<h3 id="secaoHtml5JavaScriptWebWorkers">Web Workers e paralelismo</h3>
@@ -781,7 +780,6 @@
 			<p>No Webis, um símbolo pode ser uma primitiva básica fornecida pela linguagem, um operador, uma agenda de um ator ou uma variável. Quando a máquina encontra um símbolo, ela tenta executá-lo para algum desses casos. Caso a máquina não consiga executar o símbolo em questão, então uma exceção é lançada, e, em geral, isso ocorre devido a erros de programação do usuário.</p>
 			<p>Conforme mostrado na <a href="#secaoMaquinaGeracaoDeCodigo"></a>, cada elemento sintático da linguagem Webis será traduzido para um elemento <span lang="en">JavaScript</span> que o represente. Cada um desses elementos <span lang="en">JavaScript</span> corresponderá a uma instrução da máquina e cada elemento deverá implementar o método <code>executar</code>. Esse método deverá receber como parâmetro pela máquina Webis o contexto da execução que conterá a pilha de dados e o escopo de variáveis.</p>
 			<p>No proceso de tradução, alguns elementos, como o <code>texto</code>, são traduzidos para tipo nativos do <span lang="en">JavaScript</span>, nesse caso para <code>String</code>. Existem também aqueles elementos sintáticos que serão traduzidos para tipos próprios, como é o caso da <code>atribuicao</code> que será traduzida para um objeto do tipo <code>Associar</code>. Um dos pontos interessantes da orientação a objetos por prototipação do <span lang="en">JavaScript</span> é permitir que a interface de um determinado tipo de objeto seja modificada de forma dinâmica, em tempo de execução. Por exemplo, é possível adicionar de forma dinâmica um método no protótipo <code>String</code>. É justamente essa característica que permite que todos os elementos da entrada da máquina Webis saibam se executar, inclusive tipos nativos. No caso dos tipos nativos como <code>String</code>, <code>Array</code>, <code>Number</code> e <code>Boolean</code> é adicionado de forma dinâmica ao protótipo desses tipos o método <code> executar</code>. Com isso, a máquina Webis poderá executar de forma polimórfica todas as instruções recebidas na entrada.</p>
-			<p>
 
 			<h2 id="secaoMaquinaSistemaRuntime">Sistema <i lang="en">runtime</i></h2>
 			<p>Conforme mostrado na <a href="#secaoLinguagemModeloDeExecucao"></a>, o modelo de execução do Webis será não bloqueante. Isso significa que o ator poderá ser interrompido enquanto estiver em execução. Quando isso ocorrer, o ator irá parar sua execução e irá tratar a interrupção em questão. Além disso, o ator tratará apenas uma interrupção por vez e poderá perder interrupções enquanto estiver tratando outra.</p>
@@ -945,7 +943,6 @@
 				<li><code>INVISIVEL</code>: ator se torna graficamente invisível.</li>
 				<li><code>CARIMBAR</code>: aparência do ator é pintada em sua posição atual.</li>
 			</ul>
-			<p>
 
 			<h3 id="secaoMaquinaEcossistemaInterrupcoes">Recebimento de interrupções pelos atores</h3>
 			<p>A <a href="#secaoLinguagemInterrupcoes"></a> mostra que os atores poderão adicionar tratadores através da primitiva <code>seDito</code>. Essa primitiva recebe como parâmetro uma lista contendo filtros e uma lista de instruções que deverão ser executadas caso alguma interrupção recebida seja aplicável ao filtro. Quando um ator recebe uma interrupção, ele buscará na tabela de tratadores filtros que casam com aquela interrupção. Serão, então, executados os tratadores dos filtros que casarem.</p>
@@ -1160,7 +1157,7 @@
 			</p>
 			<p id="referencia10">
 				KESTEREN, A.; GREGOR A.; MS2GER.
-				<strong lang="en"><abbr="Document Object Model">DOM</abbr></strong>.
+				<strong lang="en"><abbr title="Document Object Model">DOM</abbr></strong>.
 				<span lang="en">Web Hypertext Application Technology Working Group</span>,
 				2013.
 				Disponível em: <a href="http://dom.spec.whatwg.org">http://dom.spec.whatwg.org</a>.
