@@ -68,6 +68,20 @@
 					tituloDoSumario.appendChild(referencia);
 					sumario.appendChild(tituloDoSumario);
 				}
+				var selecaoTitulosPosTextuais = "section.posTextual > h1";
+				var titulosPosTextuais = document.querySelectorAll(selecaoTitulosPosTextuais);
+				for (var contador = 0, tamanho = titulosPosTextuais.length; contador < tamanho; contador++) {
+					var titulo = titulosPosTextuais.item(contador);
+					var tituloDoSumario = titulo.cloneNode();
+					var referencia = document.createElement("a");
+ 					var identificador = titulo.getAttribute("id");
+					referencia.setAttribute("href", "#" + identificador);
+					referencia.textContent = titulo.textContent;
+					tituloDoSumario.classList.add("naoNumerado");
+					tituloDoSumario.removeAttribute("id");
+					tituloDoSumario.appendChild(referencia);
+					sumario.appendChild(tituloDoSumario);
+				}
 				atualizarReferencias("secao", "Seção", sumarioJson);
 			}
 
@@ -1011,7 +1025,7 @@
 
 			<h3 id="secaoWebisAmbienteAcessibilidadeEDocumentacao">Acessibilidade e documentação</h3>
 			<p>O ambiente Webis conterá uma seção responsável por apresentar a acessibilidade do sistema. A seção de acessibilidade irá expor os conceitos discutidos na <a href="#html5Acessibilidade"></a> e irá apresentar a estrutura de navegação, os atalhos disponíveis através do teclado e outras questões gerais relacionadas a acessibilidade do ambiente.</p>
-			<p>Com a finalidade de auxiliar o programador, o ambiente Webis possuirá também uma página contendo todas as primitivas disponíveis na linguagem. Cada primitiva será apresentada juntamente com exemplos de utilização. A listagem com todas as primitivas disponibilizadas na linguagem Webis pode ser encontrada em <a href="http://webis.edugraf.ufsc.br/webis/primitivas">webis.edugraf.ufsc.br/webis/primitivas</a> ou no <a href="#anexo2">Anexo 2</a>.</p>
+			<p>Com a finalidade de auxiliar o programador, o ambiente Webis possuirá também uma página contendo todas as primitivas disponíveis na linguagem. Cada primitiva será apresentada juntamente com exemplos de utilização. A listagem com todas as primitivas disponibilizadas na linguagem Webis pode ser encontrada em <a href="http://webis.edugraf.ufsc.br/webis/primitivas">webis.edugraf.ufsc.br/webis/primitivas</a> ou no <a href="#anexoC">Anexo C</a>.</p>
 
 			<h2 id="secaoWebisColaboracao">Ambiente colaborativo</h2>
 			<p>O Webis possui uma abordagem voltada para permitir a criação de um ambiente colaborativo de desenvolvimento, onde programadores possam desenvolver e compartilhar soluções. É por esse motivo que os programas Webis poderão ser visualizados por qualquer pessoa. Mais do que isso, programas Webis poderão ser reutilizados e modificados para permitir que programadores possam trabalhar em conjunto para resolver um determinado problema. Qualquer programa Webis, criado através do ambiente, será implicitamente livre. O livre compartilhamento dos programas Webis traz algumas vantagens:</p>
@@ -1071,7 +1085,7 @@
 				<figcaption>Mapa de teclas do jogo COMe SOMe.</figcaption>
 			</figure>
 			<p>Para permitir que o jogador tenha uma referência da posição de seu personagem, o COMe emite um som. O som do COMe é tocado sempre que o jogador pressionar a tecla <kbd>espaço</kbd>. Já o som emitido pelo SOMe é tocado automaticamente a cada dois segundos.</p>
-			<p>Através do desenvolvimento do jogo COMe SOMe foi possível mostrar que programadores iniciantes podem aprender a programar de forma divertida, através do desenvolvimento de jogos. O sistema de sons do Webis também se mostrou eficaz no sentido de permitir enriquecer os programas desenvolvidos e garantir um acesso mais amplo a esses programas. O acesso mais amplo possibilita que até mesmo pessoas com deficiência visual possam não somente executar os programas, mas também desenvolve-los. O <a href="#anexo1">Anexo I</a> apresenta o código Webis do jogo COMe SOMe.</p>
+			<p>Através do desenvolvimento do jogo COMe SOMe foi possível mostrar que programadores iniciantes podem aprender a programar de forma divertida, através do desenvolvimento de jogos. O sistema de sons do Webis também se mostrou eficaz no sentido de permitir enriquecer os programas desenvolvidos e garantir um acesso mais amplo a esses programas. O acesso mais amplo possibilita que até mesmo pessoas com deficiência visual possam não somente executar os programas, mas também desenvolve-los. O <a href="#anexoB">Anexo B</a> apresenta o código Webis do jogo COMe SOMe.</p>
 		</section>
 
 		<section class="textual">
@@ -1213,8 +1227,11 @@
 		</section>
 
 		<section class="posTextual">
-			<h1 id="anexo1">Anexo I</h1>
-			<p>Código Webis do jogo COMe SOMe.</p>
+			<h1 id="anexoA">Anexo A - Artigo.</h1>
+		</section>
+
+		<section class="posTextual">
+			<h1 id="anexoB">Anexo B - Código Webis do jogo COMe SOMe.</h1>
 			<figure>
 				<pre>"Come" [
 	"iniciar" [
@@ -1408,8 +1425,7 @@ inicializar</pre>
 		</section>
 
 		<section class="posTextual">
-			<h1 id="anexo2">Anexo II</h1>
-			<p>Primitivas disponiveis no Webis.</p>
+			<h1 id="anexoC">Anexo C - Primitivas disponíveis no Webis.</h1>
 
 			<h2 id="anexo2Agenda">Agenda</h2>
 			<ul>

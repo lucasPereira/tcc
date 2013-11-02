@@ -117,6 +117,15 @@ section.posTextual > h1 {
 	text-align: center;
 }
 
+section.preTextual > ol > li,
+section.preTextual > ol > h1,
+section.preTextual > ol > h2,
+section.preTextual > ol > h3,
+section.preTextual > ol > h4,
+section.preTextual > ol > h5 {
+	margin-top: 1em;
+}
+
 section.preTextual > h1,
 section.preTextual > ol h1,
 section.textual > h1,
