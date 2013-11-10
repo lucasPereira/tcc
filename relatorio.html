@@ -17,50 +17,50 @@
 					"section.textual > h6";
 				var titulos = document.querySelectorAll(selecaoTitulos);
 				var sumario = document.querySelector("section#sumario > ol");
-				var contadorH1 = 1;
-				var contadorH2 = 1;
-				var contadorH3 = 1;
-				var contadorH4 = 1;
-				var contadorH5 = 1;
-				var contadorH6 = 1;
+				var contadorH1 = 0;
+				var contadorH2 = 0;
+				var contadorH3 = 0;
+				var contadorH4 = 0;
+				var contadorH5 = 0;
+				var contadorH6 = 0;
 				for (var contador = 0, tamanho = titulos.length; contador < tamanho; contador++) {
 					var titulo = titulos.item(contador);
 					var tituloDoSumario = titulo.cloneNode();
 					var referencia = document.createElement("a");
 					var identificador = titulo.getAttribute("id");
 					if (titulo.tagName === "H1") {
-						sumarioJson[identificador] = (contadorH1 + "");
 						contadorH1++;
-						contadorH2 = 1;
-						contadorH3 = 1;
-						contadorH4 = 1;
-						contadorH5 = 1;
-						contadorH6 = 1;
+						sumarioJson[identificador] = { numeracao: (contadorH1 + "") };
+						contadorH2 = 0;
+						contadorH3 = 0;
+						contadorH4 = 0;
+						contadorH5 = 0;
+						contadorH6 = 0;
 					} else if (titulo.tagName === "H2") {
-						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2) };
 						contadorH2++;
-						contadorH3 = 1;
-						contadorH4 = 1;
-						contadorH5 = 1;
-						contadorH6 = 1;
+						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2) };
+						contadorH3 = 0;
+						contadorH4 = 0;
+						contadorH5 = 0;
+						contadorH6 = 0;
 					} else if (titulo.tagName === "H3") {
-						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2+"."+contadorH3) };
 						contadorH3++;
-						contadorH4 = 1;
-						contadorH5 = 1;
-						contadorH6 = 1;
+						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2+"."+contadorH3) };
+						contadorH4 = 0;
+						contadorH5 = 0;
+						contadorH6 = 0;
 					} else if (titulo.tagName === "H4") {
-						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2+"."+contadorH3+"."+contadorH4) };
 						contadorH4++;
-						contadorH5 = 1;
-						contadorH6 = 1;
+						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2+"."+contadorH3+"."+contadorH4) };
+						contadorH5 = 0;
+						contadorH6 = 0;
 					} else if (titulo.tagName === "H5") {
-						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2+"."+contadorH3+"."+contadorH4+"."+contadorH5) };
 						contadorH5++;
-						contadorH6 = 1;
+						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2+"."+contadorH3+"."+contadorH4+"."+contadorH5) };
+						contadorH6 = 0;
 					} else if (titulo.tagName === "H6") {
-						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2+"."+contadorH3+"."+contadorH4+"."+contadorH5+"."+contadorH6) };
 						contadorH6++;
+						sumarioJson[identificador] = { numeracao: (contadorH1+"."+contadorH2+"."+contadorH3+"."+contadorH4+"."+contadorH5+"."+contadorH6) };
 					}
 					referencia.setAttribute("href", "#" + identificador);
 					referencia.textContent = titulo.textContent;
@@ -160,6 +160,14 @@
 			</footer>
 		</section>
 
+		<section class="preTextual" id="resumo">
+			<h1>Resumo</h1>
+			<p>As dificuldades encontradas no aprendizado de uma primeira linguagem de programação estão relacionadas com a própria linguagem que é objeto de estudo e também com o ambiente de programação a ser utilizado. Boa parte das linguagens não possuem regras sintáticas e semânticas simples e tão pouco oferecem um ambiente de programação simplificado e intuitivo. Isso ocorre, pois na maioria dos casos, as linguagens de programação são desenvolvidas com um foco profissional e não de aprendizado <cite class="parenteses"><a href="#referencia1">Gomes; Mendes, <time>2012</time></a></cite>.</p>
+			<p>Telis é uma linguagem e um ambiente de programação que busca resolver esse problema através de uma sintaxe simples e de uma abordagem que traz de forma natural na linguagem conceitos avançados de linguagens de programação. Entretanto, Telis não resolve o problema de pessoas com deficiência visual e que dependem da utilização de leitores de tela.</p>
+			<p>Este trabalho terá o objetivo de unir as principais características de Telis com uma acessibilidade mais adequada e que permita que pessoas com deficiência visual possam ter um maior poder de expressão. Essa junção resultará no desenvolvimento de uma nova linguagem e de um novo ambiente de programação <i lang="en">Web</i>, chamados de Webis.</p>
+			<p><strong>Palavras-chave</strong>: linguagens de programação, Web, acessibilidade, pessoas com deficiência visual.</p>
+		</section>
+
 		<section class="preTextual" id="sumario">
 			<h1>Sumário</h1>
 			<ol></ol>
@@ -177,7 +185,7 @@
 
 		<section class="textual">
 			<h1 id="secaoIntroducao">Introdução</h1>
-			<p>As dificuldades encontradas no aprendizado de uma primeira linguagem de programação estão relacionadas com a própria linguagem que é objeto de estudo e também com o ambiente de programação a ser utilizado. Boa parte das linguagens não possuem regras sintáticas e semânticas simples e tão pouco oferecem um ambiente de programação simplificado e intuitivo. Isso ocorre, pois na maioria dos casos, as linguagens de programação são desenvolvidas para serem ferramentas profissionais e não de aprendizado <cite class="parenteses"><a href="#referencia1">Gomes; Mendes, <time>2012</time></a></cite>. Em decorrência desse fato, o primeiro contato com uma linguagem de programação pode ser muitas vezes traumático, fazendo com que o programador iniciante perca o interesse.</p>
+			<p>As dificuldades encontradas no aprendizado de uma primeira linguagem de programação estão relacionadas com a própria linguagem que é objeto de estudo e também com o ambiente de programação a ser utilizado. Boa parte das linguagens não possuem regras sintáticas e semânticas simples e tão pouco oferecem um ambiente de programação simplificado e intuitivo. Isso ocorre, pois na maioria dos casos, as linguagens de programação são desenvolvidas com um foco profissional e não de aprendizado <cite class="parenteses"><a href="#referencia1">Gomes; Mendes, <time>2012</time></a></cite>. Em decorrência desse fato, o primeiro contato com uma linguagem de programação pode ser muitas vezes traumático, fazendo com que o programador iniciante perca o interesse.</p>
 			<p>A linguagem Telis, desenvolvida no <dfn>Laboratório de Software Educacional <abbr title="Laboratório de Software Educacional">Edugraf</abbr></dfn>, possui regras sintáticas e semânticas simples que podem ser facilmente assimiladas. Telis também é o nome do ambiente de programação oferecido para a linguagem. Um programa Telis pode ser executado em um navegador <i lang="en">Web</i> através do uso de <i lang="en">applets</i> Java <cite class="parenteses"><a href="#referencia2">Pieri <i lang="la"> et al</i>, <time>2009</time></a></cite>. <cite><a href="#referencia3">Saviski <time>2010</time></a></cite>, propôs o porte da linguagem Telis para execução nativa em navegadores <i lang="en">Web</i>, sem a necessidade da utilização de <i lang="en">applets</i>. A abordagem adotada foi a de gerar em <span lang="en">JavaScript</span>, linguagem interpretada nativamente pelos navegadores, o código escrito em Java da já existente máquina Telis.</p>
 			<p>O presente projeto terá embasamento no projeto desenvolvido por <cite><a href="#referencia3">Saviski <time>2010</time></a></cite> e consistirá do desenvolvimento de uma linguagem baseada em Telis e de uma máquina de execução escrita diretamente em <span lang="en">JavaScript</span>. O projeto também deverá ter grande foco no ambiente de programação que deverá ser executado nativamente por navegadores Web. O novo ambiente e a nova linguagem de programação a serem desenvolvidos serão chamados doravante de Webis.</p>
 			<p>A importância de um ambiente de programação acessível está no fato de possibilitar que qualquer pessoa possa aprender uma primeira linguagem de programação de maneira fácil e sem ter que se deparar com barreiras de acessibilidade. Garantir a acessibilidade é permitir que uma pessoa cega, por exemplo, possa utilizar o ambiente sem maiores dificuldades.</p>
@@ -208,11 +216,11 @@
 			<h1 id="secaoLinguagem">Definição da linguagem baseada em Telis</h1>
 			<p>A linguagem Telis que vem sendo desenvolvida desde <time>1998</time> <cite class="parenteses"><a href="#referencia4">Pieri, <time>2007</time></a></cite> pelo <abbr title="Laboratório de Software Educacional">Edugraf</abbr>, permite, através de construções sintáticas e semânticas simples, que o programador tenha um grande poder de expressão e possa expor de forma natural conceitos avançados como orientação a objetos, paralelismo, programação distribuída, programação de eventos e outros.</p>
 			<p>A linguagem Webis será criada a partir da linguagem Telis. As construções léxicas e sintáticas da nova linguagem serão muito semelhantes às mesmas existentes em Telis. A diferença entre as duas linguagens estará principalmente relacionada com os novos requisitos da linguagem Webis. Por exemplo, como Webis deverá ter suporte à manipulação de sons 3D, será necessário que esses recursos sejam incorporados à nova linguagem.</p>
-			<p>Outra diferença entre a linguagem Telis e Webis estará na forma de comunicação utilizada. Em Telis é possível realizar a comunicação direta e imperativa da mesma forma que existe na orientação a objetos. É possível também realizar a comunicação através de interrupções baseadas em tuplas. Webis usará apenas a segunda forma de comunicação.</p>
+			<p>Outra diferença entre a linguagem Telis e Webis estará na forma de comunicação utilizada. Em Telis é possível realizar a comunicação direta e imperativa da mesma forma que existe na programação orientada a objetos. É possível também realizar a comunicação através de interrupções baseadas em tuplas. Webis usará apenas a segunda forma de comunicação.</p>
 			<p>A linguagem Webis, portanto, deverá ser constituída pela junção de um subconjunto de funcionalidades da linguagem Telis com um conjunto de novas funcionalidades específicas para a linguagem Webis. A sintaxe e semântica das duas linguagens, entretanto, será praticamente a mesma, tendo apenas algumas pequenas diferenças.</p>
 
 			<h2 id="secaoLinguagemGramatica">Gramática</h2>
-			<p>A linguagem Webis pode ser expressa através de uma gramática livre de contexto do tipo LL. Gramáticas do tipo LL possuem um conjunto adicional de restrições que permitem que a gramática possa ser analisada por um <i lang="en">parser</i> preditivo determinístico, ou seja, sem <i lang="en">backtracking</i>. Analisadores do tipo LL possuem ainda um parâmetro <var>k</var> chamado de <i lang="en">lookahed</i>. Esse parâmetro indica a quantidade de símbolos que serão levados em consideração em um passo do algoritmo. Quanto maior é o valor de <var>k</var> mais lento é o processo de análise e, em contra partida, menor é o número de não fatorações que uma produção da gramática pode conter. Uma gramática é dita fatorada se ela não possui produções que derive sequências que inicie com o mesmo <i lang="en">token</i> por mais de um caminho.</p>
+			<p>A linguagem Webis pode ser expressa através de uma gramática livre de contexto do tipo LL. Gramáticas do tipo LL possuem um conjunto adicional de restrições que permitem a análise por um <i lang="en">parser</i> preditivo determinístico, ou seja, sem <i lang="en">backtracking</i>. Analisadores do tipo LL possuem ainda um parâmetro <var>k</var> chamado de <i lang="en">lookahed</i>. Esse parâmetro indica a quantidade de símbolos que serão levados em consideração em um passo do algoritmo. Quanto maior é o valor de <var>k</var> mais lento é o processo de análise e, em contra partida, menor é o número de não fatorações que uma produção da gramática pode conter. Uma gramática é dita fatorada se ela não possui produções que derive sequências que inicie com o mesmo <i lang="en">token</i> por mais de um caminho.</p>
 			<p>Considerando um exemplo onde <var>k</var> é igual a um, então a gramática não pode ter nenhum símbolo não fatorado. Já se <var>k</var> é igual a dois, então a gramática pode conter apenas produções com no máximo um símbolo não fatorado.</p>
 			<p>A gramática do Webis descrita em <abbr lang="en" title="Extended Backus Normal Form">EBNF</abbr> é mostrada na <a href="#listagemGramaticaDoWebis"></a>.</p>
 			<figure class="listagem" id="listagemGramaticaDoWebis">
@@ -241,19 +249,19 @@
 				<figcaption>Gramática do Webis.</figcaption>
 			</figure>
 			<p>Os itens entre parênteses angulares são definidos através de expressões regulares e representam <i lang="en">tokens</i> provenientes da análise léxica (<a href="#secaoMaquinaGeracaoDeCodigoAnaliseLexica"></a>). 
-			<p>Em gramáticas do tipo LL(k), o valor mínimo de <var>k</var> é dependente da linguagem. Existem linguagens onde nem sempre é possível construir uma gramática que seja completamente fatorada, ou seja, onde <var>k</var> é igual a um. Esse é o caso do Webis que possui uma gramática do tipo LL(2). A não fatoração no Webis ocorre na produção <code>palavra</code>, pois nela é possível que um <code>&lt;IDENTIFICADOR&gt;</code> seja derivado por três caminhos diferentes: pelas produções <code>simbolo</code>, <code>atribuicao</code> e <code>instanciacao</code>.</p>
-			<p>Essa não fatoração gera um não determinismo, pois o analisador não sabe por qual caminho seguir quando encontra um <code>&lt;IDENTIFICADOR&gt;</code>. Para resolver esse problema é necessário que o algoritmo possa receber como entrada os dois próximos <i lang="en">tokens</i> e não apenas um. Com isso, ao perceber um <code>&lt;IDENTIFICADOR&gt;</code>, o analisador deverá ver qual é o próximo <i lang="en">token</i> para saber por qual produção a derivação irá seguir.</p>
+			<p>Em gramáticas do tipo LL(k), o valor mínimo de <var>k</var> é dependente da linguagem. Existem linguagens onde nem sempre é possível construir uma gramática que seja completamente fatorada, ou seja, onde <var>k</var> é igual a um. Esse é o caso do Webis que possui uma gramática do tipo LL(2). A não fatoração no Webis ocorre na produção <code>palavra</code>, pois nela é possível que um <code>&lt;IDENTIFICADOR&gt;</code> seja derivado por três caminhos diferentes, pelas produções <code>simbolo</code>, <code>atribuicao</code> e <code>instanciacao</code>.</p>
+			<p>A não fatoração gera um não determinismo, pois o analisador não sabe por qual caminho seguir quando encontra um <code>&lt;IDENTIFICADOR&gt;</code>. Para resolver esse problema é necessário que o algoritmo possa receber como entrada os dois próximos <i lang="en">tokens</i> e não apenas um. Com isso, ao perceber um <code>&lt;IDENTIFICADOR&gt;</code>, o analisador deverá ver qual é o próximo <i lang="en">token</i> para saber por qual produção a derivação irá seguir.</p>
 			<p>Apesar da gramática do Webis requerer um analisador do tipo LL(2) e este ser mais lento se comparado a um do tipo LL(1), isso não vem a ser um problema devido a boa performance dos computadores e analisadores atuais.</p>
 
 			<h2 id="secaoLinguagemPilha">Pilha</h2>
-			<p>As pilhas serão parte fundamental no Webis e permitirão armazenar valores temporários. As pilhas serão utilizadas para a passagem de parâmetros para primitivas (<a href="#secaoLinguagemPrimitivas"></a>) e agendas (<a href="#secaoLinguagemMdelosAgendasEAtores"></a>). Cada ator (<a href="#secaoLinguagemMdelosAgendasEAtores"></a>) possuirá uma pilha própria e exclusiva. Portanto, um ator não poderá acessar ou manipular a pilha de outro. Um valor colocado na pilha ficará disponível para ser utilizado por comandos futuros. Caso um novo valor seja empilhado, então a pilha passará a conter dois valores, sendo que o valor mais recente deverá estar no topo. Por exemplo, ao final da execução do código da <a href="#listagemPilha"></a>, a pilha conterá dois valores e o valor <code>30</code> deverá estar no topo.</p>
+			<p>As pilhas serão utilizadas no Webis para armazenar valores temporários e permitir a passagem de parâmetros para primitivas (<a href="#secaoLinguagemPrimitivas"></a>) e agendas (<a href="#secaoLinguagemMdelosAgendasEAtores"></a>). Cada ator (<a href="#secaoLinguagemMdelosAgendasEAtores"></a>) possuirá uma pilha própria e exclusiva. Portanto, um ator não poderá acessar ou manipular a pilha de outro. Um valor colocado na pilha ficará disponível para ser utilizado por comandos futuros. Caso um novo valor seja empilhado, então a pilha passará a conter dois valores e o valor mais recente deverá estar no topo. Por exemplo, ao final da execução do código da <a href="#listagemPilha"></a>, a pilha conterá dois valores e o valor <code>30</code> deverá estar no topo.</p>
 			<figure class="listagem" id="listagemPilha">
 				<ul>
 					<li>5 30</li>
 				</ul>
-				<figcaption>Execução de código Webis que armazenará dois valores na pilha.</figcaption>
+				<figcaption>Armazenamento de dois valores na pilha.</figcaption>
 			</figure>
-			<p>Os valores contidos na pilha poderão ser consumidos por comandos Webis. Além disso, os comandos também poderão adicionar novos valores na pilha. A <a href="#listagemDivisao"></a> mostra a execução de um código Webis onde inicialmente são empilhados os valores <code>10</code> e <code>5</code>. O passo seguinte é a execução do comando <code>/</code> que realiza a divisão entre dois números. O comando irá consumir os dois elementos da pilha, realizar o cálculo e, ao final, irá empilhar o	 resultado <code>2</code>.</p>
+			<p>Os valores contidos na pilha poderão ser consumidos por comandos Webis. Além disso, os comandos também poderão adicionar novos valores na pilha. A <a href="#listagemDivisao"></a> mostra a execução de um código Webis onde inicialmente são empilhados os valores <code>10</code> e <code>5</code>. Em seguida é executado o comando <code>/</code> que realiza a divisão entre dois números. O comando irá consumir os dois elementos da pilha, realizar o cálculo e, ao final, irá empilhar o resultado <code>2</code>.</p>
 			<figure class="listagem" id="listagemDivisao">
 				<ul>
 					<li>10 5 /</li>
@@ -270,11 +278,11 @@
 				<ul>
 					<li>100 gerarAleatório frente</li>
 				</ul>
-				<figcaption>Geração de um número aleatório de 1 a 100 e deslocamento do ator para frente.</figcaption>
+				<figcaption>Geração de um número aleatório e deslocamento do ator para frente.</figcaption>
 			</figure>
 
 			<h2 id="secaoLinguagemVariaveisEEscopos">Variáveis e escopos</h2>
-			<p>O Webis possuirá um escopo de variáveis bastante simples que estará restrito a cada ator. Cada ator possuirá o seu escopo onde poderá escrever e ler variáveis. A escrita de variáveis será realizada através da primitiva <code>associar</code> que consome dois parâmetros da pilha: o valor e o nome da variável. Para ler uma variável, bastará utilizar o seu nome. A leitura de uma variável consiste em colocá-la na pilha para que possa ser consumida por comandos futuros. A primitiva <code>associar</code> simplesmente associa um nome a um valor e guarda a associação na tabela de variáveis do ator. Caso a variável já exista, então o valor associado a ela será substituído pelo novo valor.</p>
+			<p>O Webis possuirá um escopo de variáveis bastante simples que será restrito a cada ator. Cada ator possuirá o seu escopo onde poderá escrever e ler variáveis. A escrita de variáveis será realizada através da primitiva <code>associar</code> que consumirá dois parâmetros da pilha: o valor e o nome da variável. A primitiva <code>associar</code> simplesmente associa um nome a um valor e guarda a associação na tabela de variáveis do ator. Caso a variável já exista, então o valor associado a ela será substituído pelo novo valor. Já para ler uma variável, bastará utilizar o seu nome. A leitura de uma variável consiste em colocar o seu valor na pilha para que ele possa ser consumido por comandos futuros.</p>
 			<p>A <a href="#listagemAssociar"></a> mostra um exemplo de utilização de variáveis. Na primeira linha é definida a variável <code>deslocamento</code> contendo o valor <code>50</code>. Já na segunda linha, a variável associada é lida e colocada na pilha para ser consumida pela primitiva <code>frente</code>.</p>
 			<figure class="listagem" id="listagemAssociar">
 				<ol>
@@ -302,17 +310,17 @@
 			</figure>
 
 			<h2 id="secaoLinguagemMdelosAgendasEAtores">Modelos, agendas e atores</h2>
-			<p>No Webis existirá o conceito de ator. Cada ator será uma unidade independente que possui o seu próprio contexto de execução. Um ator é um exemplar de um modelo que por sua vez é composto por agendas. Já as agendas definem comportamentos inerentes ao modelo em questão. Pode-se relacionar modelos, agendas e atores com conceitos provenientes da programação orientada a objetos. Um modelo, por exemplo, pode ser relacionado com o conceito de classe. Da mesma forma, agendas estão relacionadas com métodos e atores com objetos.</p>
-			<p>Um programa Webis em execução nada mais é que a execução e interação dos diversos atores que fazem parte do programa. Cada ator é executado separadamente em sua própria <i lang="en">thread</i> e isso permite que os programadores explorem de forma natural o paralelismo. Desde os primeiros programas os alunos já utilizam programação concorrente e fazem isso de forma simples e intuitiva. Além de ter um espaço de execução próprio, os atores possuem o seu próprio escopo de variáveis e a sua própria pilha. Portanto, nenhum recurso é compartilhado entre os atores.</p>
-			<p>Na execução inicial de um programa Webis, um ator contendo todo o código do programa é executado e este será responsável pera criação, direta ou indireta, de todos atores que deverão ser utilizados durante o programa. Cada ator pode instanciar tantos outros atores quanto for necessário. Além disso, os atores podem, em tempo de execução, definir novos modelos, bem como definir novas agendas locais.</p>
+			<p>No Webis existirá o conceito de ator. Cada ator será uma unidade independente que possuirá o seu próprio contexto de execução. Um ator será um exemplar de um modelo que por sua vez será composto por agendas. Já as agendas definirão comportamentos inerentes ao modelo em questão. Pode-se relacionar modelos, agendas e atores com conceitos provenientes da programação orientada a objetos. Um modelo, por exemplo, pode ser relacionado com o conceito de classe. Da mesma forma, agendas podem ser relacionadas com métodos e atores com objetos.</p>
+			<p>Um programa Webis em execução nada mais será do que a execução e interação dos diversos atores que fazem parte do programa. Cada ator será executado separadamente em sua própria <i lang="en">thread</i> e isso permitirá que os programadores explorem de forma natural o paralelismo. Desde os primeiros passos no Webis os alunos já poderão construir programas concorrentes, e farão isso de forma simples e intuitiva. Além de terem um espaço de execução próprio, os atores também possuirão o seu próprio escopo de variáveis e a sua própria pilha. Portanto, nenhum recurso será compartilhado entre os atores.</p>
+			<p>Na execução inicial de um programa Webis, será instanciado um ator de um modelo que deverá conter todo o código do programa. O ator criado será executado e deverá ser responsável pela criação, direta ou indireta, de todos modelos e atores que serão utilizados durante a execução do programa. Cada ator poderá instanciar tantos outros atores quanto for necessário. Além disso, os atores poderão, em tempo de execução, definir novos modelos e novas agendas locais.</p>
 			<figure class="listagem" id="listagemInstanciacaoDeAtor">
 				<ul>
 					<li>UmModelo novo</li>
 				</ul>
 				<figcaption>Instanciação de um ator.</figcaption>
 			</figure>
-			<p>As agendas definidas em um modelo contém códigos de execução. Em Webis todo modelo possuirá uma agenda especial, a agenda <code>iniciar</code>. Toda vez que um ator é criado, a sua agenda <code>iniciar</code> é executada. A agenda <code>iniciar</code> existe mesmo que o programador não tenha definido ela explicitamente.</p>
-			<p>No Webis os modelos e agendas serão criados dinamicamente em tempo de execução. Para realizar a criação de modelos e agendas são utilizadas as primitivas <code>incluirModelo</code> e <code>incluirAgenda</code>, respectivamente.</p>
+			<p>As agendas definidas em um modelo irão conter códigos de execução. No Webis todo modelo possuirá uma agenda especial, a agenda <code>iniciar</code>. Toda vez que um ator for criado, a sua agenda <code>iniciar</code> será executada. A agenda <code>iniciar</code> existirá mesmo que o programador não tenha definido ela explicitamente.</p>
+			<p>No Webis os modelos e agendas serão criados dinamicamente em tempo de execução. Para realizar a criação de agendas e modelos serão utilizadas as primitivas <code>incluirAgenda</code> (<a href="#listagemInclusaoDeAgenda"></a>) e <code>incluirModelo</code> (<a href="#listagemInclusaoDeModelo"></a>), respectivamente.</p>
 			<figure class="listagem" id="listagemInclusaoDeAgenda">
 				<ul>
 					<li>"mostrarTexto" [</li>
@@ -337,7 +345,7 @@
 			</figure>
 
 			<h2 id="secaoLinguagemApliques">Apliques</h2>
-			<p>Um aplique nada mais é do que um programa Webis que será formado pelos elementos sintáticos disponíveis na linguagem. Esses elementos podem ser listas, textos, números, booleanos, operadores e símbolos. Essa característica evidencia o fato de que a criação de um programa Webis não requer nenhuma organização estrutural. Um programa Webis, portanto, pode ser inteiramente escrito sem que exista a necessidade de se criar qualquer modelo. Vale lembrar que a definição de modelos no Webis é feita através da primitiva <code>incluirModelo</code>, ou seja, é feita em tempo de execução. Entretanto, o Webis é um linguagem orientada a objetos e é desejável que as várias partes que compõem um programa sejam separadas através de modelos. Assim, uma organização estrutural focada em uma abordagem orientada a objetos que poderia ser aplicada a um programa Webis é ilustrada na <a href="#listagemAplique"></a>.</p>
+			<p>Um programa Webis receberá o nome de aplique e será formado apenas pelos elementos sintáticos disponíveis na linguagem. Esses elementos poderão ser listas, textos, números, booleanos, operadores e símbolos. Essa característica evidencia o fato de que a criação de um programa Webis não requer nenhuma organização estrutural. Um programa Webis, portanto, pode ser inteiramente escrito sem que exista a necessidade de se criar qualquer modelo ou agenda. Vale lembrar que a definição de modelos no Webis é feita através da primitiva <code>incluirModelo</code>, ou seja, é feita em tempo de execução. Entretanto, o Webis é um linguagem orientada a objetos e é desejável que as várias partes que compõem um programa sejam separadas através de modelos. Assim, uma organização estrutural focada em uma abordagem orientada a objetos que poderia ser aplicada a um programa Webis é ilustrada na <a href="#listagemAplique"></a>.</p>
 			<figure class="listagem" id="listagemAplique">
 				<ul>
 					<li>"UmModeloA" [</li>
@@ -359,20 +367,20 @@
 					<li>] incluirModelo</li>
 					<li>UmModeloA nova</li>
 				</ul>
-				<figcaption>Exemplo de estruturação de um programa Webis orientado a objetos.</figcaption>
+				<figcaption>Exemplo de um programa Webis orientado a objetos.</figcaption>
 			</figure>
 
 			<h2 id="secaoLinguagemModeloDeExecucao">Modelo de execução</h2>
-			<p>O modelo de execução do Webis será não bloqueante. Isso significa que os atores poderão receber interrupções enquanto estiverem em execução. Quando um ator receber uma interrupção, ele deverá parar de executar o seu código e deverá tratar a interrupção em questão. No modelo de execução do Webis, interrupções poderão ser perdidas. Quando um ator estiver tratando uma interrupção e outra surgir, então a interrupção que surgiu é descartada.</p>
-			<p>A execução de um ator começa quando a sua agenda <code>iniciar</code> é executada. Todo ator possui a agenda <code>iniciar</code>, mesmo que o programador não a tenha definido explicitamente . Quando a agenda <code>iniciar</code> é chamada, são passados para ela os parâmetros disponíveis na pilha do ator que realizou a instanciação. Por exemplo, se um ator <var>A</var> instancia um ator <var>B</var>, então será passado como parâmetro da agenda <code>iniciar</code> do ator <var>B</var> os valores disponíveis na pilha do ator <var>A</var> no momento da instanciação. Vale lembrar que não existe compartilhamento de dados entre os atores. Por isso, os parâmetros passados na instanciação serão copiados e, portanto, duplicados.</p>
-			<p>A primitiva <code>descansar</code> interfere diretamente no modelo de execução do Webis. Ao executar a primitiva, o ator tem a sua execução interrompida por um determinado período de tempo que é passado como parâmetro. Embora esteja parado em função da primitiva <code>descansar</code>, o ator poderá continuar recebendo interrupções. É importante que se respeite ao máximo possível tempo de descanso estipulado. Supondo que o tempo de descanso utilizando junto a primitiva <code>descansar</code> seja de 2 segundos e que após 1 segundo de descanso o ator receba uma interrupção que dure 1.5 segundos. Então nesse caso, ao final da execução da interrupção, o ator já terá descansado 2.5 segundos. Com isso, é necessário que, após o término da interrupção, o ator volte a executar imediatamente, uma vez que o tempo de descanso estipulado já terá sido cumprido.</p>
-			<p>Através do exemplo citado anteriormente é possível perceber que o modelo de execução do Webis garante que o ator descanse pelo menos o tempo passado como parâmetro para a primitiva <code>descansar</code>. Entretanto, observa-se que não há garantias de que o ator não vá descansar por um tempo maior daquele que foi estipulado, uma vez que interrupções podem surgir e virem a executar por mais tempo do que o de descanso.</p>
-			<p>Quando um ator terminar de executar o seu código, ou seja, quando encerrar a execução da agenda <code>iniciar</code>, ele ainda deverá poder receber interrupções. Um ator somente deixará de receber interrupções, caso a primitiva <code>suicidar</code> seja utilizada. A primitiva <code>suicidar</code> faz com que o ator seja completamente excluído do sistema de execução. Ao suicidar, o ator não poderá mais executar nenhum código ou receber interrupções. Além disso, o som e o gráfico que eventualmente estejam associados ao ator são removidos.</p>
+			<p>O modelo de execução do Webis será não bloqueante. Isso significa que os atores poderão receber interrupções enquanto estiverem em execução. Quando um ator receber uma interrupção, ele deverá parar de executar o seu código e deverá tratar a interrupção em questão. No modelo de execução do Webis, interrupções poderão ser perdidas. Quando um ator estiver tratando uma determinada interrupção e outra surgir, então a interrupção que surgiu será descartada.</p>
+			<p>A execução de um ator começará quando a sua agenda <code>iniciar</code> for executada. Todo ator possuirá a agenda <code>iniciar</code>, mesmo que o programador não a tenha definido explicitamente . Quando a agenda <code>iniciar</code> for chamada, serão passados para ela os parâmetros disponíveis na pilha do ator que realizou a instanciação. Por exemplo, se um ator <var>A</var> instanciar um ator <var>B</var>, então será passado como parâmetro da agenda <code>iniciar</code> do ator <var>B</var> os valores disponíveis na pilha do ator <var>A</var>. Vale lembrar que não existirá compartilhamento de dados entre os atores. Por isso, os parâmetros passados na instanciação serão copiados e, portanto, duplicados.</p>
+			<p>A primitiva <code>descansar</code> interfere diretamente no modelo de execução do Webis. Ao executar a primitiva, o ator terá a sua execução interrompida por um determinado período de tempo que será passado como parâmetro na pilha. Embora possa estar parado em função da primitiva <code>descansar</code>, o ator poderá continuar recebendo interrupções. É importante que se respeite ao máximo possível o tempo de descanso estipulado. Supondo que o tempo de descanso utilizando junto a primitiva <code>descansar</code> seja de 2 segundos e que após 1 segundo de descanso o ator receba uma interrupção que dure 1.5 segundos. Então nesse caso, ao final da execução da interrupção, o ator já terá descansado 2.5 segundos. Com isso, é necessário que, após o término da interrupção, o ator volte a executar imediatamente, uma vez que o tempo de descanso estipulado já terá sido cumprido.</p>
+			<p>Através do exemplo citado anteriormente é possível perceber que o modelo de execução do Webis garante que o ator descanse pelo menos o tempo passado como parâmetro para a primitiva <code>descansar</code>. Entretanto, observa-se que não há garantias de que o ator não vá descansar por um tempo maior daquele que foi estipulado, uma vez que interrupções podem surgir e virem a executar por mais tempo do que o tempo de descanso.</p>
+			<p>Quando um ator terminar de executar o seu código, ou seja, quando encerrar a execução da agenda <code>iniciar</code>, ele ainda poderá receber interrupções. Um ator somente deixará de receber interrupções caso a primitiva <code>suicidar</code> seja utilizada. A primitiva <code>suicidar</code> faz com que o ator seja completamente excluído do sistema de execução. Ao suicidar, o ator não poderá mais executar nenhum código ou receber interrupções. Além disso, o som e o gráfico que eventualmente estejam associados ao ator serão removidos.</p>
 
 			<h2 id="secaoLinguagemInterrupcoes">Tratadores de interrupções</h2>
 			<p>As interrupções no Webis serão utilizadas tanto para a geração de estímulos quanto para a troca de mensagens entre os atores. As interrupções serão tratadas assincronamente e deverão respeitar o modelo de execução do Webis. Conforme mostrado na <a href="#secaoLinguagemModeloDeExecucao"></a>, as interrupções poderão ser recebidas durante a execução do ator. As interrupções também poderão ser perdidas caso surjam enquanto outra já estiver sendo tratada.</p>
-			<p>Estímulos e troca de mensagens entre atores são tratados como interrupções <i lang="en">broadcast</i>, ou seja, todos os atores instanciados receberão todas as interrupções. Os atores, entretanto, podem tratar somente as interrupções que forem de seu interesse. Para isso, será utilizada a primitiva <code>seDito</code>. Através dessa primitiva, os atores podem registrar um tratador associado a um filtro. A primitiva <code>seDito</code> funcionará como qualquer outra e, por isso, tanto o filtro quanto o tratador serão parâmetros buscados na pilha. O filtro será utilizado pelo Webis para verificar se determinada interrupção deve ou não ser tratada. Já o tratador será o código Webis a ser executado caso a interrupção precise ser tratada.</p>
-			<p>Os filtros associados aos tratadores poderão conter valores ou tipos genéricos. A tarefa do Webis será a de acionar os tratadores dos filtros que casarem com a mensagem recebida em uma interrupção. A <a href="#listagemFiltros"></a> mostra alguns exemplos de filtros que podem ser utilizados. O primeiro filtro irá casar com interrupções cujo mensagem seja composta pelo número <code>10</code> e pelo texto <code>"Webis"</code>. Já o segundo filtro ilustra a utilização de um tipo genérico. O segundo filtro irá casar com mensagens compostas por: um número qualquer, um texto qualquer e o número <code>7</code>, exatamente nessa ordem. No caso do segundo filtro, interrupções contendo mensagens como <code>[10 "Linguagem" 7]</code> ou <code>[0 "Programação" 7]</code> serão tratadas.</p>
+			<p>Estímulos e troca de mensagens entre atores serão tratados como interrupções <i lang="en">broadcast</i>, ou seja, todos os atores instanciados receberão todas as interrupções. Os atores, entretanto, poderão tratar somente as interrupções que forem de seu interesse. Para isso, será utilizada a primitiva <code>seDito</code>. Através dessa primitiva, os atores poderão registrar um tratador associado a um filtro. A primitiva <code>seDito</code> funcionará como qualquer outra e, por isso, tanto o filtro quanto o tratador serão parâmetros buscados na pilha. O filtro será utilizado pelo Webis para verificar se determinada interrupção deve ou não ser tratada. Já o tratador será o código Webis a ser executado caso a interrupção precise ser tratada.</p>
+			<p>Os filtros associados aos tratadores poderão conter valores ou tipos genéricos. A tarefa do Webis será a de acionar os tratadores dos filtros que casarem com a mensagem recebida em uma interrupção. A <a href="#listagemFiltros"></a> mostra alguns exemplos de filtros que podem ser utilizados. O primeiro filtro irá casar com interrupções cuja mensagem seja composta pelo número <code>10</code> e pelo texto <code>"Webis"</code>. Já o segundo filtro ilustra a utilização de um tipo genérico. O segundo filtro irá casar com mensagens compostas por: um número qualquer, um texto qualquer e o número <code>7</code>, exatamente nessa ordem. No caso do segundo filtro, interrupções contendo mensagens como <code>[10 "Linguagem" 7]</code> ou <code>[0 "Programação" 7]</code> serão tratadas.</p>
 			<figure class="listagem" id="listagemFiltros">
 				<ul>
 					<li>[10 "Webis"]</li>
@@ -380,11 +388,11 @@
 				</ul>
 				<figcaption>Filtros para interrupções.</figcaption>
 			</figure>
-			<p>Quando um tratador é chamado, ele receberá como parâmetro a mensagem recebida na interrupção. A passagem de parâmetros é especialmente útil nos casos em que existem elementos genéricos nos filtros. Por exemplo, no caso do segundo filtro mostrado na <a href="#listagemFiltros"></a>, pode ser interessante para o tratador receber os valores genéricos que casaram com o filtro.</p>
-			<p>Podem ser adicionados tantos filtros e tratadores quanto for desejado. Por isso, é possível que uma mesma interrupção case com mais de um filtro de um mesmo ator. Assim, mais de um tratador do mesmo ator poderá ser acionado para uma mesma interrupção.</p>
+			<p>Quando um tratador for executado, ele receberá como parâmetro a mensagem recebida na interrupção. A passagem de parâmetros será especialmente útil nos casos em que existem elementos genéricos nos filtros. Por exemplo, no caso do segundo filtro mostrado na <a href="#listagemFiltros"></a>, pode ser interessante para o tratador receber os valores genéricos que casaram com o filtro.</p>
+			<p>Poderão ser adicionados tantos filtros e tratadores quanto for desejado. Por isso, será possível que uma mesma interrupção case com mais de um filtro de um mesmo ator. Assim, mais de um tratador do mesmo ator poderá ser acionado para uma mesma interrupção.</p>
 
 			<h3 id="secaoLinguagemInterrupcoesEstimulos">Estímulos</h3>
-			<p>Os estímulos serão eventos gerados pelo Webis para notificar o programador de determinado acontecimento. O Webis poderá gerar estímulos para ações realizadas com o teclado, por exemplo. Os estímulos de teclado serão acompanhados de mensagens compostas por quatro valores, sendo eles: o símbolo <code>TECLADO</code>, um texto que pode ser <code>"teclaPressionada"</code>, <code>"teclaSolta"</code> ou <code>"teclaRepetida"</code>, um número que representa o código decimal da tecla utilizada e um outro número que indica quais teclas modificadoras foram utilizadas. Nesse último caso, o número será o somatório dos valores associados às teclas modificadoras utilizadas. O Webis associa um valor para cada tecla modificadora, sendo a tecla <kbd>shift</kbd> associada ao valor 1, a tecla <kbd>ctrl</kbd> ao valor 2 e a tecla <kbd>alt</kbd> ao valor 8.</p>
+			<p>Os estímulos serão eventos gerados pelo Webis para notificar o programador de determinado acontecimento. O Webis poderá gerar estímulos para ações realizadas com o teclado, por exemplo. Os estímulos de teclado serão acompanhados de mensagens compostas por quatro valores, sendo eles: o símbolo <code>TECLADO</code>, um texto que pode ser <code>"teclaPressionada"</code>, <code>"teclaSolta"</code> ou <code>"teclaRepetida"</code>, um número que representa o código decimal da tecla utilizada e um outro número que indica quais teclas modificadoras foram utilizadas. Nesse último caso, o número será o somatório dos valores associados às teclas modificadoras utilizadas. O Webis associa um valor para cada tecla modificadora, das quais a tecla <kbd>shift</kbd> é associada ao valor 1, a tecla <kbd>ctrl</kbd> ao valor 2 e a tecla <kbd>alt</kbd> ao valor 8.</p>
 			<p>A <a href="#listagemFiltrosTeclado"></a> mostra alguns exemplos de mensagens de interrupções enviadas pelo Webis para estímulos de teclado. No primeiro caso, o estímulo é gerado, pois a tecla <kbd>A</kbd> (código 65) foi solta. Já no segundo exemplo, a tecla <kbd>Z</kbd> (código 90) foi pressionada em conjunto com as teclas modificadores <kbd>shift</kbd> (valor 1) e <kbd>alt</kbd> (valor 8).</p>
 			<figure class="listagem" id="listagemFiltrosTeclado">
 				<ul>
@@ -393,7 +401,7 @@
 				</ul>
 				<figcaption>Filtros para estímulos do teclado.</figcaption>
 			</figure>
-			<p>A <a href="#listagemEstimuloTeclado"></a> mostra como é adicionado um tratador para um estímulo de teclado. O tratador será executado caso o ator receba um estímulo do teclado onde qualquer tecla foi pressionada mais de uma vez (<code>"teclaRepetida"</code>). Deve-se observar que é utilizado um tipo genérico tanto para o código da tecla quanto para o somatório das teclas modificadoras. Nesse caso, os tipos genéricos são utilizados, pois o ator deseja receber o estímulo independentemente de qual tecla e teclas modificadoras foram utilizadas.</p>
+			<p>A <a href="#listagemEstimuloTeclado"></a> mostra como poderá ser adicionado um tratador para um estímulo de teclado. O tratador será executado caso o ator receba um estímulo do teclado onde qualquer tecla foi pressionada mais de uma vez (<code>"teclaRepetida"</code>). Deve-se observar que é utilizado um tipo genérico tanto para o código da tecla quanto para o somatório das teclas modificadoras. Nesse caso, os tipos genéricos são utilizados, pois o ator deseja receber o estímulo independentemente de quais teclas foram utilizadas.</p>
 			<figure class="listagem" id="listagemEstimuloTeclado">
 				<ol>
 					<li>[TECLADO "teclaRepetida" Número Número]</li>
@@ -406,11 +414,11 @@
 
 			<h3 id="secaoLinguagemInterrupcoesTrocaDeMensagens">Troca de mensagens entre atores</h3>
 			<p>A troca de mensagens entre atores no Webis se dará de forma assíncrona através de interrupções. Assim como qualquer interrupção, as mensagens trocadas entre atores serão recebidas por todos. O ator poderá utilizar filtros para selecionar quais tipos de mensagens ele deseja receber.</p>
-			<p>A troca de mensagens entre atores utilizando o sistema de interrupções traz algumas dificuldades para os programadores, pois por se tratar de uma interrupção, as mensagens podem ser perdidas. Dessa forma, caso o programador precise ter garantia de entrega, é necessário que ele estabeleça um protocolo para realizar a tarefa. Já envio de mensagens <i lang="en">broadcast</i> é uma característica desejável em alguns casos, mas não em outros. Ela é desejável nos casos onde é necessário que vários atores recebam uma mesma mensagem e indesejável nos casos em que é necessário estabelecer uma comunicação somente de um para um. No segundo caso, os atores também precisam estabelecer um protocolo para garantir que outros atores não tratem as mensagens que não lhe são direcionadas.</p>
-			<p>O tratamento de interrupções que correspondem a mensagens é feito da mesma forma como ocorre com os estímulos (<a href="#secaoLinguagemInterrupcoesEstimulos"></a>). É necessário utilizar a primitiva <code>seDito</code>, fornecendo como parâmetro o filtro e o tratador para a interrupção. Já o envio de mensagens é feito através da primitiva <code>dizer</code> que recebe como parâmetro na pilha a mensagem a ser dita.</p>
+			<p>A troca de mensagens entre atores utilizando o sistema de interrupções traz algumas dificuldades para os programadores, pois por se tratar de uma interrupção, as mensagens podem ser perdidas. Dessa forma, caso o programador precise ter garantia de entrega, será necessário que ele estabeleça um protocolo para realizar a tarefa. Já envio de mensagens <i lang="en">broadcast</i> é uma característica desejável em alguns casos, mas não em outros. Ela é desejável nos casos onde é necessário que vários atores recebam uma mesma mensagem e indesejável nos casos em que é necessário estabelecer uma comunicação somente de um para um. No segundo caso, os atores também precisam estabelecer um protocolo para garantir que outros atores não tratem as mensagens que não lhe são direcionadas.</p>
+			<p>O tratamento de interrupções que correspondem a mensagens será feito da mesma forma como ocorre com os estímulos (<a href="#secaoLinguagemInterrupcoesEstimulos"></a>). Será necessário utilizar a primitiva <code>seDito</code>, fornecendo como parâmetro o filtro e o tratador para a interrupção. Já o envio de mensagens será feito através da primitiva <code>dizer</code> que receberá como parâmetro na pilha a mensagem a ser dita.</p>
 			<p>Para ilustrar o funcionamento da troca de mensagens entre atores será considerado um caso onde existem dois atores, um cujo identificador é <code>"ator1"</code> e outro cujo identificador é <code>"ator2"</code>. No caso em questão, o <code>"ator2"</code> precisa enviar uma mensagem para que o <code>"ator1"</code> ande por uma determinada distância. A <a href="#listagemMensagemAtor1"></a> e <a href="#listagemMensagemAtor2"></a> mostram como o problema poderia ser resolvido.</p>
-			<p>A <a href="#listagemMensagemAtor1"></a> mostra o código adicionado pelo <code>"ator1"</code> para que ele possa receber a mensagem do <code>"ator2"</code>. Deve-se reparar nos valores utilizados no filtro. O primeiro valor é usado para que apenas o <code>"ator1"</code> trate a mensagem. Outros atores que queiram tratar o mesmo tipo de mensagem poderão utilizar o mesmo filtro, com a diferença do primeiro valor que deverá ser modificado de acordo com o identificador do ator em questão. Já o segundo valor é utilizado para que o ator que receber a mensagem saiba do que ela se trata. O filtro utilizado poder ser generalizado para tratar outros tipos de mensagens. Supondo que o ator também queira tratar mensagens com a solicitação para que ele gire, então bastaria adicionar um novo tratador com um filtro semelhante ao utilizado na listagem, porém trocando o valor <code>"andar"</code> para <code>"girar"</code>, por exemplo. Já o último valor utilizado no filtro da listagem indica a distância que deve ser percorrida pelo ator. Nota-se que se trata de um valor genérico.</p>
-			<p>A <a href="#listagemMensagemAtor1"></a> mostra outra característica importante das interrupções que é a capacidade do tratador receber como parâmetro na pilha uma lista contendo os valores recebidos na mensagem. No caso em questão, o último valor recebido na mensagem é de interesse do ator e, por isso, o ator utiliza a primitiva <code>último</code> que obtém o último valor de uma lista e associa o valor à variável <code>distancia</code>. Por fim, o ator que recebeu a mensagem utiliza o comando <code>frente</code>, passando como parâmetro a distância recebida.</p>
+			<p>A <a href="#listagemMensagemAtor1"></a> mostra o código adicionado pelo <code>"ator1"</code> para que ele possa receber a mensagem do <code>"ator2"</code>. Deve-se reparar nos valores utilizados no filtro. O primeiro valor é usado para que apenas o <code>"ator1"</code> trate a mensagem. Outros atores que queiram tratar o mesmo tipo de mensagem poderão utilizar o mesmo filtro, com a diferença do primeiro valor que deverá ser modificado de acordo com o identificador do ator em questão. Já o segundo valor é utilizado para que o ator que receber a mensagem saiba do que ela se trata. O filtro utilizado poderia ser generalizado para tratar outros tipos de mensagens. Supondo que o ator também queira tratar mensagens com a solicitação para que ele gire, então bastaria adicionar um novo tratador com um filtro semelhante ao utilizado na listagem, porém trocando o valor <code>"andar"</code> para <code>"girar"</code>, por exemplo. Já o último valor utilizado no filtro da listagem indica a distância que deve ser percorrida pelo ator. Nota-se que se trata de um valor genérico.</p>
+			<p>A <a href="#listagemMensagemAtor1"></a> mostra outra característica importante das interrupções que é a capacidade do tratador receber como parâmetro na pilha uma lista contendo os valores recebidos na mensagem. No caso em questão, o último valor recebido na mensagem é de interesse do ator e, por isso, o ator utiliza a primitiva <code>último</code>, que obtém o último valor de uma lista, e associa o valor obtido à variável <code>distancia</code>. Por fim, o ator que recebeu a mensagem utiliza o comando <code>frente</code>, passando como parâmetro a distância recebida.</p>
 			<figure class="listagem" id="listagemMensagemAtor1">
 				<ol>
 					<li>["ator1" "andar" Número]</li>
@@ -426,18 +434,15 @@
 				<ol>
 					<li>["ator1" "andar" 120] dizer</li>
 				</ol>
-				<figcaption>Envio de uma mensagem.</figcaption>
+				<figcaption>Envio de mensagens para os atores.</figcaption>
 			</figure>
 
-			<h2 id="secaoLinguagemPosicionamento">Sistema de coordenadas</h2>
-			<p>Um aplique Webis em execução será composto por um sistema de coordenadas cartesianas onde atores estarão distribuídos. Cada ator Webis possuirá uma representação gráfica e uma sonora que deverão refletir a posição e direção atual do ator no sistema de coordenadas.</p> 
-
-			<h3 id="secaoLinguagemPosicionamentoSom">Sistema de som</h3>
-			<p>Uma das características fundamentais do Webis é permitir que os atores possuam, além da representação gráfica, uma representação sonora equivalente. Com isso, sons poderão ser associados aos atores e sempre que um ator se movimentar no sistema de coordenadas, o sistema de som deverá refletir a mudança de modo que seja possível perceber sonoramente a movimentação do ator. Ou seja, as primitivas de posicionamento e movimentação como <code>frente</code>, <code>direita</code>, <code>andarPara</code> e outras, deverão provocar mudanças tanto no sistema gráfico quanto no sonoro.</p>
-			<p>O Webis disponibilizará algumas primitivas sonoras que permitirão o ator manipular sons. A primitiva básica é a <code>fixarSom</code>. Quando executada, essa primitiva obtém um parâmetro na pilha que indica o endereço de um som que deverá ser tocado pelo ator. Um característica importante é que ao ator executar a primitiva, o som começará a ser tocado e a execução do ator seguirá normalmente, ou seja, o ator não é bloqueado até que o som termine. Após a finalização do som, o ator ficará em silêncio até que outro som seja fixado. Caso o ator deseje que seja tocado um som repetidamente, então basta utilizar a primitiva <code>fixarSomContínuo</code>.</p>
-			<p>Por padrão, um ator inicia em silêncio e mesmo que um som seja fixado, o ator permanecerá em silêncio. Para que um som fixado seja tocado é necessário que o ator utilize a primitiva <code>comSom</code>. Essa primitiva faz com o ator passe a emitir sons caso possua algum associado a ele. Existe também a primitiva <code>semSom</code> que silencia o ator. Se o ator estiver com um som fixado, então a utilização da primitiva <code>semSom</code> fará com que o ator pare imediatamente tocar o som. Já se o ator não estiver com nenhum som fixado, então a primitiva <code>semSom</code> não terá nenhum efeito imediato, porém caso o ator execute futuramente a primitiva <code>fixarSom</code> ou <code>fixarSomContínuo</code>, então o som fixado não será tocado.</p>
-			<p>No sistema sonoro do Webis também existirá o elemento microfone. O microfone representa o ouvinte do sistema sonoro e, assim como os atores, também poderá ser movimentado. O microfone é útil, por exemplo, para a criação de jogos onde o personagem que representa o jogador se movimenta pelo sistema de coordenadas. Para que o microfone seja movimentado, é necessário que algum ator o pegue. Para isso, basta que o ator utilize a primitiva <code>pegarMicrofone</code>. Quando um ator está de posse do microfone, qualquer movimentação ou posicionamento feito no ator será refletido no microfone e consequentemente na saída do som para o usuário. Mesmo que um ator já tenha pego o microfone, outros atores também poderão utilizar a primitiva. O microfone será sempre de posse do último ator que utilizou a primitiva <code>pegarMicrofone</code>.</p>
-			<p>O sistema sonoro também contará com a primitiva <code>calibrarSom</code>. Essa primitiva recebe como parâmetro na pilha um número que indica o valor a ser utilizado na calibração do som. O valor calibrado influenciará no efeito da distância entre a fonte de som e o ouvinte (microfone). O valor padrão é 0,01 e quanto maior o valor maior parecerá a distância entre uma fonte de som e o ouvinte.</p>
+			<h2 id="secaoLinguagemSom">Sistema de som</h2>
+			<p>Um aplique Webis em execução será composto por um sistema de coordenadas cartesianas onde atores estarão distribuídos. Uma das características fundamentais do Webis será permitir que os atores possuam, além da representação gráfica, uma representação sonora equivalente. Com isso, sons poderão ser associados aos atores e sempre que um ator se movimentar no sistema de coordenadas, o sistema de som deverá refletir a mudança de modo que seja possível perceber sonoramente a movimentação do ator. Ou seja, as primitivas de posicionamento e movimentação como <code>frente</code>, <code>direita</code>, <code>andarPara</code> e outras, deverão provocar mudanças tanto no sistema gráfico quanto no sonoro.</p>
+			<p>O Webis disponibilizará algumas primitivas sonoras que permitirão o ator manipular sons. A primitiva <code>fixarSom</code> permitirá associar um som a um ator. Quando executada, essa primitiva obterá um parâmetro na pilha que indicará o endereço de um som que deverá ser associado ao ator. Um característica importante é que ao ator executar a primitiva, o som começará a ser tocado e a execução do ator seguirá normalmente, ou seja, o ator não será bloqueado. Após a finalização do som, o ator ficará em silêncio até que outro som seja fixado. Caso o ator deseje que o som seja tocado repetidamente, então bastará utilizar a primitiva <code>fixarSomContínuo</code>.</p>
+			<p>Por padrão, um ator iniciará em silêncio e mesmo que um som seja fixado, o ator permanecerá em silêncio. Para que um som fixado seja tocado será necessário que o ator utilize a primitiva <code>comSom</code>. Essa primitiva fará com o ator passe a emitir sons, caso possua algum associado a ele. Existirá também a primitiva <code>semSom</code> que terá o objetivo de silenciar o ator. Se o ator estiver com um som fixado, então a utilização da primitiva <code>semSom</code> fará com que o ator pare imediatamente tocar o som. Já se o ator não estiver com nenhum som fixado, então a primitiva <code>semSom</code> não terá nenhum efeito imediato, porém caso o ator execute futuramente a primitiva <code>fixarSom</code> ou <code>fixarSomContínuo</code>, então o som fixado não será tocado.</p>
+			<p>No sistema sonoro do Webis também existirá o elemento microfone. O microfone representará o elemento que realiza a captura das fontes de som existentes no sistema sonoro e, assim como os atores, também poderá ser movimentado. A movimentação do microfone será útil, por exemplo, para a criação de jogos onde o personagem que representa o jogador se movimenta pelo sistema de coordenadas. Para que o microfone seja movimentado, será necessário que algum ator o pegue. Para isso, bastará que o ator utilize a primitiva <code>pegarMicrofone</code>. Quando um ator estiver de posse do microfone, qualquer movimentação ou posicionamento feito no ator será refletido no microfone e consequentemente na saída do som para o usuário. Mesmo que um ator já tenha pego o microfone, outros atores também poderão utilizar a primitiva. O microfone será sempre de posse do último ator que utilizar a primitiva.</p>
+			<p>O sistema sonoro também contará com a primitiva <code>calibrarSom</code>. Essa primitiva receberá como parâmetro na pilha um número que indicará o valor a ser utilizado na calibração do som. O valor calibrado influenciará no efeito da distância entre a fonte de som e o ponto de captação (microfone). O valor padrão de calibração será de 0,01 e quanto maior o valor maior parecerá a distância entre uma fonte de som e o microfone.</p>
 		</section>
 
 		<section class="textual">
@@ -459,7 +464,7 @@
 					<li>    // código do tratador...</li>
 					<li>});</li>
 				</ul>
-				<figcaption>Criação de um tratador de evento.</figcaption>
+				<figcaption>Criação de um tratador de evento JavaScript.</figcaption>
 			</figure>
 
 			<h3 id="secaoHtml5JavaScriptTemporizadores">Temporizadores</h3>
@@ -472,7 +477,7 @@
 					<li>    // código do tratador...</li>
 					<li>}, 1000);</li>
 				</ul>
-				<figcaption>Ativação de um temporizador que será disparado após um período de tempo.</figcaption>
+				<figcaption>Ativação de um temporizador JavaScript.</figcaption>
 			</figure>
 			<p>A <a href="#listagemTemporizador"></a> mostra a ativação de um temporizador que, quando disparado, irá executar a função que é passada como parâmetro. O segundo parâmetro indica o tempo, a partir do momento da ativação, até que o temporizador seja efetivamente disparado. No caso em questão, o tempo de espera até o disparo será de 1 segundo (ou 1000 milissegundos). Destaca-se o fato de que esse tempo de espera não é garantido. Por exemplo, se o código que realizou a ativação do temporizador continue a executar por mais de um segundo, então o temporizador ativado terá seu disparo adiado. Como já visto anteriormente, o modelo de execução do <span lang="en">JavaScript</span> em navegadores <i lang="en">Web</i> é bloqueante. Por isso, mesmo que seja hora de disparar um temporizador, é possível que algum outro código esteja em execução no momento e, nesse caso, o disparo deverá ser adiado.</p>
 			<figure class="listagem" id="listagemTemporizadorContinuo">
@@ -481,7 +486,7 @@
 					<li>    // código do tratador...</li>
 					<li>}, 1000);</li>
 				</ul>
-				<figcaption>Ativação de um temporizador que será disparado continuamente a cada período de tempo.</figcaption>
+				<figcaption>Ativação de um temporizador contínuo JavaScript.</figcaption>
 			</figure>
 			<p>A <a href="#listagemTemporizadorContinuo"></a> mostra a ativação de um temporizador semelhante ao mostrado na <a href="#listagemTemporizador"></a>. A diferença entre ambos está no fato de que no caso deste último, o temporizador será disparado uma única vez após um determinado período de tempo, enquanto que no primeiro, o disparo irá ocorrer continuamente a cada período de tempo.</p>
 			<p>Ambos temporizadores podem ser cancelados a qualquer momento e, por isso, as duas funções para criação de temporizadores retornam um identificador que é utilizado pelas funções <code>clearTimeout</code> e <code>clearInterval</code>. A <a href="#listagemCancelamentoDeTemporizador"></a> mostra o cancelamento de um temporizador e de um temporizador contínuo, previamente ativados</p>
@@ -490,7 +495,7 @@
 					<li>window.clearTimeout(identificador1);</li>
 					<li>window.clearInterval(identificador2);</li>
 				</ul>
-				<figcaption>Cancelamento de temporizadores previamente ativados.</figcaption>
+				<figcaption>Cancelamento de temporizadores JavaScript.</figcaption>
 			</figure>
 
 			<h3 id="secaoHtml5JavaScriptFluxoUnico">Execução em fluxo único</h3>
@@ -562,7 +567,7 @@
 					<li>ouvinte.setOrientation(0, 1, 0, 0, 0, 1);</li>
 					<li>ouvinte.setVelocity(0, 0, 0);</li>
 				</ol>
-				<figcaption>Criação do contexto de áudio e manipulação do ouvinte.</figcaption>
+				<figcaption>Criação de um contexto de áudio e manipulação do ouvinte.</figcaption>
 			</figure>
 			<p>Além dos elementos básicos <code>AudioContext</code> e <code>AudioListener</code>, a especificação também provê diversos tipos de nodos para emissão e processamento dos sons. Os nodos serão conectados entre si e um nodo terminal deverá ser conectado ao destino final. Por exemplo, existe um nodo responsável pela emissão do som, outro responsável pelo ajuste de volume e outro responsável pelo posicionamento e espacialização do som. É possivel conectar o nodo fonte ao de ajuste de volume e este ao nodo de posicionamento e espacialização. Este último será finalmente conectado ao destino de som. Essa característica permite a criação de diversas camadas de manipulação do áudio até chegar ao destino final.</p>
 			<p>A <a href="#listagemCriacaoDeFonteDeSom"></a> mostra uma função responsável pela criação de uma fonte de som que será tocada em seguida, através do método <code>start</code> que recebe como parâmetro o tempo até que o som começe a ser efetivamente tocado. Deve-se perceber também que a função <code>tocarSom</code> recebe como parametro um <i lang="en">buffer</i> que contém o som a ser tocado. O <i lang="en">buffer</i> representando o som poderá ser obtido através de uma requisição <abbr lang="en" title="Hypertext Transfer Protocol">HTTP</abbr> feita pelo objeto <code>XMLHttpRequest</code>.</p>
@@ -576,7 +581,7 @@
 					<li>    fonte.start(0);</li>
 					<li>}</li>
 				</ol>
-				<figcaption>Função responsável por criar uma fonte de som e tocá-la em seguida.</figcaption>
+				<figcaption>Criação e reprodução de uma fonte de som.</figcaption>
 			</figure>
 			<p>Um fator importante é que no caso da <a href="#listagemCriacaoDeFonteDeSom"></a>, a fonte de som é conectada deretamente ao destino, mas seria possível ter conectado a fonte a um outro nodo que possibilitaria a manipulação do som. O nodo de manipulação, por sua vez, seria conectado ao destino final. A <a href="#listagemAjusteDoVolumeDeSom"></a> mostra um exemplo de uma função que conecta uma fonte a um nodo de manipulação de volume. O nodo de ajuste de volume é, então, conectado ao destino final. </p>
 			<figure class="listagem" id="listagemAjusteDoVolumeDeSom">
@@ -592,7 +597,7 @@
 					<li>    fonte.start(0);</li>
 					<li>}</li>
 				</ol>
-				<figcaption>Função responsável por criar uma fonte de som e conectá-la a um filtro de ajuste de volume.</figcaption>
+				<figcaption>Criação de um fonte de som conectada a um filtro de ajuste de volume.</figcaption>
 			</figure>
 			<p>Existe também o nodo de posicionamento e espacialização. Ele permite alterar a posicição, direção, velocidade do som, além de outras configurações mais avançadas. Todos esses ajustem permitem enriquecer a percepção do ouvinte em um ambiente tridimensional. A <a href="#listagemPosicionamentoEEspacializacao"></a> uma função que conecta uma fonte a um nodo de posicionamento e espacialização. A função <code>tocarSomComVolume</code> recebe como parâmetro, além do <i lang="en">buffer</i> do som, a posição, a velocidade e a direção que serão configuradas no nodo de posicionamento e espacialização.</p>
 			<figure class="listagem" id="listagemPosicionamentoEEspacializacao">
@@ -614,7 +619,7 @@
 					<li>    fonte.start(0);</li>
 					<li>}</li>
 				</ol>
-				<figcaption>Função responsável por criar uma fonte de som e conectá-la a um filtro de posicionamento e espacialização.</figcaption>
+				<figcaption>Criação de um fonte de som conectada a um filtro de posicionamento.</figcaption>
 			</figure>
 			<p>Os nodos para a manipulação do som apresentados aqui serão a base para construir o sistema de áudio do Webis. Existem diversos outros tipos de nodos que permitem realizar manipulações mais avançadas nos sons, entretanto  estes não serão discutidos nesse trabalho.</p>
 
@@ -628,7 +633,7 @@
 					<li>    alt="Texto alternativo para a imagem"</li>
 					<li>    description="Descrição completa da imagem" /&gt;</li>
 				</ol>
-				<figcaption>Imagem com texto alternativo e descrição.</figcaption>
+				<figcaption>Imagem HTML com texto alternativo e descrição.</figcaption>
 			</figure>
 			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> também trouxe uma nova marcação para a exibição de imagens, diagramas, ilustrações e outros tipos de conteúdos gráficos. A marcação <code>&lt;figure&gt;</code> possui a vantagem de agrupar diversos elementos, permitindo utilizar uma única descrição para todos elementos. Isso é útil pois permite que elementos com a mesma semântica sejam agrupados e explicados como um conjunto. A marcação deve ser utilizada juntamente com, a também nova, marcação <code>&lt;figcaption&gt;</code>. Está última marcação tem o objetivo de apresentar a descrição dos demais elementos contidos dentro da marcação <code>&lt;figure&gt;</code>. A <a href="#listagemFigure"></a> mostra a utilização da marcação <code>&lt;figure&gt;</code>. O exemplo apresentado possui fotos de três pássaros diferentes. Deve-se reparar que apesar da utilização da marcação <code>&lt;figcaption&gt;</code>, não é dispensado o uso do atributo <code>alt</code>. No exemplo da listagem é utilizado um texto curto descrevendo as imagens. Entretanto seria possível utilizar um texto maior, descrevendo cada aspecto das imagens</p>
 			<figure class="listagem" id="listagemFigure">
@@ -706,7 +711,7 @@
 					<li> &lt;/tbody&gt;</li>
 					<li>&lt;/table&gt;</li>
 				</ol>
-				<figcaption>Exemplo de tabela acessível.</figcaption>
+				<figcaption>Tabela HTML acessível.</figcaption>
 			</figure>
 			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> traz também novas marcações para a criação de formulários. São elas: <code>&lt;progress&gt;</code> que representa o andamento da execução de uma tarefa, <code>&lt;meter&gt;</code> que representa uma medida escalar dentro de um intervalo conhecido, <code>&lt;datalist&gt;</code> que representa um conjunto de opções, <code>&lt;keygen&gt;</code> que representa um controle para geração de um par de chaves e <code>&lt;output&gt;</code> que exibe os resultados de um cálculo <a href="#referencia16"><cite class="parenteses">Kleinert, <time>2011</time></cite></a>. Além das novas marcações, também foram definidos novos valores para o atributo <code>type</code> da marcação <code>&lt;input&gt;</code>. Cada novo valor possui uma semântica diferente e é tratado de forma especifica pelo navegador. Os novos valores disponíveis são: <code>email</code>, <code>url</code>, <code>number</code>, <code>range</code>, <code>search</code>, <code>color</code>, <code>datetime</code>, <code>date</code>, <code>month</code>, <code>week</code>, <code>time</code> e <code>datetime-local</code>, sendo os seis últimos utilizados para tipos variados de dados temporais. Outra medida para melhorar a acessibilidade de formulários e utilizar, nos casos necessários, juntamente aos campos do formulário o atributo <code>tabindex</code>. Esse atributo permite definir a ordem que o campo será acessado ao utilizar a tecla <kbd>tab</kbd>.</p>
 			<p>Além da utilização adequada das marcações e atributos <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>, devem ser levadas em conta outros aspectos para a criação de páginas mais acessíveis. É importante sempre lembrar que um usuário que depende de leitores de tela, leva mais tempo para sintetizar o conteúdo existente em uma página. Por esse motivo, as páginas devem ser simples e evitar uma quatidade muito grande de conteúdo. Um dos recursos mais importantes do <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> são os enlaces. Por isso, não existe a necessidade colocar um conteúdo muito extenso em uma só página. Através dos enlaces é possível fragmentar uma página conteúdo extenso em diversas pequenas páginas. Essa abordagem torna a navegação dos conteúdos muito mais fácil e simples, pois usuário poderá acessar somente as páginas e os conteúdos de seu interesse. Em seguida são apresentadas medidas genéricas que facilitam a leitura de páginas <i lang="en">Web</i>:</p>
@@ -798,7 +803,7 @@
 			<p>A <a href="#figuraExecucaoSincronaEAssincrona"></a> mostra a diferença entre a execução da entrada de instruções da máquina Webis de forma síncrona e bloqueante e a execução da mesma entrada de forma assíncrona e não bloqueante. A figura representa verticalmente a linha temporal de execução, onde cada bloco representa instruções da máquina Webis sendo executadas. Blocos hachurados representam instruções de tratadores de interrupções, enquanto que os demais blocos representam instruções do próprio ator. É indicado também, através de setas, o recebimento de interrupções pelo ator.</p>
 			<figure class="figura" id="figuraExecucaoSincronaEAssincrona">
 				<img src="imagens/execucaoSincronaEAssincronaCinza.png" />
-				<figcaption>Diferença entre a execução síncrona e bloqueante e a execução assíncrona e não bloqueante da máquina Webis.</figcaption>
+				<figcaption>Execução síncrona e bloqueante e execução assíncrona e não bloqueante.</figcaption>
 			</figure>
 			<p>Através da <a href="#figuraExecucaoSincronaEAssincrona"></a> fica claro a diferença entre utilizar um modelo onde a execução de todas instruções é realizada de forma síncrona e um modelo, onde as instruções da máquina Webis são executados assincronamente, através de temporizadores. Destaca-se o fato de que no caso da execução síncrona, ela não respeita as restrições do modelo de execução do Webis. Nesse caso em questão, o ator somente passa a receber interrupções após ter terminado de executar todo o código a ele associado. Percebe-se também que nenhuma interrupção é perdida e ambas são recebidas e executadas, uma após a outra. Já no caso da execução assíncrona, onde são utilizados temporizadores para executar pequenos trechos de código, nota-se que o ator sofre interrupções no meio de sua execução. Além disso, nesse segundo caso, o modelo de execução do Webis é respeitado, já que uma interrupção é perdida enquanto outra interrupção está sendo tratada.</p>
 			<p>Um exemplo simplificado de como a máquina Webis funcionaria caso seguisse o modelo síncrono e bloqueante é mostrado na <a href="#listagemCoracaoDaMaquinaSincrono"></a>. Percebe-se que nesse caso o núcleo do sistema <i lang="en">runtime</i> da máquina Webis se torna muito simples. A única tarefa necessária é iterar sobre a lista de instruções recebidas como entrada da máquina e executar as instruções em questão, passando como parâmetro para cada instrução o contexto da execução.</p>
@@ -811,7 +816,7 @@
 					<li>    });</li>
 					<li>}</li>
 				</ol>
-				<figcaption>Exemplo de um implementação síncrona e bloquenate para o núcleo da máquina Webis</figcaption>
+				<figcaption>Implementação síncrona e bloquenate para o núcleo da máquina Webis</figcaption>
 			</figure>
 			<p>Ao contrário do modelo síncrono e bloqueante, e que não está em conformidade com o modelo de execução do Webis, a implementação do modelo assíncrono e não bloqueante não é trivial. É necessário ter um controle sobre a execução assíncrona para que se possa garantir que as instruções executem na ordem correta. Além disso, primitivas de controle de fluxo como <code>enquantoVerdade</code> precisarão ser quebradas em vários pedaços para impedir que alguma dessas primitivas venham a travar o ator por muito tempo. Se isso acontecer, o ator não poderá receber interrupções enquanto a primitiva de controle de fluxo estiver executando. Por isso, o bloco de instruções executadas dentro de uma primitiva de controle de fluxo também precisará ser quebrado em várias pequenas instruções atômicas, da mesma forma como deve ocorrer com a entrada da máquina.</p>
 
@@ -848,7 +853,7 @@
 				<ul>
 					<li>[10 5 maiorQue]</li>
 				</ul>
-				<figcaption>Lista Webis que quando avaliada executará cada um dos dados e instruções dentro dela e resultará em verdadeiro.</figcaption>
+				<figcaption>Lista Webis que quando avaliada resultará em verdadeiro.</figcaption>
 			</figure>
 
 			<h3 id="secaoMaquinaSistemaRuntimeTempoEntreExecuções">Ajuste do tempo entre execuções assíncronas</h3>
@@ -897,7 +902,7 @@
 					<li>    // ...</li>
 					<li>});</li>
 				</ul>
-				<figcaption>Adição de um tratador para que o ecossistema possa receber mensagens de um ator.</figcaption>
+				<figcaption>Tratador para que o ecossistema possa receber mensagens de um ator.</figcaption>
 			</figure>
 			<figure class="listagem" id="listagemRecebimentoDeMensagemNoAtor">
 				<ul>
@@ -906,7 +911,7 @@
 					<li>    // ...</li>
 					<li>});</li>
 				</ul>
-				<figcaption>Adição de um tratador para que um ator possa receber mensagens do ecossistema.</figcaption>
+				<figcaption>Tratador para que um ator possa receber mensagens do ecossistema.</figcaption>
 			</figure>
 
 			<h3 id="secaoMaquinaEcossistemaInstrucoes">Envio de instruções para o fluxo principal</h3>
@@ -1020,7 +1025,7 @@
 			<p>Um usuário autenticado terá acesso à página <strong>Meus Apliques</strong>. Através dessa página, o usuário poderá visualizar todos os seus apliques. Também estará disponível ao usuário autenticado a opção de criação de aplique. Para criar um novo aplique, o usuário deverá apenas fornecer o nome e o código fonte do aplique a ser criado.</p>
 
 			<h3 id="secaoWebisAmbienteSom">Sons</h3>
-			<p>Conforme mostrado na seção <a href="#secaoLinguagemPosicionamentoSom"></a> cada ator Webis possuirá uma representação sonora e poderá ser associado a um determinado som. O ambiente Webis permitirá que os usuários carreguem sons no sistema. Dessa forma, os sons carregados poderão ser utilizados nos programas Webis. Assim como ocorre com os apliques, os sons também poderão ser utilizados por todos usuários. O Webis disponibilizará uma listagem com os sons carregados. Para utilizar um determinado som em um programa Webis, basta que o usuário forneça a <abbr lang="en" title="Uniform Resource Identifier">URI</abbr> do som como parâmetro das primitivas <code>fixarSom</code> e <code>fixarSomContínuo</code>. Usuários autenticados terão acesso à página <strong>Meus sons</strong>, onde todos os sons carregados pelo usuário serão listados.</p>
+			<p>Conforme mostrado na <a href="#secaoLinguagemSom"></a> cada ator Webis possuirá uma representação sonora e poderá ser associado a um determinado som. O ambiente Webis permitirá que os usuários carreguem sons no sistema. Dessa forma, os sons carregados poderão ser utilizados nos programas Webis. Assim como ocorre com os apliques, os sons também poderão ser utilizados por todos usuários. O Webis disponibilizará uma listagem com os sons carregados. Para utilizar um determinado som em um programa Webis, basta que o usuário forneça a <abbr lang="en" title="Uniform Resource Identifier">URI</abbr> do som como parâmetro das primitivas <code>fixarSom</code> e <code>fixarSomContínuo</code>. Usuários autenticados terão acesso à página <strong>Meus sons</strong>, onde todos os sons carregados pelo usuário serão listados.</p>
 
 			<h3 id="secaoWebisAmbienteAcessibilidadeEDocumentacao">Acessibilidade e documentação</h3>
 			<p>O ambiente Webis conterá uma seção responsável por apresentar a acessibilidade do sistema. A seção de acessibilidade irá expor os conceitos discutidos na <a href="#html5Acessibilidade"></a> e irá apresentar a estrutura de navegação, os atalhos disponíveis através do teclado e outras questões gerais relacionadas a acessibilidade do ambiente.</p>
@@ -1051,7 +1056,7 @@
 					<li>entãoSenão</li>
 					<li>número mostrar</li>
 				</ol>
-				<figcaption>Programa Webis que gera um número aleatório e toca um som diferente de acordo com o valor do número gerado.</figcaption>
+				<figcaption>Programa Webis criado por um aluno da ACIC.</figcaption>
 			</figure>
 
 			<h3 id="secaoWebisAcimModificacoes">Implementação de sugestões feitas pelos alunos</h3>
@@ -1071,7 +1076,7 @@
 			<p>A <a href="#figuraAulaNaAcic"></a> mostra os professores e alunos presentes na última aula ministrada no curso na <abbr title="Associação Catarinense para Integração do Cego">ACIC</abbr>. Da esquerda para a direita estão: Lucas (professor), Jean, Jivago, Wilian, Maurício e Pablo (professor).</p>
 			<figure class="figura" id ="figuraAulaNaAcic">
 				<img src="imagens/aulaNaAcic.jpg" />
-				<figcaption>Participantes da última aula ministrada no curso de Criação de Páginas Acessíveis e Programação <i lang="en">Web</i> da <abbr title="Associação Catarinense para Integração do Cego">ACIC</abbr>.</figcaption>
+				<figcaption>Participantes da última aula ministrada no curso na <abbr title="Associação Catarinense para Integração do Cego">ACIC</abbr>.</figcaption>
 			</figure>
 
 			<h2 id="secaoWebisComeSome">Jogo COMe SOMe</h2>
