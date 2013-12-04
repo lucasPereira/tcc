@@ -627,7 +627,7 @@
 
 			<h2 id="secaoHtml5Acessibilidade"><span lang="en">HTML</span> e acessibilidade</h2>
 			<p>O <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> deu nos últimos anos largos passos em direção a uma melhor acessibilidade. O início da preocupação com a acessibilidade começou com a vinda do <abbr lang="en" title="Cascading Style Sheet">CSS</abbr>. Não que a acessibilidade fosse o único objetivo do <abbr lang="en" title="Cascading Style Sheet">CSS</abbr>, mas ela era uma das vantagens. Antes do <abbr lang="en" title="Cascading Style Sheet">CSS</abbr>, os sites eram construídos com a utilização de tabelas que serviam para realizar a estruturação gráfica do conteúdo. Além disso, estilizações gráficas eram misturadas junto com as marcações semânticas do <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> e com o próprio conteúdo. Um exemplo disso é o atributo <code>fontecolor</code> que podia ser utilizado junto às marcações <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>. A folha de estilos em cascata tirou da linguagem de marcação as estilizações gráficas. Passou-se a dar mais importância a uma melhor organização semântica das marcações.</p>
-			<p>Apesar das melhorias, o <abbr lang="en" title="Hypertext Markup Language 4">HTML4</abbr> ainda possuía problemas de acessibilidade. O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> corrigiu alguns desses problemas trazendo novas marcações, garantindo a acessibilidade dos recursos via teclado e dando novas semânticas a marcações que antes eram utilizadas apenas como estilização gráfica.</p>
+			<p>Apesar das melhorias, o <abbr lang="en" title="Hypertext Markup Language 4">HTML4</abbr> ainda possuía problemas de acessibilidade. O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> corrigiu alguns desses problemas trazendo novas marcações, garantindo a acessibilidade dos recursos via teclado e dando novas semânticas a marcações que antes eram utilizadas apenas como estilização gráfica. Esta seção descreverá algumas marcações e atributos que, se usados corretamente, melhoram consideravelmente a acessibilidade de uma página. Adicionalmente, o <a href="#anexoB">Anexo B</a> apresenta um resumo dos atributos e marcações explicados nesta seção.</p>
 			<p>Dois atributos importantes para garantir uma acessibilidade adequada são o <code>alt</code> e o <code>description</code>. Esses atributos podem ser utilizados para prover uma representação gráfica alternativa para alguns elementos. A <a href="#listagemAltDescription"></a> mostra um exemplo da utilização dos dois atributos em uma imagem. Através dessa representação alternativa, pessoas que não enxergam podem ter acesso ao conteúdo apresentado.</p>
 			<figure class="listagem" id="listagemAltDescription">
 				<ol>
@@ -662,7 +662,7 @@
 				<figcaption>Utilização do atributo lang.</figcaption>
 			</figure>
 			<p>Para o desenvolvimento de páginas <span lang="en">Web acessíveis também deve-se garantir que todos os elementos da página possam ser acessíveis via teclado. Em uma barra para aumentar o volume de um vídeo, por exemplo, deve ser possível que o usuário aumente o volume através do teclado, sem a necessidade de utilizar o <i lang="en">mouse</i>. O atributo <code>accesskey</code> permite adicionar uma tecla de atalho para algum elemento. Quando o usuário aciona a tecla de atalho, o navegador dará um foco no elemento em questão e causará o disparo da ação associada a ele, caso exista. O atributo pode ser utilizado em botões, campos de formulários é até mesmo em enlaces. Um fator que deve ser levando em conta ao utilizar teclas de atalho é a necessidade de deixar claro ao usuário os atalhos disponíveis. Uma boa prática é ter uma página indicando os atalhos disponíveis. É importante perceber também que a tecla de atalho do atributo <code>accesskey</code> deve ser utilizada juntamente com uma combinação de outras teclas que podem variar de acordo com o navegador. No navegador <span lang="en">Mozilla Firefox</span>, por exemplo, a combinação de teclas é <kbd>shift</kbd> e <kbd>alt</kbd>.</p>
-			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> trouxe a criação de novas marcações, como <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;article&gt;</code> e outras. A utilização dessas marcações de acordo com a sua semântica favorece os leitores de tela e outros dispositivos de acessibilidade. Através do uso adequado das marcações, os dispositivos de acessibilidade podem apresentar comportamentos diferentes para cada tipo de marcação, melhorando, assim, a experiência do usuário.</p>
+			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> trouxe a criação de novas marcações, como <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code> e outras. A utilização dessas marcações de acordo com a sua semântica favorece os leitores de tela e outros dispositivos de acessibilidade. Através do uso adequado das marcações, os dispositivos de acessibilidade podem apresentar comportamentos diferentes para cada tipo de marcação, melhorando, assim, a experiência do usuário.</p>
 			<p>Cada marcação do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> possui uma semântica e deve ser utilizada em conformidade com esta semântica. O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> possui diversas marcações textuais que permitem um melhor conhecimento sobre o que significa cada elemento. Essas marcações devem ser utilizadas unicamente com um propósito semântico, permitindo, assim, que leitores de tela identifiquem melhor os elementos e possam apresentar comportamentos adequados para cada um deles. As marcações <code>&lt;strong&gt;</code> e <code>&lt;em&gt;</code>, por exemplo, são em muitos casos utilizadas, de forma errada, apenas por questões de estilização, uma vez que, por padrão, os navegadores estilizam essas marcações de forma especial. A marcação <code>&lt;strong&gt;</code> deve ser utilizada quando se deseja denotar a importancia de determinado conteúdo. Já a marcação <code>&lt;em&gt;</code> tem por objetivo dar enfâse a uma determinada palavra ou sentença. Através dessas marcações, os leitores de tela poderão utilizar entonações diferentes, enriquecendo a experiência do usuário. A marcação <code>&lt;time&gt;</code>, utilizada para representar valores temporais e datas, é um outro exemplo de marcação que visa melhor a acessibilida de páginas <i lang="en">Web</i>.</p>
 			<p>As novas marcações para a apresentação de conteúdos como imagens e vídeos também permitiram melhorar significativamente a acessibilidade das páginas <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>. Para adicionar um vídeo ou uma imagem no <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>, basta utilizar as marcações <code>&lt;video&gt;</code> e <code>&lt;audio&gt;</code>, respectivamente. Antes dessas marcações, era necessário utilizar <i lang="en">plugins</i> para poder apresentar esse tipo de conteúdo multimídia. <i lang="en">Plugins</i> como o <span lang="en">Adobe Flash Player</span> não possuem uma acessibilidade adequada e dificultam o acesso do usuário.</p>
 			<p>As marcações <code>&lt;abbr&gt;</code> e <code>&lt;abbr&gt;</code> compõem outra estratégia importante
@@ -716,7 +716,7 @@
 				<figcaption>Tabela HTML acessível.</figcaption>
 			</figure>
 			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> traz também novas marcações para a criação de formulários. São elas: <code>&lt;progress&gt;</code> que representa o andamento da execução de uma tarefa, <code>&lt;meter&gt;</code> que representa uma medida escalar dentro de um intervalo conhecido, <code>&lt;datalist&gt;</code> que representa um conjunto de opções, <code>&lt;keygen&gt;</code> que representa um controle para geração de um par de chaves e <code>&lt;output&gt;</code> que exibe os resultados de um cálculo <a href="#referencia16"><cite class="parenteses">Kleinert, <time>2011</time></cite></a>. Além das novas marcações, também foram definidos novos valores para o atributo <code>type</code> da marcação <code>&lt;input&gt;</code>. Cada novo valor possui uma semântica diferente e é tratado de forma especifica pelo navegador. Os novos valores disponíveis são: <code>email</code>, <code>url</code>, <code>number</code>, <code>range</code>, <code>search</code>, <code>color</code>, <code>datetime</code>, <code>date</code>, <code>month</code>, <code>week</code>, <code>time</code> e <code>datetime-local</code>, sendo os seis últimos utilizados para tipos variados de dados temporais. Outra medida para melhorar a acessibilidade de formulários e utilizar, nos casos necessários, juntamente aos campos do formulário o atributo <code>tabindex</code>. Esse atributo permite definir a ordem que o campo será acessado ao utilizar a tecla <kbd>tab</kbd>.</p>
-			<p>Além da utilização adequada das marcações e atributos <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>, devem ser levadas em conta outros aspectos para a criação de páginas mais acessíveis. É importante sempre lembrar que um usuário que depende de leitores de tela, leva mais tempo para sintetizar o conteúdo existente em uma página. Por esse motivo, as páginas devem ser simples e evitar uma quatidade muito grande de conteúdo. Um dos recursos mais importantes do <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> são os enlaces. Por isso, não existe a necessidade colocar um conteúdo muito extenso em uma só página. Através dos enlaces é possível fragmentar uma página conteúdo extenso em diversas pequenas páginas. Essa abordagem torna a navegação dos conteúdos muito mais fácil e simples, pois usuário poderá acessar somente as páginas e os conteúdos de seu interesse. Em seguida são apresentadas medidas genéricas que facilitam a leitura de páginas <i lang="en">Web</i>:</p>
+			<p>Além da utilização adequada das marcações e atributos <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>, devem ser levadas em conta outros aspectos para a criação de páginas mais acessíveis. É importante sempre lembrar que um usuário que depende de leitores de tela, leva mais tempo para sintetizar o conteúdo existente em uma página. Por esse motivo, as páginas devem ser simples e evitar uma quatidade muito grande de conteúdo. Um dos recursos mais importantes do <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> são os enlaces. Por isso, não existe a necessidade colocar um conteúdo muito extenso em uma só página. Através dos enlaces é possível fragmentar uma página com conteúdo extenso em diversas pequenas páginas. Essa abordagem torna a navegação dos conteúdos muito mais fácil e simples, pois o usuário poderá acessar somente as páginas e os conteúdos de seu interesse. Em seguida são apresentadas medidas genéricas que facilitam a leitura de páginas <i lang="en">Web</i>:</p>
 			<ul>
 				<li>Utilizar textos claros e explicativos em enlaces. Evitar o uso de textos como "clique aqui", pois eles dificultam o entendimento do usuário. A utilização de textos descritivos nos enlaces permite o usuário saber com clareza o conteúdo da página de destino;</li>
 				<li>A adição de um enlace no inicio da página apontando diretamente para o início do conteúdo pode facilitar a utilização de usuários que dependem de leitores de tela. Nas páginas, muitas vezes a navegação é apresentada antes do conteúdo. Como os leitores de tela leem de forma linear, será necessário passar por todo menu de navegação até chegar ao conteúdo. Um enlace apontando diretamente para o conteúdo evita que o usuário que utiliza um leitor de tela precise navegar por todas opções até chegar ao conteúdo desejado;</li>
@@ -1031,7 +1031,7 @@
 
 			<h3 id="secaoWebisAmbienteAcessibilidadeEDocumentacao">Acessibilidade e documentação</h3>
 			<p>O ambiente Webis conterá uma seção responsável por apresentar a acessibilidade do sistema. A seção de acessibilidade irá expor os conceitos discutidos na <a href="#html5Acessibilidade"></a> e irá apresentar a estrutura de navegação, os atalhos disponíveis através do teclado e outras questões gerais relacionadas a acessibilidade do ambiente.</p>
-			<p>Com a finalidade de auxiliar o programador, o ambiente Webis possuirá também uma página contendo todas as primitivas disponíveis na linguagem. Cada primitiva será apresentada juntamente com exemplos de utilização. A listagem com todas as primitivas disponibilizadas na linguagem Webis pode ser encontrada em <a href="http://webis.edugraf.ufsc.br/webis/primitivas">webis.edugraf.ufsc.br/webis/primitivas</a> ou no <a href="#anexoC">Anexo C</a>.</p>
+			<p>Com a finalidade de auxiliar o programador, o ambiente Webis possuirá também uma página contendo todas as primitivas disponíveis na linguagem. Cada primitiva será apresentada juntamente com exemplos de utilização. A listagem com todas as primitivas disponibilizadas na linguagem Webis pode ser encontrada em <a href="http://webis.edugraf.ufsc.br/webis/primitivas">webis.edugraf.ufsc.br/webis/primitivas</a> ou no <a href="#anexoD">Anexo D</a>.</p>
 
 			<h2 id="secaoWebisColaboracao">Ambiente colaborativo</h2>
 			<p>O Webis possui uma abordagem voltada para permitir a criação de um ambiente colaborativo de desenvolvimento, onde programadores possam desenvolver e compartilhar soluções. É por esse motivo que os programas Webis poderão ser visualizados por qualquer pessoa. Mais do que isso, programas Webis poderão ser reutilizados e modificados para permitir que programadores possam trabalhar em conjunto para resolver um determinado problema. Qualquer programa Webis, criado através do ambiente, será implicitamente livre. O livre compartilhamento dos programas Webis traz algumas vantagens:</p>
@@ -1091,7 +1091,7 @@
 				<figcaption>Mapa de teclas do jogo COMe SOMe.</figcaption>
 			</figure>
 			<p>Para permitir que o jogador tenha uma referência da posição de seu personagem, o COMe emite um som. O som do COMe é tocado sempre que o jogador pressionar a tecla <kbd>espaço</kbd>. Já o som emitido pelo SOMe é tocado automaticamente a cada dois segundos.</p>
-			<p>Através do desenvolvimento do jogo COMe SOMe foi possível mostrar que programadores iniciantes podem aprender a programar de forma divertida, através do desenvolvimento de jogos. O sistema de sons do Webis também se mostrou eficaz no sentido de permitir enriquecer os programas desenvolvidos e garantir um acesso mais amplo a esses programas. O acesso mais amplo possibilita que até mesmo pessoas com deficiência visual possam não somente executar os programas, mas também desenvolve-los. O <a href="#anexoB">Anexo B</a> apresenta o código Webis do jogo COMe SOMe.</p>
+			<p>Através do desenvolvimento do jogo COMe SOMe foi possível mostrar que programadores iniciantes podem aprender a programar de forma divertida, através do desenvolvimento de jogos. O sistema de sons do Webis também se mostrou eficaz no sentido de permitir enriquecer os programas desenvolvidos e garantir um acesso mais amplo a esses programas. O acesso mais amplo possibilita que até mesmo pessoas com deficiência visual possam não somente executar os programas, mas também desenvolve-los. O <a href="#anexoC">Anexo C</a> apresenta o código Webis do jogo COMe SOMe.</p>
 		</section>
 
 		<section class="textual">
@@ -1237,7 +1237,197 @@
 		</section>
 
 		<section class="posTextual">
-			<h1 id="anexoB">Anexo B - Código Webis do jogo COMe SOMe.</h1>
+			<h1 id="anexoB">Anexo B - Marcações e atributos HTML usados para melhorar a acessibilidade.</h1>
+			<table class="quadro">
+				<thead>
+					<tr>
+						<th>Marcação ou atributo</th>
+						<th>Descrição</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>alt</code></td>
+						<td>Atributo que permite adicionar uma representação textual alternativa para imagens.</td>
+					</tr>
+					<tr>
+						<td><code>description</code></td>
+						<td>Atributo usado para descrever textualmente e em detalhes uma imagem.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;figure&gt;</code></td>
+						<td>Marcação para a representação de imagens, diagramas, listagens e outros recursos gráficos. Pode ser usada também para agrupar diversos recursos gráficos que fazem parte do mesmo contexto.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;figcaption&gt;</code></td>
+						<td>Marcação que permite explicar textualmente os elementos contigos na marcação <code>&lt;figure&gt;</code>.</td>
+					</tr>
+					<tr>
+						<td><code>lang</code></td>
+						<td>Atributo que especifica em que idioma está escrito o texto de um elemento.</td>
+					</tr>
+					<tr>
+						<td><code>access</code></td>
+						<td>Atributo que permite adicionar uma tecla de atalho para acessar algum elemento. Pode ser usado em elementos de formulário, por exemplo.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;header&gt;</code></td>
+						<td>Marcação que representa um cebeçalho.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;footer&gt;</code></td>
+						<td>Marcação que representa um rodapé.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;section&gt;</code></td>
+						<td>Marcação que representa uma seção. Este documento, por exemplo, contém diversas seções. Cada uma delas é delimitada por uma marcação <code>&lt;section&gt;</code>.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;article&gt;</code></td>
+						<td>Marcação que representa um artigo ou um texto.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;aside&gt;</code></td>
+						<td>Marcação usada para representar elementos que não têm relação direta com o conteúdo apresentado pela página. Pode ser utilizado para a inserção de propaganda, por exemplo.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;strong&gt;</code></td>
+						<td>Marcação usada para dar importância a palavras ou frases.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;em&gt;</code></td>
+						<td>Marcação usada para dar ênfase a palavras ou frases.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;time&gt;</code></td>
+						<td>Marcação que representa um valor temporal como hora ou data.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;video&gt;</code></td>
+						<td>Marcação que permite inserir um vídeo na página.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;audio&gt;</code></td>
+						<td>Marcação que permite inserir um áudio na página.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;abbr&gt;</code></td>
+						<td>Marcação usada para representar siglas ou abreviações. Deve ser usada em conjunto com o atributo <code>title</code> que deverá conter o significado da sigla ou abreviação.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;dfn&gt;</code></td>
+						<td>Marcação usada para definir uma sigla ou abreviação. É aconselhável que essa marcação seja utilizada na primeira vez que uma sigla ou abreviação for utilizada em um texto. Dentro da marcação deverá estar a sigla ou abreviação e seu significado.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;table&gt;</code></td>
+						<td>Marcação que representa uma tabela de dados.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;caption&gt;</code></td>
+						<td>Marcação permite adicionar uma descrição para uma tabela de dados.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;thead&gt;</code></td>
+						<td>Marcação que representa o cabeçalho de uma tabela de dados.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;tbody&gt;</code></td>
+						<td>Marcação que representa o corpo de uma tabela de dados.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;tfoot&gt;</code></td>
+						<td>Marcação que representa o rodapé de uma tabela de dados.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;tr&gt;</code></td>
+						<td>Marcação que representa uma linha na tabela de dados.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;th&gt;</code></td>
+						<td>Marcação que representa uma célula de cabeçalho na tabela de dados.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;td&gt;</code></td>
+						<td>Marcação que representa uma célula na tabela de dados.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;progress&gt;</code></td>
+						<td>Marcação de um item de formulário que representa o andamento da execução de uma tarefa.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;meter&gt;</code></td>
+						<td>Marcação de um item de formulário que representa uma medida escalar dentro de um intervalo conhecido.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;datalist&gt;</code></td>
+						<td>Marcação de um item de formulário que representa um conjunto de opções.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;keygen&gt;</code></td>
+						<td>Marcação de um item de formulário que representa um controle para geração de um par de chaves.</td>
+					</tr>
+					<tr>
+						<td><code>&lt;output&gt;</code></td>
+						<td>Marcação que exibe os resultados de um processamento submetido a partir de um formulário.</td>
+					</tr>
+					<tr>
+						<td><code>email</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa um email.</td>
+					</tr>
+					<tr>
+						<td><code>url</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa uma URL.</td>
+					</tr>
+					<tr>
+						<td><code>number</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa um número.</td>
+					</tr>
+					<tr>
+						<td><code>range</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa um número que está em um intervalo conhecido.</td>
+					</tr>
+					<tr>
+						<td><code>search</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa um texto para busca.</td>
+					</tr>
+					<tr>
+						<td><code>color</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa uma cor.</td>
+					</tr>
+					<tr>
+						<td><code>datetime</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa uma data e horário.</td>
+					</tr>
+					<tr>
+						<td><code>datetime-local</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa uma data e horário local.</td>
+					</tr>
+					<tr>
+						<td><code>date</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa uma data.</td>
+					</tr>
+					<tr>
+						<td><code>month</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa um mês.</td>
+					</tr>
+					<tr>
+						<td><code>week</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa uma semana.</td>
+					</tr>
+					<tr>
+						<td><code>week</code></td>
+						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa um horário.</td>
+					</tr>
+					<tr>
+						<td><code>tabindex</code></td>
+						<td>Atributo utilizado em um campo de formulário para definir a ordem em que o campo é acessado através da navegação pelo teclado.</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="posTextual">
+			<h1 id="anexoC">Anexo C - Código Webis do jogo COMe SOMe.</h1>
 			<figure>
 				<pre>"Come" [
 	"iniciar" [
@@ -1431,7 +1621,7 @@ inicializar</pre>
 		</section>
 
 		<section class="posTextual">
-			<h1 id="anexoC">Anexo C - Primitivas disponíveis no Webis.</h1>
+			<h1 id="anexoD">Anexo D - Primitivas disponíveis no Webis.</h1>
 
 			<h2 id="anexo2Agenda">Agenda</h2>
 			<ul>
