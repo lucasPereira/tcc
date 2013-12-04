@@ -9,7 +9,11 @@
 	font-size: 12pt;
 	font-size: 1rem;
 	line-height: 1.5;
+	print-color-adjust: exact;
 	-webkit-print-color-adjust: exact;
+	-moz-print-color-adjust: exact;
+	-o-print-color-adjust: exact;
+	-ms-print-color-adjust: exact;
 }
 
 body > * {
@@ -77,11 +81,31 @@ section.posTextual {
 }
 
 section.capa {
+	display: flex;
 	display: -webkit-flex;
+	display: -moz-flex;
+	display: -o-flex;
+	display: -ms-flex;
+	flex-direction: column;
 	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-o-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-wrap: nowrap;
 	-webkit-flex-wrap: nowrap;
+	-moz-flex-wrap: nowrap;
+	-o-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	align-items: center;
 	-webkit-align-items: center;
+	-moz-align-items: center;
+	-o-align-items: center;
+	-ms-align-items: center;
+	justify-content: space-between;
 	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-o-justify-content: space-between;
+	-ms-justify-content: space-between;
 }
 
 section.capa > header > p {
@@ -559,5 +583,4 @@ table.quadro td.marcado {
 table.quadro > thead th,
 table.quadro > tfoot th {
 	font-weight: bold;
-
 }
