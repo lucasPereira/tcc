@@ -234,14 +234,37 @@ section.posTextual > h5 {
 	margin-top: 48pt;
 }
 
+section.posTextual > p,
+section.artigo > p.referencia,
+section.posTextual.artigo > p.referencia {
+	text-align: left;
+	text-indent: 0;
+	margin-left: 20px;
+}
+
 section.preTextual > p,
-section.textual > p {
+section.textual > p,
+section.artigo > p,
+section.posTextual.artigo > p {
 	text-align: justify;
 	text-indent: 2cm;
 }
 
-section.posTextual > p {
-	text-align: left;
+section.posTextual.artigo > p.autor,
+section.artigo > p.autor {
+	text-indent: 0;
+	text-align: center;
+}
+
+section.artigo strong {
+	font-weight: bold;
+}
+
+section.posTextual.artigo > p.resumo,
+section.artigo > p.resumo {
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 30px;
 	text-indent: 0;
 }
 @charset "utf-8";
@@ -359,6 +382,18 @@ section.preTextual > ol h1.naoNumerado {
 
 section.preTextual > ol h1.naoNumerado::before {
 	content: none;
+}
+
+section.artigo > h1 {
+	counter-reset: secaoartigo;
+}
+
+section.artigo > h2 {
+	counter-increment: secaoartigo;
+}
+
+section.artigo > h2::before {
+	content: counter(secaoartigo) ". ";
 }
 
 figure.figura {
