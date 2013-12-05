@@ -451,7 +451,7 @@
 			<h1 id="secaoHtml5"><span lang="en">HTML5</span> e <span lang="en">JavaScript</span></h1>
 			<p>A <i lang="en">Web</i> é baseada em três importantes pilares: o <dfn>Identificador Uniforme de Recursos <abbr lang="en" title="Uniform Resource Identifier">URI</abbr></dfn>, o <dfn>Protocolo de Transferência de Hipertexto <abbr lang="en" title="Hypertext Transfer Protocol">HTTP</abbr></dnf> e a <dfn>Linguagem de Marcação de Hipertexto <abbr lang="en" title="Hypertext Markup Language">HTML</abbr></dfn> <a href="#referencia13"><cite class="parenteses">Ferreira; Eis, <time>2010</time></cite></a>. Neste projeto existirá um grande foco no terceiro pilar, em especial na mais nova versão do <abbr lang="en" title="Hypertext Markup Language">HTML</abbr>, o <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>.</p>
 			<p>O <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> não é apenas uma nova especificação para uma linguagem de marcação, mas sim um conjunto completo de tecnologias com novas funcionalidades. O objetivo das novas especificações é fazer da <i lang="en">Web</i> uma plataforma completa e aberta, permitindo que as tradicionais aplicações <i lang="en">desktop</i> possam ser inteiramente convertidas em aplicações <i lang="en">Web</i>. A vantagem disso é a existência de um padrão aberto, onde uma aplicação poderá ser desenvolvida independentemente do dispositivo em que será executada. Tudo que o dispositivo precisará é de uma navegador <i lang="en">Web</i> com suporte ao <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>.</p>
-			<p>Dentre as principais especificações incorporadas ao <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>, destacam-se a <dfn>Folha de Estilos em Cascata 3 <abbr lang="en" title="Cascading Style Sheet 3">CSS3</abbr></dfn> e as novas <ab/br lang="en" title="Application Programming Interface">API</abbr>s do <span lang="en">JavaScript</span>, como a <i lang="en">Web Audio API</i> e a especificação de <i lang="en">Web Workers</i>. O <span lang="en">JavaScript</span> terá um papel fundamental no desenvolvimento da máquina Webis. Nesse capítulo serão discutidos conceitos importantes do <span lang="en">JavaScript</span> e do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> para que se possa compreender melhor os mecanismos utilizados pela máquina Webis (<a href="#secaoMaquina"></a>).</p>
+			<p>Dentre as principais especificações incorporadas ao <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>, destacam-se a <dfn>Folha de Estilos em Cascata 3 <abbr lang="en" title="Cascading Style Sheet 3">CSS3</abbr></dfn> e as novas <abbr lang="en" title="Application Programming Interface">API</abbr>s do <span lang="en">JavaScript</span>, como a <i lang="en">Web Audio API</i> e a especificação de <i lang="en">Web Workers</i>. O <span lang="en">JavaScript</span> terá um papel fundamental no desenvolvimento da máquina Webis. Nesse capítulo serão discutidos conceitos importantes do <span lang="en">JavaScript</span> e do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> para que se possa compreender melhor os mecanismos utilizados pela máquina Webis (<a href="#secaoMaquina"></a>).</p>
 
 			<h2 id="secaoHtml5JavaScript">Modelo de execução <span lang="en">JavaScript</span> em navegadores <i lang="en">Web</i></h2>
 			<p>O <span lang="en">JavaScript</span>, utilizado a partir de um navegador <i lang="en">Web</i>, possui fundamentalmente um fluxo único de execução, fazendo com que não exista execução concorrente de código. Mais adiante será mostrado que o <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> trouxe o conceito de <i lang="en">Web Workers</i> que permite criar vários fluxos de execução. Entretanto, na abordagem atual será deixado de lado a utilização dos <i lang="en">Web Workers</i> e será considerado um fluxo único de execução associado a um único ator Webis.</p>
@@ -778,17 +778,17 @@
 			</figure>
 
 			<h3 id="secaoMaquinaGeracaoDeCodigoTraducao">Tradução</h3>
-			<p>Para realizar a geração de código <span lang="en">JavaScript</span> a partir de um código Webis, é necessário entender alguns conceitos da arquitetura da máquina que processará o código gerado. O sistema <i lang="en">runtime</i> da máquina Webis será explicado em detalhes mais adiante, porém por hora é necessário compreender que cada elemento sintático do Webis será traduzido para um elemento <span lang="en">JavaScript</span> correspondente. A máquina se encarregará, então, de executar corretamente o elemento em questão conforme o seu tipo. Por exemplo, o <code>booleano</code> do Webis, definido na <a href="#listagemGramaticaDoTelis"></a>, será traduzido para um elemento <code>Boolean</code> do <span lang="en">JavaScript</span>. O mesmo irá ocorrer com o <code>texto</code>, <code>numero</code> e <code>lista</code> do Webis que serão traduzidos para elementos <span lang="en">JavaScript</span> dos tipos <code>String</code>, <code>Number</code> e <code>Array</code>, respectivamente. Já o <code>simbolo</code>, a <code>atribuicao</code> e a <code>instanciacao</code>, ao contrário dos demais elementos, não serão traduzidos para tipos nativos do <span lang="en">JavaScript</span>, mas sim para os tipos próprios <code>Simbolo</code>, <code>Associar</code> e <code>Novo</code>, respectivamente. Por fim, um <code>operador</code> que semanticamente é tratado pela máquina Webis da mesma forma que um <code>simbolo</code>, também será traduzido para um objeto <span lang="en">JavaScript</span> do tipo <code>Simbolo</code>.</p>
+			<p>Para realizar a geração de código <span lang="en">JavaScript</span> a partir de um código Webis, é necessário entender alguns conceitos da arquitetura da máquina que processará o código gerado. O sistema de execução da máquina Webis será explicado em detalhes mais adiante, porém por hora é necessário compreender que cada elemento sintático do Webis será traduzido para um elemento <span lang="en">JavaScript</span> correspondente. A máquina se encarregará, então, de executar corretamente o elemento em questão conforme o seu tipo. Por exemplo, o <code>booleano</code> do Webis, definido na <a href="#listagemGramaticaDoTelis"></a>, será traduzido para um elemento <code>Boolean</code> do <span lang="en">JavaScript</span>. O mesmo irá ocorrer com o <code>texto</code>, <code>numero</code> e <code>lista</code> do Webis que serão traduzidos para elementos <span lang="en">JavaScript</span> dos tipos <code>String</code>, <code>Number</code> e <code>Array</code>, respectivamente. Já o <code>simbolo</code>, a <code>atribuicao</code> e a <code>instanciacao</code>, ao contrário dos demais elementos, não serão traduzidos para tipos nativos do <span lang="en">JavaScript</span>, mas sim para os tipos próprios <code>Simbolo</code>, <code>Associar</code> e <code>Novo</code>, respectivamente. Por fim, um <code>operador</code> que semanticamente é tratado pela máquina Webis da mesma forma que um <code>simbolo</code>, também será traduzido para um objeto <span lang="en">JavaScript</span> do tipo <code>Simbolo</code>.</p>
 			<p>Ao analisar a gramática do Webis (<a href="#listagemGramaticaDoTelis"></a>), percebe-se que um programa é composto por palavras, listas e comentários. A geração de código deverá traduzir essas entidades sintáticas para <span lang="en">JavaScript</span> e irá coloca-las dentro de uma lista. Com isso, a entrada da máquina Webis será uma lista <span lang="en">JavaScript</span> composta por números, textos, booleanos, listas e objetos.</p>
 
 			<h2 id="secaoMaquinaInstrucoes">Instruções da máquina</h2>
-			<p>A máquina Webis trata-se basicamente de uma máquina de pilha. Nela os parâmetros necessários para as operações são desempilhados, enquanto que os resultados das operações são empilhados. A entrada da máquina Webis nada mais é do que uma lista que contém as instruções do programa, sendo que cada uma dessas instruções é um elemento <span lang="en">JavaScript</span> que saberá se executar. O sistema <i lang="en">runtime</i> da máquina Webis, portanto, se torna muito simples em uma primeira análise. De forma simplificada, o que o núcleo da máquina Webis faz é enviar a ordem de execução para cada uma das instruções da lista recebida como entrada. Além da ordem de execução, o sistema <i lang="en">runtime</i> da máquina Webis fornece à instrução a ser executada o contexto do programa. Desta forma, cada instrução terá acesso à pilha de dados e ao escopo de variáveis, podendo empilhar e desempilhar elementos da pilha de dados e alterar, remover e criar variáveis.</p>
+			<p>A máquina Webis trata-se basicamente de uma máquina de pilha. Nela os parâmetros necessários para as operações são desempilhados, enquanto que os resultados das operações são empilhados. A entrada da máquina Webis nada mais é do que uma lista que contém as instruções do programa, sendo que cada uma dessas instruções é um elemento <span lang="en">JavaScript</span> que saberá se executar. O sistema de execução da máquina Webis, portanto, se torna muito simples em uma primeira análise. De forma simplificada, o que o núcleo da máquina Webis faz é enviar a ordem de execução para cada uma das instruções da lista recebida como entrada. Além da ordem de execução, o sistema de execução da máquina Webis fornece à instrução a ser executada o contexto do programa. Desta forma, cada instrução terá acesso à pilha de dados e ao escopo de variáveis, podendo empilhar e desempilhar elementos da pilha de dados e alterar, remover e criar variáveis.</p>
 			<p>A máquina Webis pode executar tanto dados quanto operações e símbolos. Quando um dado é executado, ele simplesmente é colocado na pilha e fica disponível para ser consumido por uma operação ou símbolo futuro. Quando operações ou símbolos são executados, eles podem ou não consumir elementos da pilha para produzir ou não algum resultado. Caso a operação produza algum resultado, então este é colocado na pilha de forma que possa ser consumido por uma operação ou símbolo futuro.</p>
 			<p>No Webis, um símbolo pode ser uma primitiva básica fornecida pela linguagem, um operador, uma agenda de um ator ou uma variável. Quando a máquina encontra um símbolo, ela tenta executá-lo para algum desses casos. Caso a máquina não consiga executar o símbolo em questão, então uma exceção é lançada, e, em geral, isso ocorre devido a erros de programação do usuário.</p>
 			<p>Conforme mostrado na <a href="#secaoMaquinaGeracaoDeCodigo"></a>, cada elemento sintático da linguagem Webis será traduzido para um elemento <span lang="en">JavaScript</span> que o represente. Cada um desses elementos <span lang="en">JavaScript</span> corresponderá a uma instrução da máquina e cada elemento deverá implementar o método <code>executar</code>. Esse método deverá receber como parâmetro pela máquina Webis o contexto da execução que conterá a pilha de dados e o escopo de variáveis.</p>
 			<p>No proceso de tradução, alguns elementos, como o <code>texto</code>, são traduzidos para tipo nativos do <span lang="en">JavaScript</span>, nesse caso para <code>String</code>. Existem também aqueles elementos sintáticos que serão traduzidos para tipos próprios, como é o caso da <code>atribuicao</code> que será traduzida para um objeto do tipo <code>Associar</code>. Um dos pontos interessantes da orientação a objetos por prototipação do <span lang="en">JavaScript</span> é permitir que a interface de um determinado tipo de objeto seja modificada de forma dinâmica, em tempo de execução. Por exemplo, é possível adicionar de forma dinâmica um método no protótipo <code>String</code>. É justamente essa característica que permite que todos os elementos da entrada da máquina Webis saibam se executar, inclusive tipos nativos. No caso dos tipos nativos como <code>String</code>, <code>Array</code>, <code>Number</code> e <code>Boolean</code> é adicionado de forma dinâmica ao protótipo desses tipos o método <code>executar</code>. Com isso, a máquina Webis poderá executar de forma polimórfica todas as instruções recebidas na entrada.</p>
 
-			<h2 id="secaoMaquinaSistemaRuntime">Sistema <i lang="en">runtime</i></h2>
+			<h2 id="secaoMaquinaSistemaRuntime">Sistema de execução</h2>
 			<p>Conforme mostrado na <a href="#secaoLinguagemModeloDeExecucao"></a>, o modelo de execução do Webis será não bloqueante. Isso significa que o ator poderá ser interrompido enquanto estiver em execução. Quando isso ocorrer, o ator irá parar sua execução e irá tratar a interrupção em questão. Além disso, o ator tratará apenas uma interrupção por vez e poderá perder interrupções enquanto estiver tratando outra.</p>
 			<p>Uma particularidade no modelo de execução do Webis é a primitiva <code>descansar</code>. Quando esta primitiva é executada, ela faz com que o ator fique parado por um determinado período de tempo. Entretanto, ao ter sua execução interrompida, o ator poderá continuar tratando eventuais interrupções.</p>
 			<p>Através da <a href="#secaoHtml5JavaScript"></a> percebe-se que o modelo de execução do <span lang="en">JavaScript</span> difere do modelo de execução do Webis. Em especial, essas diferenças podem causar três problemas que dificultam a implementação do Webis através do <span lang="en">JavaScript</span>. O primeiro problema está relacionado com a primitiva <code>descansar</code>. No caso do <span lang="en">JavaScript</span>, não é possível bloquear o programa em execução por um determinado período de tempo da mesma forma como ocorre no Java (através do método <code>sleep</code>), por exemplo. O mais próximo que se pode chegar disso é simular esse comportamento através da função <code>setTimeout</code>.</p>
@@ -808,7 +808,7 @@
 				<figcaption>Execução síncrona e bloqueante e execução assíncrona e não bloqueante.</figcaption>
 			</figure>
 			<p>Através da <a href="#figuraExecucaoSincronaEAssincrona"></a> fica claro a diferença entre utilizar um modelo onde a execução de todas instruções é realizada de forma síncrona e um modelo, onde as instruções da máquina Webis são executados assincronamente, através de temporizadores. Destaca-se o fato de que no caso da execução síncrona, ela não respeita as restrições do modelo de execução do Webis. Nesse caso em questão, o ator somente passa a receber interrupções após ter terminado de executar todo o código a ele associado. Percebe-se também que nenhuma interrupção é perdida e ambas são recebidas e executadas, uma após a outra. Já no caso da execução assíncrona, onde são utilizados temporizadores para executar pequenos trechos de código, nota-se que o ator sofre interrupções no meio de sua execução. Além disso, nesse segundo caso, o modelo de execução do Webis é respeitado, já que uma interrupção é perdida enquanto outra interrupção está sendo tratada.</p>
-			<p>Um exemplo simplificado de como a máquina Webis funcionaria caso seguisse o modelo síncrono e bloqueante é mostrado na <a href="#listagemCoracaoDaMaquinaSincrono"></a>. Percebe-se que nesse caso o núcleo do sistema <i lang="en">runtime</i> da máquina Webis se torna muito simples. A única tarefa necessária é iterar sobre a lista de instruções recebidas como entrada da máquina e executar as instruções em questão, passando como parâmetro para cada instrução o contexto da execução.</p>
+			<p>Um exemplo simplificado de como a máquina Webis funcionaria caso seguisse o modelo síncrono e bloqueante é mostrado na <a href="#listagemCoracaoDaMaquinaSincrono"></a>. Percebe-se que nesse caso o núcleo do sistema de execução da máquina Webis se torna muito simples. A única tarefa necessária é iterar sobre a lista de instruções recebidas como entrada da máquina e executar as instruções em questão, passando como parâmetro para cada instrução o contexto da execução.</p>
 			<figure class="listagem" id="listagemCoracaoDaMaquinaSincrono">
 				<ol>
 					<li>function executar(codigo) {</li>
@@ -822,8 +822,8 @@
 			</figure>
 			<p>Ao contrário do modelo síncrono e bloqueante, e que não está em conformidade com o modelo de execução do Webis, a implementação do modelo assíncrono e não bloqueante não é trivial. É necessário ter um controle sobre a execução assíncrona para que se possa garantir que as instruções executem na ordem correta. Além disso, primitivas de controle de fluxo como <code>enquantoVerdade</code> precisarão ser quebradas em vários pedaços para impedir que alguma dessas primitivas venham a travar o ator por muito tempo. Se isso acontecer, o ator não poderá receber interrupções enquanto a primitiva de controle de fluxo estiver executando. Por isso, o bloco de instruções executadas dentro de uma primitiva de controle de fluxo também precisará ser quebrado em várias pequenas instruções atômicas, da mesma forma como deve ocorrer com a entrada da máquina.</p>
 
-			<h3 id="secaoMaquinaSistemaRuntimeImplementação">Implementação do sistema <i lang="en">runtime</i></h3>
-			<p>Para realizar a implementação do sistema <i lang="en">runtime</i> da máquina Webis de modo que este funcione de forma assíncrona e não bloqueante e respeite o modelo de execução do Webis, será criada uma pilha de execução. A pilha de execução deverá garantir a ordem correta de execução das instruções e deverá executar uma instrução de cada vez de forma assíncrona, permitindo que o ator possa receber interrupções.</p>
+			<h3 id="secaoMaquinaSistemaRuntimeImplementação">Implementação do sistema de execução</h3>
+			<p>Para realizar a implementação do sistema de execução da máquina Webis de modo que este funcione de forma assíncrona e não bloqueante e respeite o modelo de execução do Webis, será criada uma pilha de execução. A pilha de execução deverá garantir a ordem correta de execução das instruções e deverá executar uma instrução de cada vez de forma assíncrona, permitindo que o ator possa receber interrupções.</p>
 			<p>Uma característica bem clara da pilha de execução é a presença de diferentes estados para diferentes momentos da sua existência. Dependendo do momento, a pilha de execução poderá ter um estado diferente e deverá reagir de forma diferente em cada estado. Por exemplo, a pilha de execução pode estar no estado <strong>interrompido</strong> ou no estado <strong>encerrado</strong> e dependendo em qual destes estados ela estiver, deverá responder de forma diferente à chamada do método <code>retomar</code>.</p>
 			<p>A caracterização da pilha de execução como um elemento composto por diversos estados traz a possibilidade da utilização do padrão de projeto estado para a realização da implementação. O padrão de projeto estado tem por objetivo permitir que um objeto altere seu comportamento quando seu estado interno é aterado <cite class="parenteses"><a href="#referencia9">Gamma, <time>1995</time></a></cite>. A <a href="#figuraPadraoEstado"></a> mostra o diagrama de classes do padrão estado. Na figura são identificados, através da modelagem <abbr title="">UML</abbr>, os componentes que fazem parte do padrão:</p>
 			<ul>
@@ -931,29 +931,11 @@
 				<figcaption>Código executado pela primitiva visível.</figcaption>
 			</figure>
 			<p>A <a href="#listagemExecucaoDaPrimitivaVisivel"></a> mostra o que acontece durante a execução da primitiva <code>visível</code>. Pode-se perceber que a execução da primitiva consiste do envio de uma mensagem com a instrução <code>VISIVEL</code> para o ecossistema. Percebe-se também a utilização de um atributo extra no corpo da mensagem. Nesse caso o atributo extra consiste do identificador do ator que é enviado para que o ecossistema possa saber a qual ator aplicar a instrução.</p>
-			<p>A fachada do ecossistema também permitirá que atores em execução manipulem modelos e atores. As instruções <code>INCLUIR_MODELO</code> e <code>NOVO</code>, disponíveis na fachada do ecossistema, permitirão que atores definam novos modelos e instanciem novos atores, respectivamente. Do ponto de vista do programador existirão as primitivas <code>incluirModelo</code> e <code>novo</code>/<code>nova</code>. Essas primitivas serão executadas por um ator Webis e internamente a execução delas se resumirá a repassar a instrução equivalente para o ecossistema.</p>
-			<p>A lista completa de instruções disponíveis na fachada do ecossistema é apresentada a seguir:</p>
-			<ul>
-				<li><code>MOSTRAR</code>: ecossistema exibe alguma informação na tela.</li>
-				<li><code>INCLUIR_MODELO</code>: define um novo modelo a partir do nome e da lista contendo agendas, fornecidos como parâmetro.</li>
-				<li><code>NOVO</code>: instancia um novo ator a partir do modelo fornecido como parâmetro.</li>
-				<li><code>SUICIDAR</code>: encerra a execução do ator.</li>
-				<li><code>DIZER</code>: ecossistema envie uma mensagem <i lang="en">broadcast</i> para os atores.</li>
-				<li><code>MOVER</code>: fixa atributos de posicionamento e movimentação do ator, como posição, direção e velocidade.</li>
-				<li><code>FIXAR_SOM</code>: toca e associa um som ao ator.</li>
-				<li><code>FIXAR_SOM_CONTINUO</code>: semelhante à instrução <code>FIXAR_SOM</code>, porém o som é tocado repetidamente.</li>
-				<li><code>COM_SOM:</code> habilita os recursos sonoros do ator.</li>
-				<li><code>SEM_SOM:</code> desabilita os recursos sonoros do ator.</li>
-				<li><code>PEGAR_MICROFONE</code>: ator passar a carregar o microfone por onde andar. O microfone representa o ouvinte do sistema de som.</li>
-				<li><code>CALIBRAR_SOM</code>: permite calibrar o sistema de som do Webis.</li>
-				<li><code>VISIVEL</code>: ator se torna graficamente visível.</li>
-				<li><code>INVISIVEL</code>: ator se torna graficamente invisível.</li>
-				<li><code>CARIMBAR</code>: aparência do ator é pintada em sua posição atual.</li>
-			</ul>
+			<p>A fachada do ecossistema também permitirá que atores em execução manipulem modelos e atores. As instruções <code>INCLUIR_MODELO</code> e <code>NOVO</code>, disponíveis na fachada do ecossistema, permitirão que atores definam novos modelos e instanciem novos atores, respectivamente. Do ponto de vista do programador existirão as primitivas <code>incluirModelo</code> e <code>novo</code>/<code>nova</code>. Essas primitivas serão executadas por um ator Webis e internamente a execução delas se resumirá a repassar a instrução equivalente para o ecossistema. A lista completa de instruções disponíveis na fachada do ecossistema é apresentada no <a href="#anexoC">Anexo C</a>.</p>
 
 			<h3 id="secaoMaquinaEcossistemaInterrupcoes">Recebimento de interrupções pelos atores</h3>
 			<p>A <a href="#secaoLinguagemInterrupcoes"></a> mostra que os atores poderão adicionar tratadores através da primitiva <code>seDito</code>. Essa primitiva recebe como parâmetro uma lista contendo filtros e uma lista de instruções que deverão ser executadas caso alguma interrupção recebida seja aplicável ao filtro. Quando um ator recebe uma interrupção, ele buscará na tabela de tratadores filtros que casam com aquela interrupção. Serão, então, executados os tratadores dos filtros que casarem.</p>
-			<p>Do ponto de vista do sistema <i lang="en">runtime</i> da máquina Webis, tanto estímulos (<a href="#secaoMaquinaEcossistemaEstimulos"></a>) quanto mensagens de atores (<a href="#secaoMaquinaEcossistemaComunicacaoDeAtores"></a>) serão tratados como interrupções. A caracterização de uma interrupção como um estímulo ou como uma mensagem, dependerá do filtro utilizado juntamente com a primitiva <code>seDito</code>.</p>
+			<p>Do ponto de vista do sistema de execução da máquina Webis, tanto estímulos (<a href="#secaoMaquinaEcossistemaEstimulos"></a>) quanto mensagens de atores (<a href="#secaoMaquinaEcossistemaComunicacaoDeAtores"></a>) serão tratados como interrupções. A caracterização de uma interrupção como um estímulo ou como uma mensagem, dependerá do filtro utilizado juntamente com a primitiva <code>seDito</code>.</p>
 			<p>Um fator importante é que o ecossistema sempre deverá repassar todos os estímulos e mensagens à todos atores. Caberá a cada ator decidir se tratará ou não determinada interrupção.</p>
 
 			<h4 id="secaoMaquinaEcossistemaEstimulos">Recebimento de estímulos pelos atores</h4>
@@ -964,7 +946,7 @@
 			<p>A <a href="#secaoLinguagemInterrupcoesTrocaDeMensagens"></a> descreve que a comunicação entre atores no Webis ocorrerá de forma assíncrona através do envio de mensagens. As mensagens serão sempre enviadas para todos os atores, portanto, não existirá uma forma nativa de comunicação direta de um para um. Quando dois atores precisarem se comunicar apenas entre eles, deverão estipular um protocolo para que isso seja possível.</p>
 			<p>É importante lembrar que, devido ao modelo de execução do Webis, interrupções poderão ser perdidas. Por isso, uma vez que o recebimento de mensagens será realizado através do sistema de interrupções, não existirá garantias de que uma determinada mensagem será entregue. Por exemplo, se um ator receber uma mensagem no momento em que estiver tratando uma interrupção, então a mensagem recebida será descartada.</p>
 
-			<h3 id="secaoMaquinaEcossistemaInicializacao">Inicialização do sistema <i lang="en">runtime</i></h3>
+			<h3 id="secaoMaquinaEcossistemaInicializacao">Inicialização do sistema de execução</h3>
 			<p>Para compreender o funcionamento da inicialização de um programa Webis, é preciso ter em mente que para o ecossistema existirá apenas modelos e atores. Estes últimos serão instâncias dos modelos e serão executados através de <i lang="en">Web Workers</i>.</p>
 			<p>Através da <a href="#secaoLinguagemApliques"></a> é possível perceber que a definição de modelos é feita durante a própria execução de um programa Webis. A inicialização de um programa Webis consistirá da instanciação de um ator a partir de um modelo existente. Entretanto, antes do programa Webis ser iniciado ainda não existem modelos definidos e, por isso, o ecossistema não poderá instanciar nenhum ator para dar início ao programa. Para o ecossistema existirá apenas a lista de instruções <span lang="en">JavaScript</span> que representa o programa Webis escrito pelo programador.</p>
 			<p>Percebe-se que existe um empasse ao considerar a forma como os modelos são definidos e a forma como um programa Webis é inicializado pelo ecossistema. O empasse está no fato de que um programa Webis não pode ser inicializado pelo ecossistema, pois não existem modelos definidos e, em contra partida, não existem modelos definidos, pois o programa não pode ser inicializado. Para resolver este impasse, o ecossistema definirá um <strong>modelo inicial</strong> e criará uma instância desse modelo. O código associado a este <strong>modelo inicial</strong> simplesmente será o código do programa Webis definido pelo programador. Dessa forma, quando a instância do <strong>modelo inicial</strong> for criada, ela possibilitará definir os demais modelos que fazem parte do programa.</p>
@@ -994,46 +976,63 @@
 			<h3 id="secaoMaquinaEcossistemaOrganismos">Módulos funcionais independentes</h3>
 			<p>Uma das ideias por trás do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> é de que suas especificações pudessem ser criadas em pequenas partes, de forma independente umas das outras. O objetivo é permitir que as novas funcionalidades possam ser implementadas, testadas e usadas de forma incremental. A vantagem disso é que não é necessário ter todas as especificações do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> prontas para que os navegadores possam implementar e disponibilizar algumas funcionalidades. Outra vantagem é fazer com que os navegadores busquem acompanhar os demais na implementação das especificações, tornando assim, mais rápido e dinâmico o processo de implementação. A desvantagem desse modelo de desenvolvimento são as possíveis incompatibilidades entre os navegadores. Uma determinada especificação pode ter sido implementada em alguns navegadores, mas não em outros <a href="#referencia13"><cite class="parenteses">Ferreira; Eis, <time>2010</time></cite></a>.</p>
 			<p>O Webis utiliza muitas das novas funcionalidades provenientes do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>. Entretanto, algumas dessas funcionalidades não estão disponíveis em todos os principais navegadores atuais. Por exemplo, o Webis utiliza a especificação <i lang="en">Web Audio API</i> <a href="#referencia12"><cite class="parenteses">Rogers, <time>2012</time></cite></a>, mas essa especificação somente é implementada em sua totalidade pelos navegadores Chromium e Google Chrome.</p>
-			<p>Para permitir que o ambiente de execução Webis possa funcionar mesmo em navegadores que não implementam todas as especificações necessárias, foram criados os organismos. Um organismo representará um conjunto de funcionalidades provenientes de alguma especificação do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>.</p>
-			<p>Cada organismo poderá implementar totalmente ou parcialmente uma determinada especificação. Umorganismo poderá ainda não implementar a especificação que ele representa. Nesse caso, o organismo deverá possuir uma interface burra, apenas para que se possa manter o ecossistema funcionando. Por exemplo, no caso da especificação <i lang="en">Web Audio API</i>, existem navegadores que a implementam e outros que não. Para permitir que o Webis possa funcionar tanto em navegadores que implementam a especificação quanto em navegadores que não a implementam, foram criados dois organismos para controlar o sistema de som. Um desses organismos possui todas as funcionalidades descritas na especificação do <i lang="en">Web Audio API</i>, enquanto o outro possui apenas as funcionalidades sonoras básicas que estão disponíveis na maioria dos navegadores. Dessa forma, quando o ecossistema é iniciado, ele selecionará os organismos adequados de acordo com o navegador.</p>
-			<p>A utilização de organismos permite também que os diversos componentes necessários para o funcionamento do ecossistema sejam independentes e isolados. Por exemplo, existirão organismos para controlar o sistema de som e organismos para controlar a representação gráfica do ator. Todos esses organismos serão independentes uns dos outros. O ecossistema deverá, então, escolher os organismos que forem compatíveis com o navegador utilizado. Caso o navegador não implemente uma determinada funcionalidade necessária, então o ecossistema poderá escolher um organismo que representa a funcionalidade, mas não a implementa, ou implementa de forma parcial. Com isso, a falta de uma funcionalidade em um determinado navegador afetará somente aquela funcionalidade e o ecossistema poderá ser executado sem erros.</p>
+			<p>Para permitir que o ambiente de execução Webis possa funcionar mesmo em navegadores que não implementam todas as especificações necessárias, foram criados os módulos funcionais independentes. Um módulo funcional independente representará um conjunto de funcionalidades provenientes de alguma especificação do <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr>.</p>
+			<p>Cada módulo poderá implementar totalmente ou parcialmente uma determinada especificação. Um módulo poderá ainda não implementar a especificação que ele representa. Nesse caso, o módulo deverá possuir uma interface burra, apenas para que se possa manter o ecossistema funcionando. Por exemplo, no caso da especificação <i lang="en">Web Audio API</i>, existem navegadores que a implementam e outros que não. Para permitir que o Webis possa funcionar tanto em navegadores que implementam a especificação quanto em navegadores que não a implementam, foram criados dois módulos para controlar o sistema de som. Um desses módulos possui todas as funcionalidades descritas na especificação do <i lang="en">Web Audio API</i>, enquanto o outro possui apenas as funcionalidades sonoras básicas que estão disponíveis na maioria dos navegadores. Dessa forma, quando o ecossistema é iniciado, ele selecionará os módulos adequados de acordo com o navegador.</p>
+			<p>A utilização de módulos permite também que os diversos componentes necessários para o funcionamento do ecossistema sejam independentes e isolados. Por exemplo, existirão módulos para controlar o sistema de som e módulos para controlar a representação gráfica do ator. Todos esses módulos serão independentes uns dos outros. O ecossistema deverá, então, escolher os módulos que forem compatíveis com o navegador utilizado. Caso o navegador não implemente uma determinada funcionalidade necessária, então o ecossistema poderá escolher um módulo que representa a funcionalidade, mas não a implementa, ou implementa de forma parcial. Com isso, a falta de uma funcionalidade em um determinado navegador afetará somente aquela funcionalidade e o ecossistema poderá ser executado sem erros.</p>
 		</section>
 
 		<section class="textual">
-			<h1 id="secaoWebis">Ambiente Webis e utilização na ACIC</h1>
-			<p>O desenvolvimento do ambiente Webis será a etapa que agrupará todos os aspectos discutidos anteriormente. Será através do ambiente Webis que os usuários finais irão interagir e desenvolver seus programas. O ambiente, portanto, se torna uma peça fundamental para permitir que os programadores possam usufruir das principais qualidades presentes na linguagem Webis. A utilização do ambiente por programadores iniciantes permitirá verificar se foram atingidos todos os objetivos propostos na concepção do Webis.</p>
-
-			<h2 id="secaoWebisAmbiente">Ambiente Webis</h2>
+			<h1 id="secaoAmbiente">Ambiente Webis</h1>
 			<p>Além da linguagem de programação e do ambiente de execução, o Webis também será composto por um ambiente de programação. Assim como o ambiente de execução, o ambiente de programação também deverá ser inteiramente disponível através de um navegador <i lang="en">Web</i>. Para o desenvolvimento do ambiente de programação será utilizado o <abbr lang="en" title="Hypertext Markup Language 5">HTML5</abbr> em conjunto com algumas das suas mais recentes funcionalidades.</p>
 			<p>Para a criação do ambiente de programação são necessários diversos cuidados em relação a questões de acessibilidade. Um dos focos do Webis é permitir que qualquer pessoa possa aprender a programar e possa utilizar o ambiente sem ter que se preocupar com barreiras de acessibilidade. Por isso, as recomendações discutidas na <a href="#secaoHtml5Acessibilidade"></a> serão aplicadas, permitindo assim, melhorar consideravelmente a acessibilidade do ambiente de programação.</p>
 			<p>Outra preocupação para o desenvolvimento do ambiente de programação está relacionada com a organização das funcionalidades disponíveis no sistema. Não basta que um determinado sistema <i lang="en">Web</i> seja acessível. É preciso também que o sistema seja fácil de ser utilizado. A abordagem adotada para alcançar esse objetivo será a de criar um sistema minimalista, onde cada página será responsável por fornecer uma determinada informação ou funcionalidade do sistema. O desenvolvimento de um ambiente com essas características evidencia a necessidade de se criar páginas pequenas e sem quantidades excessivas de conteúdo.</p>
 			<p>Outra característica importante para um sistema acessível e de fácil utilização é permitir que cada informação ou funcionalidade servida pelo sistema possa ser endereçável. Essa característica permite que para um usuário ter acesso a uma determinada funcionalidade, basta que ele tenha o endereço da funcionalidade. Em sistemas que não são totalmente endereçáveis é necessário que o usuário siga um conjunto de passos até que consiga ter acesso a uma determinada funcionalidade. Seguir um conjunto de passos pode, além de tornar o processo mais lento, dificultar o acesso do usuário. Usuários que dependem do uso de leitores de tela percebem de forma maximizada as dificuldades encontradas ao utilizar sistemas <i lang="en">Web</i> não endereçáveis. Isso porque a audição não é sintética como a visão. Assim, um usuário que depende do uso de um leitor de tela, levará mais tempo para identificar as ações necessárias até conseguir acessar a funcionalidade desejada. No Webis todas as funcionalidades serão endereçáveis e poderão ser acessadas com apenas uma requisição.</p>
 			<p>Além da endereçabilidade, é importante que a partir de qualquer ponto do sistema <i lang="en">Web</i> seja possível acessar facilmente outro ponto qualquer. Por exemplo, no caso do Webis existe uma página responsável por listar todos os apliques de um determinado usuário e existe também uma página responsável pela edição de algum aplique específico. Considerando que um usuário esteja na página de edição de um aplique, para garantir uma boa navegabilidade, deve ser possível que, a partir da página em que está, o usuário possa acessar facilmente a página com a listagem de apliques.</p>
-			<p>Ao acessar o ambiente Webis, o usuário será apresentado a uma página bastante simples. A página conterá um conjunto de funcionalidades básicas disponíveis e a listagem de apliques criados no sistema. A abordagem utilizada no Webis é de que todo código criado poderá ser compartilhado e reutilizado por outros programadores. Por isso, logo no acesso inicial do Webis já serão listados os apliques recentemente modificados ou criados. Isso permite criar uma experiência de aprendizado colaborativo, onde todos poderão ver e ter acesso aos programas de outros desenvolvedores.</p>
+			<p>Ao acessar o ambiente Webis, o usuário será apresentado a uma página bastante simples. A página conterá um conjunto de funcionalidades básicas disponíveis e a listagem de apliques criados no sistema. A abordagem utilizada no Webis é de que todo código criado poderá ser compartilhado e reutilizado por outros programadores. Por isso, logo no acesso inicial do Webis já serão listados os apliques recentemente modificados ou criados. Isso permite criar uma experiência de aprendizado colaborativo, onde todos poderão ver e ter acesso aos programas de outros desenvolvedores. A <a href="#figuraAmbienteInicial"></a> mostra a página inicial do ambiente Webis.</p>
+			<figure class="figura" id="figuraAmbienteInicial">
+				<img src="imagens/ambienteInicial.png" />
+				<figcaption>Página inicial do ambiente Webis.</figcaption>
+			</figure>
 
-			<h3 id="secaoWebisAmbienteAcesso">Acesso ao ambiente</h3>
+			<h2 id="secaoAmbienteArquitetura">Arquitetura</h2>
+			<p>A arquitetura completa do Webis incluirá um servidor, um banco de dados e os ambientes de programação e execução que deverão ser executados através de uma página <i lang="en">Web</i>. O servidor irá fornecer uma <abbr lang="en" title="Application Programming Interface">API</abbr> <abbr lang="en" title="Representational State Transfer">REST</abbr> que será utilizada pelos ambientes de programação e execução. A <a href="#figuraArquitetura"></a> mostra um diagrama com a arquitetura completa do Webis.</p>
+			<figure class="figura" id="figuraArquitetura">
+				<img src="imagens/arquitetura.png" />
+				<figcaption>Arquitetura do Webis.</figcaption>
+			</figure>
+			<p>Conforme mostrado na <a href="#figuraArquitetura"></a> o servidor é responsável por gerenciar os apliques, os sons, a autenticação e os recursos necessários para as páginas <i lang="en">Web</i>. Na figura destaca-se o fato do compilador se localiza no servidor. Quando um usuário cria ou salva um aplique no ambiente de programação, este aplique é submetido ao servidor que deverá persistir o aplique através do banco de dados. O aplique poderá, então, ser solicitado tanto pelo ambiente de programação quanto pelo ambiente de execução. Quando o aplique for solicitado pelo ambiente de programação, o servidor fornecerá uma página contendo o código Webis e os metadados do aplique. Já quando o aplique for solicitado pelo ambiente de execução, o servidor primeiro compilará o código Webis para <span lang="en">JavaScript</span> e posteriormente fornecerá ao ambiente de execução uma página <i lang="en">Web</i> contento o código compilado. A página retornada conterá também a máquina de execução Webis que deverá ser responsável por executar o código que foi compilado em <span lang="en">JavaScript</span>.</p>
+
+			<h2 id="secaoAmbienteAcesso">Acesso ao ambiente</h2>
 			<p>Os usuários do ambiente Webis poderão criar sua conta com bastante facilidade. Para passar a utilizar o Webis, não será necessário a realização de nenhum cadastro ou preenchimento de dados. Para que isso seja possível será utilizado o <span lang="en">OpenID</span>. O <span lang="en">OpenID</span> trata-se de um padrão aberto que permite usuários utilizarem uma mesma conta para se autenticarem a diversos sistemas diferentes, sem a necessidade da criação de novas senhas <cite class="parenteses"><a href="#referencia15">OpenID Foundation, <time>2006</time></a></cite>.</p>
 			<p>No <span lang="en">OpenID</span> existem provedores de serviços e de identidade. Provedores de identidade são aqueles onde o usuário mantém a sua conta. Já os provedores de serviços são responsáveis por fornecer funcionalidades aos usuários. Os provedores de identidade atuam no sentido de intermediar o acordo entre usuários e provedores de serviço. Será o provedor de identidade que garantirá ao provedor de serviço que determinado usuário é realmente quem diz ser. Também será o provedor de identidade que garantirá ao usuário a veracidade da identidade de um provedor de serviço.</p>
 			<p>Uma das grandes vantagens do <span lang="en">OpenID</span> é permitir que um usuário se autentique perante um provedor de serviço sem a necessidade de fornecer a sua senha diretamente. Quando um usuário deseja se autenticar ou se cadastrar em um provedor de serviço, ele será direcionado ao provedor de identidade. Será perante ao provedor de identidade que o usuário deverá se autenticar. O usuário também deverá dizer ao provedor de identidade quais dados ele permite que sejam compartilhados com o provedor de serviço.</p>
 			<p>O Webis representará o papel do provedor de serviço, enquanto que para o provedor de identidade foi escolhido utilizar o serviço do <span lang="en">OpenID</span> fornecido pelo <span lang="en">Google</span>. A escolha se baseou na abrangência de usuários que se pode alcançar. Bastará que o usuário tenha uma conta em qualquer serviço <span lang="en">Google</span> para que possa realizar seu cadastro no Webis.</p>
 			<p>Quando um usuário desejar se cadastrar no Webis, bastará que ele dê permissão, através do do <span lang="en">OpenID</span> fornecido pelo <span lang="en">Google</span>, para que o Webis atue como um provedor de serviço. Os únicos dados que o Webis requisitará acesso serão o endereço eletrônico e nome do usuário. Uma vez realizado o cadastro, o usuário terá a sua conta criada e poderá iniciar seu primeiro programa Webis.</p>
 
-			<h3 id="secaoWebisAmbienteApliques">Apliques</h3>
+			<h2 id="secaoAmbienteApliques">Apliques</h2>
 			<p>Ao acessar o Webis, qualquer usuário, estando autenticado ou não, poderá ter acesso aos apliques criados por outros usuários. Será permitido que qualquer usuário visualize e execute qualquer aplique. No ambiente Webis será possível visualizar a listagem de todos os apliques existentes. Por padrão, os apliques são ordenados de acordo com a data da última modificação. Através dessa ordenação, os usuário poderão acompanhar os mais recentes programas Webis que estão em desenvolvimento.</p>
 			<p>Na listagem dos apliques, o usuário poderá acessar tanto a página quanto o autor de um determinado aplique. A página de um aplique conterá os metadados e o código fonte Webis. Além de visualizar os metadados e o código fonte de um aplique, um usuário poderá, ainda, executá-lo e caso o usuário seja o dono do aplique que está visualizando, então poderá também editar e salvar o aplique.</p>
 			<p>Outra funcionalidade existente na página dos apliques é a opção <strong>Apropriar</strong>. Ela permite que um usuário autenticado possa copiar para si qualquer aplique que desejar. Isso permite que os apliques possam ser reutilizados e modificados por outros usuários. A apropriação de um aplique não afetará o aplique original e consistirá apenas da cópia do aplique de um usuário para outro usuário. O usuário que se apropriou de um aplique poderá, então, modificá-lo da forma que desejar. O aplique original, no entanto, continuará intacto.</p>
 			<p>A execução de apliques irá ocorrer em uma página separada do ambiente de programação. A página será composta por um área utilizada pelo aplique e por uma caixa de mensagens. A área ocupada pelo aplique será utilizada para representar graficamente os atores. Já a caixa de mensagens poderá ser utilizada tanto pela própria máquina Webis quanto pelo desenvolvedor. Por exemplo, ao utilizar a primitiva <code>mostrar</code>, o texto fornecido juntamente com a primitiva será exibido na caixa de mensagens. A máquina Webis utilizará a caixa de mensagens para informar erros ocorridos durante a execução do programa ou erros de compilação.</p>
-			<p>A execução de um aplique se iniciará assim que a página for carregada. Caso o usuário queira reexecutar o aplique, basta que ele atualize a página <i lang="en">Web</i>. O usuário terá, ainda, o opção de voltar à página de visualização do aplique.</p>
+			<p>A execução de um aplique se iniciará assim que a página for carregada. Caso o usuário queira reexecutar o aplique, basta que ele atualize a página <i lang="en">Web</i>. O usuário terá, ainda, o opção de voltar à página de visualização do aplique. A <a href="#figuraAmbienteDeExecucao"></a> mostra a página de execução de um aplique.</p>
+			<figure class="figura" id="figuraAmbienteDeExecucao">
+				<img src="imagens/ambienteDeExecucao.png" />
+				<figcaption>Página de execução de um aplique.</figcaption>
+			</figure>
 			<p>Um usuário autenticado terá acesso à página <strong>Meus Apliques</strong>. Através dessa página, o usuário poderá visualizar todos os seus apliques. Também estará disponível ao usuário autenticado a opção de criação de aplique. Para criar um novo aplique, o usuário deverá apenas fornecer o nome e o código fonte do aplique a ser criado.</p>
 
-			<h3 id="secaoWebisAmbienteSom">Sons</h3>
-			<p>Conforme mostrado na <a href="#secaoLinguagemSom"></a> cada ator Webis possuirá uma representação sonora e poderá ser associado a um determinado som. O ambiente Webis permitirá que os usuários carreguem sons no sistema. Dessa forma, os sons carregados poderão ser utilizados nos programas Webis. Assim como ocorre com os apliques, os sons também poderão ser utilizados por todos usuários. O Webis disponibilizará uma listagem com os sons carregados. Para utilizar um determinado som em um programa Webis, basta que o usuário forneça a <abbr lang="en" title="Uniform Resource Identifier">URI</abbr> do som como parâmetro das primitivas <code>fixarSom</code> e <code>fixarSomContínuo</code>. Usuários autenticados terão acesso à página <strong>Meus sons</strong>, onde todos os sons carregados pelo usuário serão listados.</p>
+			<h2 id="secaoAmbienteSom">Sons</h2>
+			<p>Conforme mostrado na <a href="#secaoLinguagemSom"></a> cada ator Webis possuirá uma representação sonora e poderá ser associado a um determinado som. O ambiente Webis permitirá que os usuários carreguem sons no sistema. Dessa forma, os sons carregados poderão ser utilizados nos programas Webis. Assim como ocorre com os apliques, os sons também poderão ser utilizados por todos usuários. O Webis disponibilizará uma listagem com os sons carregados. Para utilizar um determinado som em um programa Webis, basta que o usuário forneça a <abbr lang="en" title="Uniform Resource Identifier">URI</abbr> do som como parâmetro das primitivas <code>fixarSom</code> e <code>fixarSomContínuo</code>. Usuários autenticados terão acesso à página <strong>Meus sons</strong>, onde todos os sons carregados pelo usuário serão listados. A <a href="#figuraAmbienteSons"></a> mostra a página contendo os sons de um usuário do Webis.</p>
+			<figure class="figura" id="figuraAmbienteSons">
+				<img src="imagens/ambienteSons.png" />
+				<figcaption>Página de sons de um usuário.</figcaption>
+			</figure>
 
-			<h3 id="secaoWebisAmbienteAcessibilidadeEDocumentacao">Acessibilidade e documentação</h3>
+			<h2 id="secaoAmbienteAcessibilidadeEDocumentacao">Acessibilidade e documentação</h2>
 			<p>O ambiente Webis conterá uma seção responsável por apresentar a acessibilidade do sistema. A seção de acessibilidade irá expor os conceitos discutidos na <a href="#html5Acessibilidade"></a> e irá apresentar a estrutura de navegação, os atalhos disponíveis através do teclado e outras questões gerais relacionadas a acessibilidade do ambiente.</p>
 			<p>Com a finalidade de auxiliar o programador, o ambiente Webis possuirá também uma página contendo todas as primitivas disponíveis na linguagem. Cada primitiva será apresentada juntamente com exemplos de utilização. A listagem com todas as primitivas disponibilizadas na linguagem Webis pode ser encontrada em <a href="http://webis.edugraf.ufsc.br/webis/primitivas">webis.edugraf.ufsc.br/webis/primitivas</a> ou no <a href="#anexoD">Anexo D</a>.</p>
 
-			<h2 id="secaoWebisColaboracao">Ambiente colaborativo</h2>
+			<h2 id="secaoAmbienteColaboracao">Ambiente colaborativo</h2>
 			<p>O Webis possui uma abordagem voltada para permitir a criação de um ambiente colaborativo de desenvolvimento, onde programadores possam desenvolver e compartilhar soluções. É por esse motivo que os programas Webis poderão ser visualizados por qualquer pessoa. Mais do que isso, programas Webis poderão ser reutilizados e modificados para permitir que programadores possam trabalhar em conjunto para resolver um determinado problema. Qualquer programa Webis, criado através do ambiente, será implicitamente livre. O livre compartilhamento dos programas Webis traz algumas vantagens:</p>
 			<ul>
 				<li>Aprender com outros desenvolvedores: cada desenvolvedor possui níveis de conhecimento diferentes em áreas diferentes. A troca de código permite que os desenvolvedores possam agregar novos conhecimentos e aprender formas diferentes de visualizar um mesmo problema.</li>
@@ -1041,9 +1040,27 @@
 				<li>Reutilização de código: permite reduzir o tempo gasto para resolver problemas com características semelhantes. Além disso, um desenvolvedor pode reutilizar um código criado por outro desenvolvedor, permitindo que o desenvolvimento de programas complexos possa ser fragmentado em partes menores.</li>
 				<li>Programas menos propensos a erros: vários desenvolvedores podem usar e testar um mesmo programa, permitindo que mais pessoas possam identificar e corrigir eventuais defeitos. Os programas se tornam, portanto, menos suscetíveis a erros.</li>
 			</ul>
-			<p>A funcionalidade <strong>Apropriar</strong>, presente nos apliques, permitirá que um desenvolvedor possa ter uma cópia exata de um determinado aplique criado por outro desenvolvedor. Um desenvolvedor poderá se apropriar de um aplique, realizar modificações e lançar uma nova versão. Essa nova versão também poderá ser utilizada por outros desenvolvedores. Será essa capacidade de compartilhamento e reutilização de código que incentivará a existência do ambiente colaborativo.</p>
+			<p>A funcionalidade <strong>Apropriar</strong>, presente nos apliques, permitirá que um desenvolvedor possa ter uma cópia exata de um determinado aplique criado por outro desenvolvedor. Um desenvolvedor poderá se apropriar de um aplique, realizar modificações e lançar uma nova versão. Essa nova versão também poderá ser utilizada por outros desenvolvedores. Será essa capacidade de compartilhamento e reutilização de código que incentivará a existência do ambiente colaborativo. A <a href="#figuraAmbienteApropriar"></a> mostra a página de um aplique. Destaca-se na figura a existência da opção <strong>Apropriar</strong>.</p>
+			<figure class="figura" id="figuraAmbienteApropriar">
+				<img src="imagens/ambienteApropriar.png" />
+				<figcaption>Página de um aplique.</figcaption>
+			</figure>
 
-			<h2 id="secaoWebisAcic">Utilização do Webis na ACIC</h2>
+			<h2 id="secaoAmbienteComeSome">Jogo COMe SOMe</h2>
+			<p>Para permitir avaliar as características da linguagem Webis desenvolvida, principalmente em relação às primitivas sonoras, foi proposta a criação de um jogo. O jogo, chamado de COMe SOMe, possui dois personagens básicos, o COMe e o SOMe. O COMe representa o jogador, enquanto o SOMe representa o adversário, o qual precisa ser pego pelo COMe. A ideia do jogo é permitir que qualquer pessoa possa jogá-lo, independentemente de possuir deficiência visual ou não. Através do jogo devem ser utilizadas as primitivas sonoras, permitindo que o jogador possa compreender a posição de determinado personagem no sistema de coordenadas.</p>
+			<p>O personagem COMe, que representará o jogador, estará em um local fixo do mapa e não poderá se mexer. O personagem disporá de mísseis e poderá lançá-los na tentativa de acertar o SOMe. Já o SOMe será invisível e poderá estar em qualquer posição do mapa, emitindo um som característico. Através desse som, o jogador tentará descobrir a posição do SOMe no mapa. Enquanto o SOMe não for atingindo por um míssil, ele permanecerá na mesma posição. Caso seja atingido, então ele mudará para uma posição aleatória do mapa.</p>
+			<p>Como o principal objetivo do jogo é testar a aplicabilidade das primitivas sonoras, não foi estipulada nenhuma meta para que o jogador vença o jogo. Ou seja, o jogador poderá ficar tentando acertar o SOMe por quanto tempo quiser. O jogo somente terminará quando o jogador não quiser mais jogar.</p>
+			<p>No COMe SOMe a jogabilidade inclui apenas a utilização do teclado. O mapa do jogo deverá refletir a disposição de um teclado do tipo ABNT 2, sendo que cada posição do mapa deverá ser representada por uma tecla. A figura <a href="#figuraMapaDeTeclasComeSome"></a> mostra o mapeamento de teclas do jogo. Cada uma das teclas mostradas na figura representam uma posição do mapa em que o SOMe pode estar. Ao apertar em uma das teclas, o jogador lançará um míssil na posição correspondente. Por exemplo, caso o jogador acredite que o SOMe esteja na posição representada pela tecla <kbd>S</kbd>, então basta pressionar a respectiva tecla para lançar um míssil naquela posição.</p>
+			<figure class="figura" id="figuraMapaDeTeclasComeSome">
+				<img src="imagens/mapaDeTeclasComeSome.svg" />
+				<figcaption>Mapa de teclas do jogo COMe SOMe.</figcaption>
+			</figure>
+			<p>Para permitir que o jogador tenha uma referência da posição de seu personagem, o COMe emite um som. O som do COMe é tocado sempre que o jogador pressionar a tecla <kbd>espaço</kbd>. Já o som emitido pelo SOMe é tocado automaticamente a cada dois segundos.</p>
+			<p>Através do desenvolvimento do jogo COMe SOMe foi possível mostrar que programadores iniciantes podem aprender a programar de forma divertida, através do desenvolvimento de jogos. O sistema de sons do Webis também se mostrou eficaz no sentido de permitir enriquecer os programas desenvolvidos e garantir um acesso mais amplo a esses programas. O acesso mais amplo possibilita que até mesmo pessoas com deficiência visual possam não somente executar os programas, mas também desenvolve-los. O <a href="#anexoE">Anexo E</a> apresenta o código Webis do jogo COMe SOMe.</p>
+		</section>
+
+		<section class="textual">
+			<h1 id="secaoAcic">Utilização do Webis na ACIC</h1>
 			<p>O Webis foi utilizado no Curso de Criação de Páginas Acessíveis e Programação <i lang="en">Web</i>, ministrado na <dfn>Associação Catarinense para Integração do Cego <abbr title="Associação Catarinense para Integração do Cego">ACIC</abbr>. O curso foi ministrado por Pablo Valério Polônia, mestre em Engenharia de Automação e Sistemas pela <dfn>Universidade Federal de Santa Catarina <abbr title="Universidade Federal de Santa Catarina">UFSC</abbr></dfn> e contou com a participação de cinco alunos, sendo quatro deles cegos e um com baixa visão. O curso foi dividido em duas partes, sendo a primeira parte voltada para a criação de páginas <i lang="en">Web</i> acessíveis com <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> e <abbr lang="en" title="Cascading Style Sheet">CSS</abbr>, e a segunda parte focada no desenvolvimento de programas <i lang="en">Web</i> através da linguagem <span lang="en">PHP</span>. No contexto desse curso, o Webis foi utilizado com a finalidade de preparar os alunos com noções básicas de programação. Seu objetivo foi de servir como suporte para a segunda etapa do curso.</p>
 			<p>A utilização do Webis no curso foi voltada à apresentar os conceitos básicos existentes nas linguagens de programação, como estruturas de controle de fluxo, laços de repetição, estruturas de dados e outros. Percebeu-se no decorrer das aulas com Webis que a sintaxe, bastante simples, facilitou os alunos na hora de escreverem seus programas. Essa facilidade ficou bastante clara ao analisar as dificuldades encontradas pelos alunos em relação às sintaxes do <abbr lang="en" title="Hypertext Markup Language">HTML</abbr> e do <span lang="en">PHP</span>. O principal problema enfrentado pelos alunos com a sintaxe do Webis foi em relação às acentuações. As primitivas do Webis são acentuadas e em algumas ocasiões os alunos esqueceram de utilizar os acentos. A primitiva <code>fixarSomContínuo</code>, por exemplo, era escrita algumas vezes pelos alunos como <code>fixarSomContinuo</code>, gerando, assim, erros de execução.</p>
 			<p>Como o objetivo da utilização do Webis no curso era apenas apresentar conceitos básicos de linguagens de programação, não houve um foco voltado para o uso das primitivas sonoras. Entretanto, as primitivas sonoras foram apresentadas aos alunos que puderam utilizá-las para enriquecer seus programas. Por exemplo, quando foi abordado o assunto de primitivas condicionais, como <code>entãoSenão</code>, foi incentivado aos alunos incluírem as primitivas sonoras aos seus programas . A <a href="#listagemEntaoSenaoComFixarSom"></a> mostra um programa Webis que foi criado por um aluno. O programa da listagem em questão foi resultado de uma tarefa passada aos alunos que consistiu em criar um programa Webis e utilizar a primitiva <code>entãoSenão</code>. O programa gera um número aleatório entre 1 e 6. Caso o número for maior que três, então um som de latido é tocado e caso contrário, um som de um alarme é tocado. Ao final, o número sorteado é mostrado na tela.</p>
@@ -1061,7 +1078,7 @@
 				<figcaption>Programa Webis criado por um aluno da ACIC.</figcaption>
 			</figure>
 
-			<h3 id="secaoWebisAcimModificacoes">Implementação de sugestões feitas pelos alunos</h3>
+			<h2 id="secaoAcicModificacoes">Implementação de sugestões feitas pelos alunos</h2>
 			<p>O Webis utilizado durante o curso <abbr title="Associação Catarinense para Integração do Cego">ACIC</abbr> não estava implementado em sua totalidade. Isso fez com que nem todas funcionalidades previstas para o Webis estivem disponíveis para os alunos. A utilização do Webis no curso, permitiu que algumas funcionalidades pudessem ser repensadas, pois através do uso, os alunos sugeriram algumas modificações para melhorar o ambiente.</p>
 			<p>Uma das modificações realizadas devido às sugestões dos alunos ocorreu com a data de modificação dos apliques. Na listagem dos apliques é mostrada a data da última modificação de cada aplique. Para facilitar e encurtar a leitura, foi sugerido utilizar, nos casos possíveis, as palavras Ontem e Hoje, ao invés da data absoluta.</p>
 			<p>A criação dos apliques era antes realizada em duas etapas. Primeiro o usuário preenchia o nome e somente depois preenchia o código do aplique. A sugestão feita pelos alunos foi unir os dois passos em uma mesma tela. Com a modificação, quando o usuário entra na tela de criação do aplique, ele pode definir tanto o nome quanto o código.</p>
@@ -1071,7 +1088,7 @@
 			<p>Um problema enfrentado pelos alunos durante o uso do Webis foi a falta de foco nas mensagens mostradas durante a execução de um aplique. Quando uma nova mensagem era exibida, o leitor de tela não lia a mensagem automaticamente, pois não era dado um foco na mesma. Esse problema fazia com que muitas vezes os alunos não percebessem as mensagens de erros. Para solucionar esse problema, bastou que, ao exibir uma nova mensagem na tela, fosse dado o foco na mensagem em questão. Dessa forma, o leitor de tela passou a ler automaticamente quando uma nova mensagem fosse mostrada.</p>
 			<p>Quando um erro ocorre no Webis, uma mensagem é mostrada na tela informando a linha e a coluna que gerou o erro. Entretanto, para os alunos irem até o ponto no código fonte onde o erro ocorreu, é necessário que eles fossem de linha em linha até que chegassem na posição do erro. Para facilizar o acesso, foi adicionado um enlace no erro gerado pelo Webis. Ao seguir o enlace do respectivo erro, o Webis redirecionaria o usuário para a página contendo o código do aplique e já posicionaria a página na posição exata do erro, eliminando, assim, a necessidade dos alunos terem que ir de linha em linha até alcançar o problema.</p>
 
-			<h3 id="secaoWebisAcicAvaliacao">Avaliação da utilização do Webis pelos alunos da ACIC</h3>
+			<h2 id="secaoAcicAvaliacao">Avaliação da utilização do Webis pelos alunos</h2>
 			<p>Ao final das aulas envolvendo os conceitos básicos de programação com o uso do Webis, os alunos receberam a tarefa de criar um programa final utilizando os conceitos aprendidos. Nessa etapa, os alunos foram incentivados a usar as primitivas sonoras. Com isso, foi possível perceber melhor a efetividade do sistema sonoro do Webis para a criação dos programas.</p>
 			<p>A principal dificuldade encontrada pelos alunos foi a percepção do posicionamento do som no sistema de coordenadas do Webis quando usavam caixas de som ao invés de fones de ouvindo. Com o uso dos fones de ouvidos, os alunos conseguiam perceber relativamente bem o posicionamento de um ator ao emitir um som. Como não foi introduzido o conceito de múltiplos atores aos alunos, eles não criaram programas contendo mais de um som sendo tocado ao mesmo tempo. Isso impossibilitou a análise de como seria a percepção dos alunos ao se deparar com múltiplos sons.</p>
 			<p>De modo geral, foi possível perceber uma boa efetividade do sistema sonoro do Webis. Dado o pouco tempo de utilização e a falta de conceitos básicos envolvendo linguagens de programação, pode-se verificar que os alunos conseguiram desenvolver programas compatíveis com o tempo de aprendizado. Os programas Webis desenvolvidos pelos alunos durante o curso na <abbr title="Associação Catarinense para Integração do Cego">ACIC</abbr> podem ser encontrados no endereço <a href="http://webis.edugraf.ufsc.br">webis.edugraf.ufsc.br</a>.</p>
@@ -1080,18 +1097,6 @@
 				<img src="imagens/aulaNaAcic.jpg" />
 				<figcaption>Participantes da última aula ministrada no curso na <abbr title="Associação Catarinense para Integração do Cego">ACIC</abbr>.</figcaption>
 			</figure>
-
-			<h2 id="secaoWebisComeSome">Jogo COMe SOMe</h2>
-			<p>Para permitir avaliar as características da linguagem Webis desenvolvida, principalmente em relação às primitivas sonoras, foi proposta a criação de um jogo. O jogo, chamado de COMe SOMe, possui dois personagens básicos, o COMe e o SOMe. O COMe representa o jogador, enquanto o SOMe representa o adversário, o qual precisa ser pego pelo COMe. A ideia do jogo é permitir que qualquer pessoa possa jogá-lo, independentemente de possuir deficiência visual ou não. Através do jogo devem ser utilizadas as primitivas sonoras, permitindo que o jogador possa compreender a posição de determinado personagem no sistema de coordenadas.</p>
-			<p>O personagem COMe, que representará o jogador, estará em um local fixo do mapa e não poderá se mexer. O personagem disporá de mísseis e poderá lançá-los na tentativa de acertar o SOMe. Já o SOMe será invisível e poderá estar em qualquer posição do mapa, emitindo um som característico. Através desse som, o jogador tentará descobrir a posição do SOMe no mapa. Enquanto o SOMe não for atingindo por um míssil, ele permanecerá na mesma posição. Caso seja atingido, então ele mudará para uma posição aleatória do mapa.</p>
-			<p>Como o principal objetivo do jogo é testar a aplicabilidade das primitivas sonoras, não foi estipulada nenhuma meta para que o jogador vença o jogo. Ou seja, o jogador poderá ficar tentando acertar o SOMe por quanto tempo quiser. O jogo somente terminará quando o jogador não quiser mais jogar.</p>
-			<p>No COMe SOMe a jogabilidade inclui apenas a utilização do teclado. O mapa do jogo deverá refletir a disposição de um teclado do tipo ABNT 2, sendo que cada posição do mapa deverá ser representada por uma tecla. A figura <a href="#figuraMapaDeTeclasComeSome"></a> mostra o mapeamento de teclas do jogo. Cada uma das teclas mostradas na figura representam uma posição do mapa em que o SOMe pode estar. Ao apertar em uma das teclas, o jogador lançará um míssil na posição correspondente. Por exemplo, caso o jogador acredite que o SOMe esteja na posição representada pela tecla <kbd>S</kbd>, então basta pressionar a respectiva tecla para lançar um míssil naquela posição.</p>
-			<figure class="figura" id="figuraMapaDeTeclasComeSome">
-				<img src="imagens/mapaDeTeclasComeSome.svg" />
-				<figcaption>Mapa de teclas do jogo COMe SOMe.</figcaption>
-			</figure>
-			<p>Para permitir que o jogador tenha uma referência da posição de seu personagem, o COMe emite um som. O som do COMe é tocado sempre que o jogador pressionar a tecla <kbd>espaço</kbd>. Já o som emitido pelo SOMe é tocado automaticamente a cada dois segundos.</p>
-			<p>Através do desenvolvimento do jogo COMe SOMe foi possível mostrar que programadores iniciantes podem aprender a programar de forma divertida, através do desenvolvimento de jogos. O sistema de sons do Webis também se mostrou eficaz no sentido de permitir enriquecer os programas desenvolvidos e garantir um acesso mais amplo a esses programas. O acesso mais amplo possibilita que até mesmo pessoas com deficiência visual possam não somente executar os programas, mas também desenvolve-los. O <a href="#anexoC">Anexo C</a> apresenta o código Webis do jogo COMe SOMe.</p>
 		</section>
 
 		<section class="textual">
@@ -1233,11 +1238,11 @@
 		</section>
 
 		<section class="posTextual">
-			<h1 id="anexoA">Anexo A - Artigo.</h1>
+			<h1 id="anexoA">Anexo A: Artigo</h1>
 		</section>
 
 		<section class="posTextual">
-			<h1 id="anexoB">Anexo B - Marcações e atributos HTML usados para melhorar a acessibilidade.</h1>
+			<h1 id="anexoB">Anexo B: Marcações e atributos HTML usados para melhorar a acessibilidade</h1>
 			<table class="quadro">
 				<thead>
 					<tr>
@@ -1316,7 +1321,7 @@
 					</tr>
 					<tr>
 						<td><code>&lt;dfn&gt;</code></td>
-						<td>Marcação usada para definir uma sigla ou abreviação. É aconselhável que essa marcação seja utilizada na primeira vez que uma sigla ou abreviação for utilizada em um texto. Dentro da marcação deverá estar a sigla ou abreviação e seu significado.</td>
+						<td>Marcação usada para definir uma sigla ou abreviação. É aconselhável que essa marcação seja utilizada na primeira vez que uma sigla ou abreviação for mencionada em um texto. Dentro da marcação deverá estar a sigla ou abreviação e seu significado.</td>
 					</tr>
 					<tr>
 						<td><code>&lt;table&gt;</code></td>
@@ -1368,7 +1373,7 @@
 					</tr>
 					<tr>
 						<td><code>&lt;output&gt;</code></td>
-						<td>Marcação que exibe os resultados de um processamento submetido a partir de um formulário.</td>
+						<td>Marcação que exibe o resultado de um processamento submetido a partir de um formulário.</td>
 					</tr>
 					<tr>
 						<td><code>email</code></td>
@@ -1415,7 +1420,7 @@
 						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa uma semana.</td>
 					</tr>
 					<tr>
-						<td><code>week</code></td>
+						<td><code>time</code></td>
 						<td>Valor utilizado no atributo <code>type</code> da marcação <code>&lt;input&gt;</code> para descrever um campo de formulário que representa um horário.</td>
 					</tr>
 					<tr>
@@ -1426,8 +1431,203 @@
 			</table>
 		</section>
 
+
 		<section class="posTextual">
-			<h1 id="anexoC">Anexo C - Código Webis do jogo COMe SOMe.</h1>
+			<h1 id="anexoC">Anexo C: Instruções disponíveis na fachada do ecossistema</h1>
+			<table class="quadro">
+				<thead>
+					<tr>
+						<th>Instrução</th>
+						<th>Descrição</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><code>MOSTRAR</code></td>
+						<td>Ecossistema exibe alguma informação na tela.</td>
+					</tr>
+					<tr>
+						<td><code>INCLUIR_MODELO</code></td>
+						<td>Define um novo modelo a partir do nome e da lista contendo agendas, fornecidos como parâmetro.</td>
+					</tr>
+					<tr>
+						<td><code>NOVO</code></td>
+						<td>Instancia um novo ator a partir do modelo fornecido como parâmetro.</td>
+					</tr>
+					<tr>
+						<td><code>SUICIDAR</code></td>
+						<td>Encerra a execução do ator.</td>
+					</tr>
+					<tr>
+						<td><code>DIZER</code></td>
+						<td>Ecossistema envie uma mensagem <i lang="en">broadcast</i> para os atores.</td>
+					</tr>
+					<tr>
+						<td><code>MOVER</code></td>
+						<td>Fixa atributos de posicionamento e movimentação do ator, como posição, direção e velocidade.</td>
+					</tr>
+					<tr>
+						<td><code>FIXAR_SOM</code></td>
+						<td>Toca e associa um som ao ator.</td>
+					</tr>
+					<tr>
+						<td><code>FIXAR_SOM_CONTINUO</code></td>
+						<td>Semelhante à instrução <code>FIXAR_SOM</code>, porém o som é tocado repetidamente.</td>
+					</tr>
+					<tr>
+						<td><code>COM_SOM</code></td>
+						<td>Habilita os recursos sonoros do ator.</td>
+					</tr>
+					<tr>
+						<td><code>SEM_SOM</code></td>
+						<td>Desabilita os recursos sonoros do ator.</td>
+					</tr>
+					<tr>
+						<td><code>PEGAR_MICROFONE</code></td>
+						<td>Ator passar a carregar o microfone por onde andar. O microfone representa o ouvinte do sistema de som.</td>
+					</tr>
+					<tr>
+						<td><code>CALIBRAR_SOM</code></td>
+						<td>Permite calibrar o sistema de som do Webis.</td>
+					</tr>
+					<tr>
+						<td><code>VISIVEL</code></td>
+						<td>Ator se torna graficamente visível.</td>
+					</tr>
+					<tr>
+						<td><code>INVISIVEL</code></td>
+						<td>Ator se torna graficamente invisível.</td>
+					</tr>
+					<tr>
+						<td><code>CARIMBAR</code></td>
+						<td>Aparência do ator é pintada em sua posição atual.</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="posTextual">
+			<h1 id="anexoD">Anexo D: Primitivas disponíveis no Webis</h1>
+
+			<h2 id="anexo2Agenda">Agenda</h2>
+			<ul>
+				<li>incluirAgenda</li>
+			</ul>
+
+			<h2 id="anexo2Ator">Ator</h2>
+			<ul>
+				<li>incluirModelo</li>
+				<li>novo</li>
+				<li>nova</li>
+				<li>suicidar</li>
+			</ul>
+
+			<h2 id="anexo2ControleDeFluxo">Controle de fluxo</h2>
+			<ul>
+				<li>contarGiro</li>
+				<li>entãoSenão</li>
+				<li>enquantoVerdade</li>
+				<li>executar</li>
+				<li>seVerdade</li>
+				<li>seFalso</li>
+				<li>vezesRepetir</li>
+			</ul>
+
+			<h2 id="anexo2Estimulos">Estímulos</h2>
+			<ul>
+				<li>dizer</li>
+				<li>seDito</li>
+			</ul>
+
+			<h2 id="anexo2Geral">Geral</h2>
+			<ul>
+				<li>associar</li>
+				<li>avaliar</li>
+				<li>mostrar</li>
+			</ul>
+
+			<h2 id="anexo2Grafico">Gráfico</h2>
+			<ul>
+				<li>carimbar</li>
+				<li>invisível</li>
+				<li>visível</li>
+			</ul>
+
+			<h2 id="anexo2ListaETexto">Lista e texto</h2>
+			<ul>
+				<li>concatenar</li>
+				<li>inserirElemento</li>
+				<li>inserirNoInício</li>
+				<li>inserirNoFim</li>
+				<li>gerarLista</li>
+				<li>obterElemento</li>
+				<li>obterTamanho</li>
+				<li>paraCada</li>
+				<li>primeiro</li>
+				<li>removerElemento</li>
+				<li>soletrar</li>
+				<li>substituirElemento</li>
+				<li>último</li>
+			</ul>
+
+			<h2 id="anexo2Operadores">Operadores</h2>
+			<ul>
+				<li>+</li>
+				<li>*</li>
+				<li>-</li>
+				<li>/</li>
+				<li>\</li>
+				<li>^</li>
+				<li>=</li>
+				<li>diferenteDe</li>
+				<li>maiorQue</li>
+				<li>maiorOuIgual</li>
+				<li>menorQue</li>
+				<li>menorOuIgual</li>
+			</ul>
+
+			<h2 id="anexo2Pilha">Pilha</h2>
+			<ul>
+				<li>obterNúmeroDeElementosNaPilha</li>
+			</ul>
+
+			<h2 id="anexo2Posicionamento">Posicionamento</h2>
+			<ul>
+				<li>andarPara</li>
+				<li>direita</li>
+				<li>fixarDireção</li>
+				<li>fixarVelocidade</li>
+				<li>frente</li>
+				<li>obterDireção</li>
+				<li>obterPosição</li>
+			</ul>
+
+			<h2 id="anexo2Som">Som</h2>
+			<ul>
+				<li>calibarSom</li>
+				<li>comSom</li>
+				<li>fixarSom</li>
+				<li>fixarSomContínuo</li>
+				<li>pegarMicrofone</li>
+				<li>semSom</li>
+			</ul>
+
+			<h2 id="anexo2Trigonometria">Trigonometria</h2>
+			<ul>
+				<li>arcoTangente</li>
+				<li>cosseno</li>
+				<li>seno</li>
+			</ul>
+
+			<h2 id="anexo2Utilitarios">Utilitários</h2>
+			<ul>
+				<li>descansar</li>
+				<li>gerarAleatório</li>
+			</ul>
+		</section>
+
+		<section class="posTextual">
+			<h1 id="anexoE">Anexo E: Código Webis do jogo COMe SOMe</h1>
 			<figure>
 				<pre>"Come" [
 	"iniciar" [
@@ -1618,126 +1818,6 @@
 
 inicializar</pre>
 			</figure>
-		</section>
-
-		<section class="posTextual">
-			<h1 id="anexoD">Anexo D - Primitivas disponíveis no Webis.</h1>
-
-			<h2 id="anexo2Agenda">Agenda</h2>
-			<ul>
-				<li>incluirAgenda</li>
-			</ul>
-
-			<h2 id="anexo2Ator">Ator</h2>
-			<ul>
-				<li>incluirModelo</li>
-				<li>novo</li>
-				<li>nova</li>
-				<li>suicidar</li>
-			</ul>
-
-			<h2 id="anexo2ControleDeFluxo">Controle de fluxo</h2>
-			<ul>
-				<li>contarGiro</li>
-				<li>entãoSenão</li>
-				<li>enquantoVerdade</li>
-				<li>executar</li>
-				<li>seVerdade</li>
-				<li>seFalso</li>
-				<li>vezesRepetir</li>
-			</ul>
-
-			<h2 id="anexo2Estimulos">Estímulos</h2>
-			<ul>
-				<li>dizer</li>
-				<li>seDito</li>
-			</ul>
-
-			<h2 id="anexo2Geral">Geral</h2>
-			<ul>
-				<li>associar</li>
-				<li>avaliar</li>
-				<li>mostrar</li>
-			</ul>
-
-			<h2 id="anexo2Grafico">Gráfico</h2>
-			<ul>
-				<li>carimbar</li>
-				<li>invisível</li>
-				<li>visível</li>
-			</ul>
-
-			<h2 id="anexo2ListaETexto">Lista e texto</h2>
-			<ul>
-				<li>concatenar</li>
-				<li>inserirElemento</li>
-				<li>inserirNoInício</li>
-				<li>inserirNoFim</li>
-				<li>gerarLista</li>
-				<li>obterElemento</li>
-				<li>obterTamanho</li>
-				<li>paraCada</li>
-				<li>primeiro</li>
-				<li>removerElemento</li>
-				<li>soletrar</li>
-				<li>substituirElemento</li>
-				<li>último</li>
-			</ul>
-
-			<h2 id="anexo2Operadores">Operadores</h2>
-			<ul>
-				<li>+</li>
-				<li>*</li>
-				<li>-</li>
-				<li>/</li>
-				<li>\</li>
-				<li>^</li>
-				<li>=</li>
-				<li>diferenteDe</li>
-				<li>maiorQue</li>
-				<li>maiorOuIgual</li>
-				<li>menorQue</li>
-				<li>menorOuIgual</li>
-			</ul>
-
-			<h2 id="anexo2Pilha">Pilha</h2>
-			<ul>
-				<li>obterNúmeroDeElementosNaPilha</li>
-			</ul>
-
-			<h2 id="anexo2Posicionamento">Posicionamento</h2>
-			<ul>
-				<li>andarPara</li>
-				<li>direita</li>
-				<li>fixarDireção</li>
-				<li>fixarVelocidade</li>
-				<li>frente</li>
-				<li>obterDireção</li>
-				<li>obterPosição</li>
-			</ul>
-
-			<h2 id="anexo2Som">Som</h2>
-			<ul>
-				<li>calibarSom</li>
-				<li>comSom</li>
-				<li>fixarSom</li>
-				<li>fixarSomContínuo</li>
-				<li>pegarMicrofone</li>
-				<li>semSom</li>
-			</ul>
-
-			<h2 id="anexo2Trigonometria">Trigonometria</h2>
-			<ul>
-				<li>arcoTangente</li>
-				<li>cosseno</li>
-				<li>seno</li>
-			</ul>
-
-			<h2 id="anexo2Utilitarios">Utilitários</h2>
-			<ul>
-				<li>descansar</li>
-				<li>gerarAleatório</li>
-			</ul>
 		</section>
 	</body>
 </html>
