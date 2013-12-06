@@ -19,14 +19,14 @@ limpar() {
 
 criarEstrutura() {
 	echo ":criarEstrutura";
-	mkdir -p ${estilos};
-	mkdir -p ${finais};
-	mkdir -p ${propostas};
-	mkdir -p ${artigos};
-	mkdir -p ${tccs};
-	mkdir -p ${dissertacoes};
-	mkdir -p ${teses};
-	mkdir -p ${padroes};
+	# mkdir -p ${estilos};
+	# mkdir -p ${finais};
+	# mkdir -p ${propostas};
+	# mkdir -p ${artigos};
+	# mkdir -p ${tccs};
+	# mkdir -p ${dissertacoes};
+	# mkdir -p ${teses};
+	# mkdir -p ${padroes};
 }
 
 adicionarBibliotecas() {
